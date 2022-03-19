@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 [AddComponentMenu("Playground/Movement/Camera Follow")]
 public class CameraFollow : MonoBehaviour
