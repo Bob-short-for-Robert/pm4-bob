@@ -149,7 +149,6 @@ StyleCopReport.xml
 *_p.c
 *_h.h
 *.ilk
-*.meta
 *.obj
 *.iobj
 *.pch
@@ -547,4 +546,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-.idea/*
