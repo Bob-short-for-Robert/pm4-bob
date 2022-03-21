@@ -1,9 +1,18 @@
 using UnityEngine;
+
 public class CrosshairController : MonoBehaviour
 {
-    public Player player;
-    
-    // Update is called once per frame
+    public Shooter shooter;
+
+    void Start()
+    {
+        //Set Cursor to not be visible if not debug build
+        if (!Debug.isDebugBuild)
+        {
+            Cursor.visible = false;
+        }
+    }
+
     void Update()
     {
         Vector3 mouse = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
@@ -14,7 +23,7 @@ public class CrosshairController : MonoBehaviour
         transform.position = mouseInWorld;
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            player.Shoot(mouseInWorld);
+            shooter.Shoot(mouseInWorld);
         }
     }
 }
