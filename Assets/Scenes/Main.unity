@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 597529027}
   - component: {fileID: 597529029}
   - component: {fileID: 597529025}
+  - component: {fileID: 597529026}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -345,10 +346,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13b2df0dc48ce0741bb0bd263fc1d617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 1
+  playerSpeed: 3
+--- !u!114 &597529026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597529024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b080334430cb340a4644f2ac0cd57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootInterval: 0.1
   projectile:
   - {fileID: 8690424263816451739, guid: c897833f4b884c34783b79cd220d786c, type: 3}
-  playerSpeed: 3
 --- !u!212 &597529027
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -470,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f897000902eee0348be1ab2135d20f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 597529025}
+  shooter: {fileID: 597529026}
 --- !u!212 &604784552
 SpriteRenderer:
   m_ObjectHideFlags: 0
