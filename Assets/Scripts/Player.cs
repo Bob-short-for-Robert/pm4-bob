@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public GameObject tower;
     public Transform towerSpawn;
     
+    public float playerSpeed = 2.0f;  
+    
     private BoxCollider2D boxCollider;
     private RaycastHit2D raycasthit;
     private Camera camera;
@@ -46,7 +48,7 @@ public class Player : MonoBehaviour
         //TODO add check if enough resources are available before placing
         return true;
     }
-    
+
     private void FixedUpdate()
     {
         float x = Input.GetAxis("Horizontal");
@@ -67,14 +69,14 @@ public class Player : MonoBehaviour
             Math.Abs(moveDelta.y * Time.deltaTime), collisionMasks);
         if (raycasthit.collider == null)
         {
-            transform.Translate(0, moveDelta.y * Time.deltaTime, 0);
+            transform.Translate(0, moveDelta.y * Time.deltaTime * playerSpeed, 0);
         }
 
         raycasthit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(moveDelta.x, 0),
             Math.Abs(moveDelta.x * Time.deltaTime), collisionMasks);
         if (raycasthit.collider == null)
         {
-            transform.Translate(moveDelta.x * Time.deltaTime, 0, 0);
+            transform.Translate(moveDelta.x * Time.deltaTime *playerSpeed, 0, 0);
         }
     }
 }
