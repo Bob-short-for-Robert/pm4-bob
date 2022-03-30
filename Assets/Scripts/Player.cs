@@ -8,10 +8,12 @@ using static System.Console;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour
 {
+    public float playerSpeed = 2.0f;  
+    
     private BoxCollider2D boxCollider;
     private RaycastHit2D raycasthit;
-
     private Vector3 moveDelta;
+
 
     private void Start()
     {
@@ -22,9 +24,6 @@ public class Player : MonoBehaviour
     {
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
-
-        Debug.Log(x);
-        Debug.Log(y);
 
         // reset moveDelta 
         moveDelta = new Vector3(x, y, 0);
@@ -40,14 +39,14 @@ public class Player : MonoBehaviour
             Math.Abs(moveDelta.y * Time.deltaTime), collisionMasks);
         if (raycasthit.collider == null)
         {
-            transform.Translate(0, moveDelta.y * Time.deltaTime, 0);
+            transform.Translate(0, moveDelta.y * Time.deltaTime * playerSpeed, 0);
         }
 
         raycasthit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(moveDelta.x, 0),
             Math.Abs(moveDelta.x * Time.deltaTime), collisionMasks);
         if (raycasthit.collider == null)
         {
-            transform.Translate(moveDelta.x * Time.deltaTime, 0, 0);
+            transform.Translate(moveDelta.x * Time.deltaTime *playerSpeed, 0, 0);
         }
     }
 }
