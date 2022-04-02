@@ -8,45 +8,18 @@ using static System.Console;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour
 {
-    public GameObject tower;
-    public Transform towerSpawn;
     
     public float playerSpeed = 2.0f;  
     
     private BoxCollider2D boxCollider;
     private RaycastHit2D raycasthit;
-    private Camera camera;
 
     private Vector3 moveDelta;
 
-    private float myTime = 0F;
-    private float nextPlacement = 1F;
-    private float placementRate = 1F;
 
     private void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-        camera = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
-    }
-
-    private void Update()
-    {
-        myTime += Time.deltaTime;
-        if (Input.GetButton("Jump") && checkResources() && myTime > nextPlacement)
-        {
-            nextPlacement = myTime + placementRate;
-            Vector3 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
-            mousePos.z = 0F;
-            Instantiate(tower, mousePos, towerSpawn.rotation);
-            nextPlacement -= myTime;
-            myTime = 0F;
-        }
-    }
-    
-    private bool checkResources()
-    {
-        //TODO add check if enough resources are available before placing
-        return true;
     }
 
     private void FixedUpdate()
