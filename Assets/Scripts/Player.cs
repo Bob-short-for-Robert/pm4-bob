@@ -16,10 +16,15 @@ public class Player : MonoBehaviour
 
     private Vector3 moveDelta;
 
-
     private void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+    }
+
+    private bool checkResources()
+    {
+        //TODO add check if enough resources are available before placing
+        return true;
     }
 
     private void FixedUpdate()

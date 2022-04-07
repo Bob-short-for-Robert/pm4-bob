@@ -36,6 +36,7 @@ public class SpawnObj : MonoBehaviour
     private bool allowedToSpawn()
     {
         // TODO add check for wall and other obj which might block the spawning of the obj
+        
         return true;
     }
     
