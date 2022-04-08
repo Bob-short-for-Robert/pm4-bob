@@ -48,6 +48,7 @@ public class HealthSystemAttribute : MonoBehaviour
         //DEAD
         if (health <= 0)
         {
+            ui.AddOnePoint();
             Destroy(gameObject);
         }
     }
