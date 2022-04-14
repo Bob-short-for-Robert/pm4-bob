@@ -4,7 +4,7 @@ name: BoB builder
 on: [push]
 jobs:
   simpleBuild:
-    runs-on: [BoB-runner]
+    runs-on: [self-hosted, Windows]
     steps:
       - uses: actions/checkout@v2
         with:
