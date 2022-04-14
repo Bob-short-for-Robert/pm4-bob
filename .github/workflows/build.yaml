@@ -1,0 +1,44 @@
+
+name: BoB builder
+
+on: [push]
+jobs:
+  simpleBuild:
+    runs-on: [BoB-runner]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          lfs: true
+      # cache
+      - uses: actions/cache@v2
+        with:
+          path: path/to/your/project/Library
+          key: Library-BoB-TargetPlatform
+          restore-keys: |
+            Library-
+      # test
+      - name: Run tests
+        uses: game-ci/unity-test-runner@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+      # build
+      - uses: game-ci/unity-builder@v2
+          env:
+            UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+            UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+            UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          with:
+            targetPlatform: StandaloneWindows
+            customImage: 'unityci/editor:2020.3.27f1-base-0'
+            projectPath: "C:\projects\pm4-bob\Build"
+            versioning: Semantic
+      # output
+      - uses: actions/upload-artifact@v2
+        with:
+          name: Build-StandaloneWindows
+          path: build/StandaloneWindows
+
+      
