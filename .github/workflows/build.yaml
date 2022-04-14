@@ -34,7 +34,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          targetPlatform: StandaloneWindows
+          targetPlatform: StandaloneWindows64
           customImage: 'unityci/editor:2020.3.27f1-base-0'
           projectPath: "C:\\projects\\pm4-bob\\Build"
           versioning: Semantic
