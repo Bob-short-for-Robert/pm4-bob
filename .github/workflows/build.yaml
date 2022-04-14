@@ -33,12 +33,10 @@ jobs:
           with:
             targetPlatform: StandaloneWindows
             customImage: 'unityci/editor:2020.3.27f1-base-0'
-            projectPath: "C:\projects\pm4-bob\Build"
+            projectPath: "C:\\projects\\pm4-bob\Build"
             versioning: Semantic
       # output
       - uses: actions/upload-artifact@v2
         with:
           name: Build-StandaloneWindows
           path: build/StandaloneWindows
-
-      
