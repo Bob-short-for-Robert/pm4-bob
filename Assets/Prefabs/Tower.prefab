@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8928492523486185801}
   - component: {fileID: -8635214437775112251}
   - component: {fileID: 8554634364020113199}
+  - component: {fileID: 89951675472564085}
   m_Layer: 6
   m_Name: Tower
   m_TagString: Tower
@@ -124,3 +125,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootInterval: 1
   projectile: []
+--- !u!114 &89951675472564085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5815488391459319758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75b6a58fe7bd4bd9969a1484c26a78ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3

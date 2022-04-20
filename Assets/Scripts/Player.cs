@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
         else if (moveDelta.x > 0)
             transform.localScale = new Vector3(-1, 1, 1);
 
+        //TODO switch to OnTriggerEnter2D, example in Projectile
         var collisionMasks = LayerMask.GetMask("Actor", "Blocking");
         raycasthit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(0, moveDelta.y),
             Math.Abs(moveDelta.y * Time.deltaTime), collisionMasks);

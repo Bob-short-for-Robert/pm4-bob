@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class SpawnObj : MonoBehaviour
+public class SpawnTower : MonoBehaviour
 {
     
     public GameObject objToSpawn;
@@ -21,9 +21,9 @@ public class SpawnObj : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //TODO make this only available after selecting correct Obj
+        //TODO make this only available after selecting correct Tower
         myTime += Time.deltaTime;
-        // waits for 1 Second before allowing to spawn another obj
+        // waits for 1 Second before allowing to spawn another Tower
         if (Input.GetKey(KeyCode.E) && checkResources() && allowedToSpawn() && myTime > nextPlacement)
         {
             nextPlacement = myTime + placementRate;
@@ -36,7 +36,6 @@ public class SpawnObj : MonoBehaviour
     private bool allowedToSpawn()
     {
         // TODO add check for wall and other obj which might block the spawning of the obj
-        
         return true;
     }
     

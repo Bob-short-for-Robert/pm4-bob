@@ -13,6 +13,6 @@ public class AutoShooter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //TODO make it shoot automatically (tower or enemy)
     }
 }
