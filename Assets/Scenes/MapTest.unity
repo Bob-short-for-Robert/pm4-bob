@@ -286,6 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1339930020}
   - component: {fileID: 1339930019}
+  - component: {fileID: 1339930021}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -307,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabWallBlack: {fileID: 1180996452440591393, guid: 957c61d941d407440803cdd8262aa2db, type: 3}
   prefabFloor: {fileID: 3694303391736165214, guid: f957f1ac625c06246a8de3759d17bd70, type: 3}
+  randomFillPercent: 41
 --- !u!4 &1339930020
 Transform:
   m_ObjectHideFlags: 0
@@ -321,6 +323,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1339930021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339930018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ef1f37b8b692f64e983d72d00b85eb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stringSeed: seed
+  useStringSeed: 0
+  seed: 0
+  randomizeSeed: 1
 --- !u!1 &1867068549
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +411,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
