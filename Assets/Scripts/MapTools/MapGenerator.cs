@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace MapTools
@@ -18,16 +19,20 @@ namespace MapTools
         private int _randomFillPercent = 35;
         
         //config
-        [Range(10,60)]
-        public int mapSize = 40;
         [Range(40,50)]
         public int mapMinSize = 45;
+        [Range(10,60)]
+        public int randomMapSize = 40;
         [Range(10,20)]
         public int minFillPercent = 12;
         [Range(20,40)]
-        public int maxFillPercent = 30;
+        public int randomFillPercent = 30;
         [Range(50, 500)]
         public int minFloorTiles = 200;
+        [Range(1,6)]
+        public int  spawnerMinCount = 2;
+        [Range(0, 5)]
+        public int spawnerRandomCount = 3;
 
         //Prefabs
         public GameObject prefabWallBlack;
@@ -67,9 +72,9 @@ namespace MapTools
 
         private void SetMapValue()
         {
-            _randomFillPercent = (int) (Random.value * minFillPercent + maxFillPercent);
-            _mapSize.x = (int) (Random.value * mapMinSize + mapSize);
-            _mapSize.y = (int) (Random.value * mapMinSize + mapSize);
+            _randomFillPercent = (int) (Random.value * minFillPercent + randomFillPercent);
+            _mapSize.x = (int) (Random.value * mapMinSize + randomMapSize);
+            _mapSize.y = (int) (Random.value * mapMinSize + randomMapSize);
         }
 
         private void CreateTileSet()
@@ -220,7 +225,7 @@ namespace MapTools
             var dynamicPrefab = _dynamicObjectsSet[0];
             var dynamicGroup = _dynamicObjectsGroups[0];
 
-            for (var i = 0; i < (int) Random.value * 2 + 3; i++)
+            for (var i = 0; i < (int) Random.value * spawnerMinCount + spawnerRandomCount; i++)
             {
                var spawnerLocation = spawn.SpawnerLocation();
                var dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
@@ -334,15 +339,11 @@ namespace MapTools
 
             bool SurroundingFits(int[] walls, int[] floors)
             {
-                foreach (int field in walls)
+                if (walls.Select(field => GetPrefix(field)).Any(prefix => !_mapMatrix[coordinate.x + prefix.x][coordinate.y + prefix.y]))
                 {
-                    (int x, int y) prefix = GetPrefix(field);
-                    if (!_mapMatrix[coordinate.x + prefix.x][coordinate.y + prefix.y])
-                    {
-                        return false;
-                    }
+                    return false;
                 }
-
+                
                 foreach (int field in floors)
                 {
                     var (x, y) = GetPrefix(field);
@@ -351,7 +352,6 @@ namespace MapTools
                         return false;
                     }
                 }
-
                 return true;
             }
 
