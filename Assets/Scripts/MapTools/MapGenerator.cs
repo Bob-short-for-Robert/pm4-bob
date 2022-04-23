@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace MapTools
@@ -50,12 +48,14 @@ namespace MapTools
 
         private void ClearMap()
         {
-            foreach (var mapY in _tileGrid)
+            foreach (var tile in _tileGrid.SelectMany(mapY => mapY))
             {
-                foreach (var tile in mapY)
-                {
-                    Destroy(tile.gameObject);
-                }
+                Destroy(tile.gameObject);
+            }
+
+            foreach (var dynamicObjects in _dynamicObjects)
+            {
+                Destroy(dynamicObjects.gameObject);
             }
 
             _tileGrid.Clear();
@@ -65,8 +65,8 @@ namespace MapTools
         private void SetMapValue()
         {
             _randomFillPercent = (int) (Random.value * 10 + 35);
-            _mapSize.x = (int) (Random.value * 30 + 40);
-            _mapSize.y = (int) (Random.value * 30 + 40);
+            _mapSize.x = (int) (Random.value * 20 + 20);
+            _mapSize.y = (int) (Random.value * 20 + 20);
         }
 
         private void CreateTileSet()
@@ -151,8 +151,8 @@ namespace MapTools
                 tileId = 3;
             }
 
-            GameObject tilePrefab = _tileSet[tileId];
-            GameObject tileGroup = _tileGroups[tileId];
+            var tilePrefab = _tileSet[tileId];
+            var tileGroup = _tileGroups[tileId];
 
             if (tileId == 1)
             {
@@ -188,13 +188,13 @@ namespace MapTools
 
             GameObject tile = Instantiate(tilePrefab, tileGroup.transform);
 
-            tile.name = string.Format("tileX{0}Y{1}", coordinate.x, coordinate.y);
+            tile.name = string.Format("TileX{0}Y{1}", coordinate.x, coordinate.y);
             tile.transform.localPosition = new Vector3(coordinate.x, coordinate.y, 0);
 
             _tileGrid[coordinate.x].Add(tile);
 
             tilePrefab.transform.eulerAngles = new Vector3(0, 0, 0);
-
+            
             void Rotate(int degree) => tilePrefab.transform.eulerAngles = Vector3.forward * degree;
         }
 
@@ -208,19 +208,23 @@ namespace MapTools
             player.name = "Player";
             player.transform.localPosition = new Vector3(playerSpawnLocation.x, playerSpawnLocation.y);
 
-            GameObject dynamicPrefab = _dynamicObjectsSet[0];
-            GameObject dynamicGroup = _dynamicObjectsGroups[0];
+            var dynamicPrefab = _dynamicObjectsSet[0];
+            var dynamicGroup = _dynamicObjectsGroups[0];
+
+            for (var i = 0; i < (int) Random.value * 2 + 3; i++)
+            {
+               var spawnerLocation = spawn.SpawnerLocation();
+               var dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
+   
+               dynamicObject.name = string.Format("SparnPointX{0}Y{1}", spawnerLocation.x, spawnerLocation.y);
+               dynamicObject.transform.localPosition = new Vector3(spawnerLocation.x, spawnerLocation.y, 0);
+   
+               _dynamicObjects.Add(dynamicObject); 
+            }
             
-            var spawnerLocation = spawn.SpawnerLocation();
-            GameObject dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
-
-            dynamicObject.name = string.Format("tileX{0}Y{1}", spawnerLocation.x, spawnerLocation.y);
-            dynamicObject.transform.localPosition = new Vector3(spawnerLocation.x, spawnerLocation.y, 0);
-
-            _dynamicObjects.Add(dynamicObject);
         }
 
-        public WallVersions GetWallVersion((int x, int y) coordinate)
+        private WallVersions GetWallVersion((int x, int y) coordinate)
         {
             if (_mapMatrix is null)
             {
@@ -236,83 +240,83 @@ namespace MapTools
             }
 
             //Corner
-            if (SurroundingFits(new int[] {4, 8}, new int[] {1, 2, 3, 6, 9}))
+            if (SurroundingFits(new[] {4, 8}, new[] {1, 2, 3, 6, 9}))
             {
                 return WallVersions.CornerTR;
             }
 
-            if (SurroundingFits(new int[] {6, 8}, new int[] {1, 2, 3, 4, 7}))
+            if (SurroundingFits(new[] {6, 8}, new[] {1, 2, 3, 4, 7}))
             {
                 return WallVersions.CornerTL;
             }
 
-            if (SurroundingFits(new int[] {2, 4}, new int[] {3, 6, 7, 8, 9}))
+            if (SurroundingFits(new[] {2, 4}, new[] {3, 6, 7, 8, 9}))
             {
                 return WallVersions.CornerBR;
             }
 
-            if (SurroundingFits(new int[] {2, 6}, new int[] {1, 4, 7, 8, 9}))
+            if (SurroundingFits(new [] {2, 6}, new[] {1, 4, 7, 8, 9}))
             {
                 return WallVersions.CornerBL;
             }
 
-            if (SurroundingFits(new int[] {1, 4, 8}, new int[] {2, 3, 6, 9}))
+            if (SurroundingFits(new[] {1, 4, 8}, new[] {2, 3, 6, 9}))
             {
                 return WallVersions.CornerTR;
             }
 
-            if (SurroundingFits(new int[] {4, 8, 9}, new int[] {1, 2, 3, 6}))
+            if (SurroundingFits(new[] {4, 8, 9}, new[] {1, 2, 3, 6}))
             {
                 return WallVersions.CornerTR;
             }
 
-            if (SurroundingFits(new int[] {3, 6, 8}, new int[] {1, 2, 4, 7}))
+            if (SurroundingFits(new[] {3, 6, 8}, new[] {1, 2, 4, 7}))
             {
                 return WallVersions.CornerTL;
             }
 
-            if (SurroundingFits(new int[] {6, 7, 8}, new int[] {1, 2, 3, 4}))
+            if (SurroundingFits(new[] {6, 7, 8}, new[] {1, 2, 3, 4}))
             {
                 return WallVersions.CornerTL;
             }
 
-            if (SurroundingFits(new int[] {2, 4, 7}, new int[] {3, 6, 8, 9}))
+            if (SurroundingFits(new[] {2, 4, 7}, new[] {3, 6, 8, 9}))
             {
                 return WallVersions.CornerBR;
             }
 
-            if (SurroundingFits(new int[] {3, 2, 4}, new int[] {6, 7, 8, 9}))
+            if (SurroundingFits(new[] {3, 2, 4}, new[] {6, 7, 8, 9}))
             {
                 return WallVersions.CornerBR;
             }
 
-            if (SurroundingFits(new int[] {2, 6, 9}, new int[] {1, 4, 7, 8}))
+            if (SurroundingFits(new[] {2, 6, 9}, new[] {1, 4, 7, 8}))
             {
                 return WallVersions.CornerBL;
             }
 
-            if (SurroundingFits(new int[] {1, 2, 6}, new int[] {4, 7, 8, 9}))
+            if (SurroundingFits(new[] {1, 2, 6}, new[] {4, 7, 8, 9}))
             {
                 return WallVersions.CornerBL;
             }
 
             //Diagonal
-            if (SurroundingFits(new int[] {1, 4, 8, 9}, new int[] {2, 3, 6}))
+            if (SurroundingFits(new[] {1, 4, 8, 9}, new[] {2, 3, 6}))
             {
                 return WallVersions.DiagonalTR;
             }
 
-            if (SurroundingFits(new int[] {3, 6, 7, 8}, new int[] {1, 2, 4}))
+            if (SurroundingFits(new[] {3, 6, 7, 8}, new[] {1, 2, 4}))
             {
                 return WallVersions.DiagonalTL;
             }
 
-            if (SurroundingFits(new int[] {2, 3, 4, 7}, new int[] {6, 8, 9}))
+            if (SurroundingFits(new[] {2, 3, 4, 7}, new[] {6, 8, 9}))
             {
                 return WallVersions.DiagonalBR;
             }
 
-            if (SurroundingFits(new int[] {1, 2, 6, 9}, new int[] {4, 7, 8}))
+            if (SurroundingFits(new[] {1, 2, 6, 9}, new[] {4, 7, 8}))
             {
                 return WallVersions.DiagonalBL;
             }
@@ -361,13 +365,6 @@ namespace MapTools
                 9 => (1, -1),
                 _ => (0, 0)
             };
-        }
-
-        public enum TileTypes
-        {
-            WallSquare,
-            WallCorner,
-            Floor
         }
 
         public enum WallVersions

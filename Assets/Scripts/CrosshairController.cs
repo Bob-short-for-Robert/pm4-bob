@@ -6,8 +6,11 @@ public class CrosshairController : MonoBehaviour
 
     void Start()
     {
-            //Hide cursor for Production Builds 
-            Cursor.visible = Debug.isDebugBuild;
+            #if DEBUG
+            Cursor.visible = true;
+            #else
+            Cursor.visible = false;
+            #endif
     }
 
     void Update()
