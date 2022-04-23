@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Random = UnityEngine.Random;
 
 namespace MapTools
@@ -31,8 +30,9 @@ namespace MapTools
             {
                 SmoothMap();
             }
-
-            return new SmallFloorConnector().ConnectSmallFloors(_map);;
+            new SmallFloorConnector().ConnectSmallFloors(_map);
+            
+            return  _map;
         }
 
         private void RandomFillMap()
@@ -49,7 +49,7 @@ namespace MapTools
                     }
                     else
                     {
-                        _map[x].Add((int) (Random.value * 100) < _randomFillPercent ? true : false);
+                        _map[x].Add((int) (Random.value * 100) < _randomFillPercent);
                     }
 
                 }

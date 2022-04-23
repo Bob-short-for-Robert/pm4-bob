@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using UnityEngine;
+﻿using System.Linq;
 
 namespace MapTools
 {
@@ -11,25 +9,25 @@ namespace MapTools
         private readonly List<int> _floorCounts = new List<int>();
         private List<List<bool>> _mapMatrix;
 
-        public List<List<bool>> ConnectSmallFloors(List<List<bool>> mapMatrix)
+        public void ConnectSmallFloors(List<List<bool>> mapMatrix)
         {
             _mapMatrix = mapMatrix;
             _floorCounts.Clear();
             if (mapMatrix?[0] is null)
             {
-                return mapMatrix;
+                return;
             }
 
             _floorMatrix = new (bool wall, int floorID)[mapMatrix.Count , mapMatrix[0].Count];
             
-            for (int x = 0; x < mapMatrix.Count; x++)
+            for (var x = 0; x < mapMatrix.Count; x++)
             {
                 if (mapMatrix[x] is null)
                 {
                     continue;
                 }
                 var mapY = mapMatrix[x];
-                for (int y = 0; y < mapY.Count; y++)
+                for (var y = 0; y < mapY.Count; y++)
                 {
                     _floorMatrix[x,y] = (mapMatrix[x][y], 0);
                 }
@@ -38,8 +36,6 @@ namespace MapTools
             IndexFloors();
  
             FillSmaleFloors();
-
-            return _mapMatrix;
         }
 
         private void IndexFloors()
@@ -104,15 +100,12 @@ namespace MapTools
                     }
                 }
             }
-            
-            if (ids.Count == 2)
-            {
-                _floorCounts[ids[0] - 1] += _floorCounts[ids[1] - 1];
-                _floorCounts[ids[1] - 1] = 0;
-                return ids[0];
-            }
-            
-            return 0;
+
+            if (ids.Count != 2) return 0;
+            _floorCounts[ids[0] - 1] += _floorCounts[ids[1] - 1];
+            _floorCounts[ids[1] - 1] = 0;
+            return ids[0];
+
         }
 
         private void FillSmaleFloors()
@@ -123,23 +116,19 @@ namespace MapTools
             }
 
             var floorIds = new List<int>();
-            var biggest = GetMaxIndex(_floorCounts);
+            var biggest = GetMaxIndex(_floorCounts) + 1;
             
 
             for (var i = 0; i < _floorCounts.Count; i++)
             {
                 if (_floorCounts[i] != 0)
                 {
-                    floorIds.Add(i + 3);
+                    floorIds.Add(i + 1);
                 }
             }
 
-            foreach (var floorId in floorIds)
+            foreach (var floorId in floorIds.Where(floorId => floorId != biggest))
             {
-                if (floorId == biggest)
-                {
-                    continue;
-                }
                 for (var x = 0; x < _floorMatrix.GetLength(0); x++)
                 {
                     for (var y = 0; y < _floorMatrix.GetLength(1); y++)

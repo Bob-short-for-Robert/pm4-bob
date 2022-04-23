@@ -28,9 +28,9 @@ namespace MapTools
         public int randomFillPercent = 30;
         [Range(50, 500)]
         public int minFloorTiles = 200;
-        [Range(1,6)]
+        [Range(1,10)]
         public int  spawnerMinCount = 2;
-        [Range(0, 5)]
+        [Range(0, 10)]
         public int spawnerRandomCount = 3;
 
         //Prefabs
@@ -107,9 +107,14 @@ namespace MapTools
             _tileGroups = new Dictionary<int, GameObject>();
             foreach (var keyValuePair in _tileSet)
             {
-                GameObject tileGroup = new GameObject(keyValuePair.Value.name);
-                tileGroup.transform.parent = gameObject.transform;
-                tileGroup.transform.localPosition = new Vector3(0, 0, 0);
+                var tileGroup = new GameObject(keyValuePair.Value.name)
+                {
+                    transform =
+                    {
+                        parent = gameObject.transform,
+                        localPosition = new Vector3(0, 0, 0)
+                    }
+                };
                 _tileGroups.Add(keyValuePair.Key, tileGroup);
             }
         }
@@ -128,9 +133,14 @@ namespace MapTools
             _dynamicObjectsGroups = new Dictionary<int, GameObject>();
             foreach (var keyValuePair in _dynamicObjectsSet)
             {
-                GameObject dynamicObject = new GameObject(keyValuePair.Value.name);
-                dynamicObject.transform.parent = gameObject.transform;
-                dynamicObject.transform.localPosition = new Vector3(0, 0, 0);
+                var dynamicObject = new GameObject(keyValuePair.Value.name)
+                {
+                    transform =
+                    {
+                        parent = gameObject.transform,
+                        localPosition = new Vector3(0, 0, 0)
+                    }
+                };
                 _dynamicObjectsGroups.Add(keyValuePair.Key, dynamicObject);
             }
         }
@@ -139,7 +149,7 @@ namespace MapTools
         {
             var mapMatrixGenerator = new MapMatrixGenerator();
             _mapMatrix = mapMatrixGenerator.GetMapMatrix((_mapSize.x, _mapSize.y), _randomFillPercent);
-            while (_mapMatrix.Sum(e => e.Count(i => i !=false)) < minFloorTiles)
+            while (_mapMatrix.Sum(e => e.Count(i => i)) < minFloorTiles)
             {
                 _mapMatrix = mapMatrixGenerator.GetMapMatrix((_mapSize.x, _mapSize.y), _randomFillPercent);
             }
@@ -354,7 +364,7 @@ namespace MapTools
 
             bool SurroundingFits(int[] walls, int[] floors)
             {
-                if (walls.Select(field => GetPrefix(field)).Any(prefix => !_mapMatrix[coordinate.x + prefix.x][coordinate.y + prefix.y]))
+                if (walls.Select(GetPrefix).Any(prefix => !_mapMatrix[coordinate.x + prefix.x][coordinate.y + prefix.y]))
                 {
                     return false;
                 }
@@ -391,7 +401,7 @@ namespace MapTools
             };
         }
 
-        public enum WallVersions
+        private enum WallVersions
         {
             Square,
             CornerTL,
