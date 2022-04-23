@@ -16,6 +16,16 @@ namespace MapTools
         private readonly List<GameObject> _dynamicObjects = new List<GameObject>();
         private List<List<bool>> _mapMatrix;
         private int _randomFillPercent = 35;
+        
+        //config
+        [Range(10,60)]
+        public int mapSize = 40;
+        [Range(40,50)]
+        public int mapMinSize = 45;
+        [Range(10,20)]
+        public int minFillPercent = 12;
+        [Range(20,40)]
+        public int maxFillPercent = 30;
 
         //Prefabs
         public GameObject prefabWallBlack;
@@ -59,14 +69,13 @@ namespace MapTools
             }
 
             _tileGrid.Clear();
-
         }
 
         private void SetMapValue()
         {
-            _randomFillPercent = (int) (Random.value * 10 + 35);
-            _mapSize.x = (int) (Random.value * 20 + 20);
-            _mapSize.y = (int) (Random.value * 20 + 20);
+            _randomFillPercent = (int) (Random.value * minFillPercent + maxFillPercent);
+            _mapSize.x = (int) (Random.value * mapMinSize + mapSize);
+            _mapSize.y = (int) (Random.value * mapMinSize + mapSize);
         }
 
         private void CreateTileSet()
@@ -336,8 +345,8 @@ namespace MapTools
 
                 foreach (int field in floors)
                 {
-                    (int x, int y) prefix = GetPrefix(field);
-                    if (_mapMatrix[coordinate.x + prefix.x][coordinate.y + prefix.y])
+                    var (x, y) = GetPrefix(field);
+                    if (_mapMatrix[coordinate.x + x][coordinate.y + y])
                     {
                         return false;
                     }
@@ -378,6 +387,11 @@ namespace MapTools
             DiagonalTR,
             DiagonalBL,
             DiagonalBR
+        }
+
+        ~MapGenerator()
+        {
+            ClearMap();
         }
     }
 }
