@@ -330,6 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabWallBlack: {fileID: 1180996452440591393, guid: 957c61d941d407440803cdd8262aa2db, type: 3}
   prefabWallBlackCorner: {fileID: 5288351208065684939, guid: 6ff21dd78d52fe946a542622f56fd14b, type: 3}
+  prefabWallBlackDtr: {fileID: 2591326651857743580, guid: 65e7223c90b9ebe4db18eac25a0ca80a, type: 3}
   prefabFloor: {fileID: 9054245158945491170, guid: ea8b19e5e774f484498bee8e0f7d5b1c, type: 3}
 --- !u!4 &1339930020
 Transform:

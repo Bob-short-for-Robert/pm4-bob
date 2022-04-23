@@ -22,12 +22,15 @@ namespace MapTools
             this.randomFillPercent = randomFillPercent;
 
             RandomFillMap();
+            
+            
+            
             for (int i = 0; i < 5; i++)
             {
                 SmoothMap();
             }
 
-            return map;
+            return new SmallFloorConnector().ConnectSmallFloors(map);;
         }
 
         private void RandomFillMap()
