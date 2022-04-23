@@ -189,58 +189,53 @@ public class MapGenerator : MonoBehaviour
         {
             return WallVersions.Square;
         }
-
-        if (_mapMatrix[coordinate.x - 1][coordinate.y + 1] == false &&
-            _mapMatrix[coordinate.x][coordinate.y + 1] == false &&
-            _mapMatrix[coordinate.x + 1][coordinate.y + 1] == false &&
-            _mapMatrix[coordinate.x + 1][coordinate.y] == false &&
-            _mapMatrix[coordinate.x + 1][coordinate.y - 1] == false &&
-            _mapMatrix[coordinate.x - 1][coordinate.y] == true &&
-            _mapMatrix[coordinate.x][coordinate.y - 1] == true
-            )
-        {
-            return WallVersions.CornerTR;
-        }
         
-        if (_mapMatrix[coordinate.x - 1][coordinate.y + 1] == false &&
-            _mapMatrix[coordinate.x][coordinate.y + 1] == false &&
-            _mapMatrix[coordinate.x + 1][coordinate.y + 1] == false &&
-            _mapMatrix[coordinate.x - 1][coordinate.y] == false &&
-            _mapMatrix[coordinate.x - 1][coordinate.y - 1] == false &&
-            _mapMatrix[coordinate.x + 1][coordinate.y] == true &&
-            _mapMatrix[coordinate.x][coordinate.y - 1] == true
-           )
-        {
-            return WallVersions.CornerTL;
-        }
+        //Corner
+        if (SurroundingFits( new int[] { 4, 8 }, new int[] { 1, 2, 3, 6, 9 })) { return WallVersions.CornerTR; }
+        if (SurroundingFits( new int[] { 6, 8 }, new int[] { 1, 2, 3, 4, 7 })) { return WallVersions.CornerTL; }
+        if (SurroundingFits( new int[] { 2, 4 }, new int[] { 3, 6, 7, 8, 9 })) { return WallVersions.CornerBR; }
+        if (SurroundingFits( new int[] { 2, 6 }, new int[] { 1, 4, 7, 8, 9 })) { return WallVersions.CornerBL; }
+        if (SurroundingFits( new int[] { 1, 4, 8 }, new int[] { 2, 3, 6, 9 })) { return WallVersions.CornerTR; }
+        if (SurroundingFits( new int[] { 4, 8, 9 }, new int[] { 1, 2, 3, 6 })) { return WallVersions.CornerTR; }
+        if (SurroundingFits( new int[] { 3, 6, 8 }, new int[] { 1, 2, 4, 7 })) { return WallVersions.CornerTL; }
+        if (SurroundingFits( new int[] { 6, 7, 8 }, new int[] { 1, 2, 3, 4 })) { return WallVersions.CornerTL; }
+        if (SurroundingFits( new int[] { 2, 4, 7 }, new int[] { 3, 6, 8, 9 })) { return WallVersions.CornerBR; }
+        if (SurroundingFits( new int[] { 3, 2, 4 }, new int[] { 6, 7, 8, 9 })) { return WallVersions.CornerBR; }
+        if (SurroundingFits( new int[] { 2, 6, 9 }, new int[] { 1, 4, 7, 8 })) { return WallVersions.CornerBL; }
+        if (SurroundingFits( new int[] { 1, 2, 6 }, new int[] { 4, 7, 8, 9 })) { return WallVersions.CornerBL; }
         
-        if (_mapMatrix[coordinate.x - 1][coordinate.y - 1] == false &&
-            _mapMatrix[coordinate.x][coordinate.y - 1] == false &&
-            _mapMatrix[coordinate.x - 1][coordinate.y - 1] == false &&
-            _mapMatrix[coordinate.x + 1][coordinate.y] == false &&
-            _mapMatrix[coordinate.x + 1][coordinate.y + 1] == false &&
-            _mapMatrix[coordinate.x ][coordinate.y + 1] == true &&
-            _mapMatrix[coordinate.x][coordinate.y - 1] == true
-           )
-        {
-            return WallVersions.CornerBR;
-        }
-        
-        if (_mapMatrix[coordinate.x - 1][coordinate.y + 1] == false &&
-            _mapMatrix[coordinate.x][coordinate.y - 1] == false &&
-            _mapMatrix[coordinate.x + 1][coordinate.y - 1] == false &&
-            _mapMatrix[coordinate.x - 1][coordinate.y] == false &&
-            _mapMatrix[coordinate.x - 1][coordinate.y + 1] == false &&
-            _mapMatrix[coordinate.x + 1][coordinate.y] == true &&
-            _mapMatrix[coordinate.x][coordinate.y + 1] == true
-           )
-        {
-            return WallVersions.CornerBL;
-        }
+        //Diagonal
+        if (SurroundingFits( new int[] { 1, 4, 8, 9 }, new int[] { 2, 3, 6 })) { return WallVersions.DiagonalTR; }
+        if (SurroundingFits( new int[] { 3, 6, 7, 8 }, new int[] { 1, 2, 4 })) { return WallVersions.DiagonalTL; }
+        if (SurroundingFits( new int[] { 2, 3, 4, 7 }, new int[] { 6, 8, 9 })) { return WallVersions.DiagonalBR; }
+        if (SurroundingFits( new int[] { 1, 2, 6, 9 }, new int[] { 4, 7, 8 })) { return WallVersions.DiagonalBL; }
         
         return WallVersions.Square;
+
+        bool SurroundingFits(int[] walls, int[] floors)
+        {
+            foreach (int field in walls)
+            {
+                (int x, int y) prefix = GetPrefix(field);
+                if (!_mapMatrix[coordinate.x + prefix.x][coordinate.y + prefix.y])
+                {
+                    return false;
+                }
+            }
+            
+            foreach (int field in floors)
+            {
+                (int x, int y) prefix = GetPrefix(field);
+                if (_mapMatrix[coordinate.x + prefix.x][coordinate.y + prefix.y])
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
         
-        
+        // Returns the prefix for the surrounding tiles
         //  1 # 2 # 3
         //  #########
         //  4 # 5 # 7
@@ -259,7 +254,6 @@ public class MapGenerator : MonoBehaviour
             9 => (1, -1),
             _ => (0, 0)
         };
-        
     }
     
     public enum TileTypes
