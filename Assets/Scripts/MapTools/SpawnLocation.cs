@@ -44,6 +44,23 @@ namespace MapTools
 
                 spawnPoint.x -= xModifier;
                 spawnPoint.y -= yModifier;
+
+                if ( spawnPoint.x <= 0)
+                {
+                    spawnPoint.x = 0;
+                }
+                if ( spawnPoint.x > _mapMatrix.Count)
+                {
+                    spawnPoint.x = 0;
+                }
+                if ( spawnPoint.y <= 0)
+                {
+                    spawnPoint.y = 0;
+                }
+                if ( spawnPoint.y > _mapMatrix[0].Count)
+                {
+                    spawnPoint.y = 0;
+                }
             }
             return spawnPoint;
         }

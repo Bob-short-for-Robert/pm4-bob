@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Random = UnityEngine.Random;
 
 namespace MapTools
@@ -15,12 +16,16 @@ namespace MapTools
 
         public List<List<bool>> GetMapMatrix((int x, int y) mapSize, int randomFillPercent)
         {
+            if (_map.Count > 0)
+            {
+                _map.ForEach(s => s.Clear());
+                _map.Clear();
+            }
+            
             _mapSize = mapSize;
             _randomFillPercent = randomFillPercent;
 
             RandomFillMap();
-            
-            
             
             for (var i = 0; i < 5; i++)
             {
@@ -75,9 +80,9 @@ namespace MapTools
         {
             var wallCount = 0;
             var (x, y) = coordinate;
-            for (int neighbourX = x - 1; neighbourX <= x + 1; neighbourX++)
+            for (var neighbourX = x - 1; neighbourX <= x + 1; neighbourX++)
             {
-                for (int neighbourY = y - 1; neighbourY <= y + 1; neighbourY++)
+                for (var neighbourY = y - 1; neighbourY <= y + 1; neighbourY++)
                 {
                     if (neighbourX >= 0 && neighbourX < _mapSize.x && neighbourY >= 0 && neighbourY < _mapSize.y)
                     {

@@ -26,6 +26,8 @@ namespace MapTools
         public int minFillPercent = 12;
         [Range(20,40)]
         public int maxFillPercent = 30;
+        [Range(50, 500)]
+        public int minFloorTiles = 200;
 
         //Prefabs
         public GameObject prefabWallBlack;
@@ -58,17 +60,9 @@ namespace MapTools
 
         private void ClearMap()
         {
-            foreach (var tile in _tileGrid.SelectMany(mapY => mapY))
-            {
-                Destroy(tile.gameObject);
-            }
-
-            foreach (var dynamicObjects in _dynamicObjects)
-            {
-                Destroy(dynamicObjects.gameObject);
-            }
-
+            _tileGrid.ForEach(l => l.ForEach(o => Destroy(o.gameObject)));
             _tileGrid.Clear();
+            _dynamicObjects.ForEach(o => Destroy(o.gameObject));
         }
 
         private void SetMapValue()
@@ -123,7 +117,13 @@ namespace MapTools
 
         private void GenerateMap()
         {
-            _mapMatrix = new MapMatrixGenerator().GetMapMatrix((_mapSize.x, _mapSize.y), _randomFillPercent);
+            var mapMatrixGenerator = new MapMatrixGenerator();
+            _mapMatrix = mapMatrixGenerator.GetMapMatrix((_mapSize.x, _mapSize.y), _randomFillPercent);
+            while (_mapMatrix.Sum(e => e.Count(i => i !=false)) < minFloorTiles)
+            {
+                _mapMatrix = mapMatrixGenerator.GetMapMatrix((_mapSize.x, _mapSize.y), _randomFillPercent);
+            }
+            
 
             for (int x = 0; x < _mapSize.x; x++)
             {

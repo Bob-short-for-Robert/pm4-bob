@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using UnityEngine;
 
 namespace MapTools
@@ -61,8 +62,6 @@ namespace MapTools
                     }
                 }
             }
-
-            _floorCounts.RemoveAll(i => i == 0);
         }
 
         private int CheckSurroundingFloors(int x, int y)
@@ -123,10 +122,24 @@ namespace MapTools
                 return;
             }
 
-            _floorCounts.Remove(0);
+            var floorIds = new List<int>();
+            var biggest = GetMaxIndex(_floorCounts);
+            
 
-            foreach (var floorId in _floorCounts)
+            for (var i = 0; i < _floorCounts.Count; i++)
             {
+                if (_floorCounts[i] != 0)
+                {
+                    floorIds.Add(i + 3);
+                }
+            }
+
+            foreach (var floorId in floorIds)
+            {
+                if (floorId == biggest)
+                {
+                    continue;
+                }
                 for (var x = 0; x < _floorMatrix.GetLength(0); x++)
                 {
                     for (var y = 0; y < _floorMatrix.GetLength(1); y++)
@@ -138,6 +151,13 @@ namespace MapTools
                     }
                 }
             }
+        }
+
+        private int GetMaxIndex(List<int> list)
+        {
+            int[] numbers = list.ToArray();
+            var biggestNumber = numbers.Max();
+            return list.IndexOf(biggestNumber);
         }
     }
 }
