@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 459478766}
   - component: {fileID: 459478765}
   - component: {fileID: 459478764}
+  - component: {fileID: 459478770}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -276,6 +277,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &459478770
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459478763}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 1
+  m_Mass: 0.5
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1339930018
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,8 +329,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabWallBlack: {fileID: 1180996452440591393, guid: 957c61d941d407440803cdd8262aa2db, type: 3}
-  prefabFloor: {fileID: 3694303391736165214, guid: f957f1ac625c06246a8de3759d17bd70, type: 3}
-  randomFillPercent: 41
+  prefabWallBlackCorner: {fileID: 5288351208065684939, guid: 6ff21dd78d52fe946a542622f56fd14b, type: 3}
+  prefabFloor: {fileID: 9054245158945491170, guid: ea8b19e5e774f484498bee8e0f7d5b1c, type: 3}
 --- !u!4 &1339930020
 Transform:
   m_ObjectHideFlags: 0
@@ -411,7 +433,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 40
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
