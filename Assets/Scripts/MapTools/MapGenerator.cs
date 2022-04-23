@@ -9,10 +9,13 @@ namespace MapTools
 {
     public class MapGenerator : MonoBehaviour
     {
+        private (int x, int y) _mapSize = (50, 50);
         private Dictionary<int, GameObject> _tileSet;
         private Dictionary<int, GameObject> _tileGroups;
-        private (int x, int y) _mapSize = (50, 50);
         private readonly List<List<GameObject>> _tileGrid = new List<List<GameObject>>();
+        private Dictionary<int, GameObject> _dynamicObjectsSet;
+        private Dictionary<int, GameObject> _dynamicObjectsGroups;
+        private readonly List<GameObject> _dynamicObjects = new List<GameObject>();
         private List<List<bool>> _mapMatrix;
         private int _randomFillPercent = 35;
 
@@ -21,21 +24,24 @@ namespace MapTools
         public GameObject prefabWallBlackCorner;
         public GameObject prefabWallBlackDtr;
         public GameObject prefabFloor;
+        
+        //Objects
+        public GameObject spawner;
 
-
-
-        void Start()
+        private void Start()
         {
             SetMapValue();
             CreateTileSet();
             CreateTileGroups();
+            DynamicObjectsSet();
+            DynamicObjectsGroups();
             GenerateMap();
             SetMapObjects();
         }
 
         private void Update()
         {
-            if (!Input.GetMouseButtonDown(0)) return;
+            if (!Input.GetMouseButtonDown(1)) return;
             ClearMap();
             SetMapValue();
             GenerateMap();
@@ -83,6 +89,26 @@ namespace MapTools
                 tileGroup.transform.parent = gameObject.transform;
                 tileGroup.transform.localPosition = new Vector3(0, 0, 0);
                 _tileGroups.Add(keyValuePair.Key, tileGroup);
+            }
+        }
+
+        private void DynamicObjectsSet()
+        {
+            _dynamicObjectsSet = new Dictionary<int, GameObject>()
+                {
+                    {0, spawner},
+                };
+        }
+
+        private void DynamicObjectsGroups()
+        {
+            _dynamicObjectsGroups = new Dictionary<int, GameObject>();
+            foreach (var keyValuePair in _dynamicObjectsSet)
+            {
+                GameObject dynamicObject = new GameObject(keyValuePair.Value.name);
+                dynamicObject.transform.parent = gameObject.transform;
+                dynamicObject.transform.localPosition = new Vector3(0, 0, 0);
+                _dynamicObjectsGroups.Add(keyValuePair.Key, dynamicObject);
             }
         }
 
@@ -174,8 +200,24 @@ namespace MapTools
 
         private void SetMapObjects()
         {
+            var spawn = new SpawnLocation(_mapMatrix);
+
+            var playerSpawnLocation = spawn.PlayerSpawn();
+
             var player = GameObject.Find("Player");
-            player.transform.localPosition = new Vector3(_mapSize.x / 2, _mapSize.x / 2, 0);
+            player.name = "Player";
+            player.transform.localPosition = new Vector3(playerSpawnLocation.x, playerSpawnLocation.y);
+
+            GameObject dynamicPrefab = _dynamicObjectsSet[0];
+            GameObject dynamicGroup = _dynamicObjectsGroups[0];
+            
+            var spawnerLocation = spawn.SpawnerLocation();
+            GameObject dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
+
+            dynamicObject.name = string.Format("tileX{0}Y{1}", spawnerLocation.x, spawnerLocation.y);
+            dynamicObject.transform.localPosition = new Vector3(spawnerLocation.x, spawnerLocation.y, 0);
+
+            _dynamicObjects.Add(dynamicObject);
         }
 
         public WallVersions GetWallVersion((int x, int y) coordinate)
