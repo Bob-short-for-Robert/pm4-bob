@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace MapTools
@@ -41,8 +40,23 @@ namespace MapTools
         public GameObject prefabFloor;
         
         //Objects
-        public GameObject spawner;
+        public GameObject prefabSpawner;
+        public GameObject prefabEnemy;
 
+        public void AddEnemy(int x, int y)
+        {
+            var dynamicPrefab = _dynamicObjectsSet[1];
+            var dynamicGroup = _dynamicObjectsGroups[1];
+            
+            var dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
+   
+            dynamicObject.name = $"EnemyX{x}Y{y}";
+            dynamicObject.transform.localPosition = new Vector3(x, y, 0);
+   
+            _dynamicObjects.Add(dynamicObject); 
+            
+        }
+        
         private void Start()
         {
             SetMapValue();
@@ -104,7 +118,8 @@ namespace MapTools
         {
             _dynamicObjectsSet = new Dictionary<int, GameObject>()
                 {
-                    {0, spawner},
+                    {0, prefabSpawner},
+                    {1, prefabEnemy}
                 };
         }
 
@@ -202,7 +217,7 @@ namespace MapTools
 
             GameObject tile = Instantiate(tilePrefab, tileGroup.transform);
 
-            tile.name = string.Format("TileX{0}Y{1}", coordinate.x, coordinate.y);
+            tile.name = $"TileX{coordinate.x}Y{coordinate.y}";
             tile.transform.localPosition = new Vector3(coordinate.x, coordinate.y, 0);
 
             _tileGrid[coordinate.x].Add(tile);
@@ -230,7 +245,7 @@ namespace MapTools
                var spawnerLocation = spawn.SpawnerLocation();
                var dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
    
-               dynamicObject.name = string.Format("SparnPointX{0}Y{1}", spawnerLocation.x, spawnerLocation.y);
+               dynamicObject.name = $"SpawnerPointX{spawnerLocation.x}Y{spawnerLocation.y}";
                dynamicObject.transform.localPosition = new Vector3(spawnerLocation.x, spawnerLocation.y, 0);
    
                _dynamicObjects.Add(dynamicObject); 
