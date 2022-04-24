@@ -16,8 +16,9 @@ namespace MapTools
         private readonly List<GameObject> _dynamicObjects = new List<GameObject>();
         private List<List<bool>> _mapMatrix;
         private int _randomFillPercent = 35;
-        private readonly string _wallTag = "Wall";
-        
+        private const string WallTag = "Wall";
+        private const string DoorTag = "Door";
+
         //config
         [SerializeField]
         [Range(40,50)]
@@ -51,11 +52,14 @@ namespace MapTools
         [SerializeField]
         private GameObject prefabFloor;
         
+        
         //Objects
         [SerializeField]
         private GameObject prefabSpawner;
         [SerializeField]
         private GameObject prefabEnemy;
+        [SerializeField]
+        private GameObject prefabDoor;
 
         public void AddEnemy(int x, int y)
         {
@@ -68,6 +72,14 @@ namespace MapTools
             dynamicObject.transform.localPosition = new Vector3(x, y, 0);
    
             _dynamicObjects.Add(dynamicObject);
+        }
+        
+        public void NewMap()
+        {
+            ClearMap();
+            SetMapValue();
+            GenerateMap();
+            SetMapObjects();
         }
         
         private void Start()
@@ -83,11 +95,7 @@ namespace MapTools
 
         private void Update()
         {
-            if (!Input.GetMouseButtonDown(1)) return;
-            ClearMap();
-            SetMapValue();
-            GenerateMap();
-            SetMapObjects();
+            
         }
 
         private void ClearMap()
@@ -137,7 +145,8 @@ namespace MapTools
             _dynamicObjectsSet = new Dictionary<int, GameObject>()
                 {
                     {0, prefabSpawner},
-                    {1, prefabEnemy}
+                    {1, prefabEnemy}, 
+                    {2, prefabDoor}
                 };
         }
 
@@ -242,7 +251,7 @@ namespace MapTools
 
             tile.name = $"TileX{coordinate.x}Y{coordinate.y}";
             tile.transform.localPosition = new Vector3(coordinate.x, coordinate.y, 0);
-            tile.tag = _wallTag;
+            tile.tag = WallTag;
 
             _tileGrid[coordinate.x].Add(tile);
 
@@ -254,20 +263,23 @@ namespace MapTools
         private void SetMapObjects()
         {
             var spawn = new SpawnLocation(_mapMatrix);
-
+            GameObject dynamicObject;
+            
+            //spawn Player
             var playerSpawnLocation = spawn.PlayerSpawn();
 
             var player = GameObject.Find("Player");
             player.name = "Player";
             player.transform.localPosition = new Vector3(playerSpawnLocation.x, playerSpawnLocation.y);
-
+            
+            //spawn SpawnerPoint
             var dynamicPrefab = _dynamicObjectsSet[0];
             var dynamicGroup = _dynamicObjectsGroups[0];
 
             for (var i = 0; i < (int) Random.value * spawnerMinCount + spawnerRandomCount; i++)
             {
                var spawnerLocation = spawn.SpawnerLocation();
-               var dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
+                dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
    
                dynamicObject.name = $"SpawnerPointX{spawnerLocation.x}Y{spawnerLocation.y}";
                dynamicObject.transform.localPosition = new Vector3(spawnerLocation.x, spawnerLocation.y, 0);
@@ -275,6 +287,17 @@ namespace MapTools
                _dynamicObjects.Add(dynamicObject);
             }
             
+            //spawn Door
+             dynamicPrefab = _dynamicObjectsSet[2];
+             dynamicGroup = _dynamicObjectsGroups[2];
+             var doorLocation = spawn.DoorLocation();
+             dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
+   
+             dynamicObject.name = $"DoorX{doorLocation.x}Y{doorLocation.y}";
+             dynamicObject.transform.localPosition = new Vector3(doorLocation.x, doorLocation.y, 0);
+            // dynamicObject.tag = DoorTag;
+   
+             _dynamicObjects.Add(dynamicObject);
         }
 
         private WallVersions GetWallVersion((int x, int y) coordinate)

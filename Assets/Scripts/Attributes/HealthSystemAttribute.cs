@@ -16,7 +16,7 @@ public class HealthSystemAttribute : MonoBehaviour
         // Find the UI in the scene and store a reference for later use
         ui = GameObject.FindObjectOfType<UIScript>();
 
-        if (CompareTag("Player"))
+        if (CompareTag(tag: "Player"))
         {
             isPlayer = true;
         }

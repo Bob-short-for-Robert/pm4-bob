@@ -25,6 +25,16 @@ namespace MapTools
             return spawnPoint;
         }
 
+        public (int x, int y) DoorLocation()
+        {
+            (int x, int y) spawnPoint = (_mapMatrix.Count / 2 , _mapMatrix[0].Count - 1);
+            while (_mapMatrix[spawnPoint.x][spawnPoint.y])
+            {
+                spawnPoint.y--;
+            }
+            return spawnPoint;
+        }
+
         public (int x, int y) SpawnerLocation()
         {
             (int x, int y) spawnPoint = (0, 0);

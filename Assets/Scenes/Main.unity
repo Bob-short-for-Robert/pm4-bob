@@ -427,6 +427,7 @@ MonoBehaviour:
   prefabFloor: {fileID: 9054245158945491170, guid: ea8b19e5e774f484498bee8e0f7d5b1c, type: 3}
   prefabSpawner: {fileID: 4459202836492351147, guid: 830ec89aa8615c14fa14d3a647684710, type: 3}
   prefabEnemy: {fileID: 7648850974024084239, guid: 1639165f473dec24798cf29da4693395, type: 3}
+  prefabDoor: {fileID: 3325267577347633284, guid: f4bd3e76872525240b752cc2a9674c91, type: 3}
 --- !u!4 &1339930020
 Transform:
   m_ObjectHideFlags: 0
@@ -453,9 +454,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef1f37b8b692f64e983d72d00b85eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userSeed: 75100
+  userSeed: 50259
   seed: 50959
-  randomizeSeed: 0
+  randomizeSeed: 1
 --- !u!1 &1867068549
 GameObject:
   m_ObjectHideFlags: 0

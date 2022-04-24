@@ -19,7 +19,6 @@ public class SetRandomSeed : MonoBehaviour
       {
          seed = userSeed;
       }
-      
       Random.InitState(seed);
    }
 }
