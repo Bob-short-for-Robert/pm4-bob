@@ -18,30 +18,43 @@ namespace MapTools
         private int _randomFillPercent = 35;
         
         //config
+        [SerializeField]
         [Range(40,50)]
-        public int mapMinSize = 45;
+        private int mapMinSize = 45;
         [Range(10,60)]
-        public int randomMapSize = 40;
+        [SerializeField]
+        private int randomMapSize = 40;
+        [SerializeField]
         [Range(10,20)]
-        public int minFillPercent = 12;
+        private int minFillPercent = 12;
+        [SerializeField]
         [Range(20,40)]
-        public int randomFillPercent = 30;
+        private int randomFillPercent = 30;
+        [SerializeField]
         [Range(50, 500)]
-        public int minFloorTiles = 200;
+        private int minFloorTiles = 200;
+        [SerializeField]
         [Range(1,10)]
-        public int  spawnerMinCount = 2;
+        private int  spawnerMinCount = 2;
+        [SerializeField]
         [Range(0, 10)]
-        public int spawnerRandomCount = 3;
+        private int spawnerRandomCount = 3;
 
         //Prefabs
-        public GameObject prefabWallBlack;
-        public GameObject prefabWallBlackCorner;
-        public GameObject prefabWallBlackDtr;
-        public GameObject prefabFloor;
+        [SerializeField]
+        private GameObject prefabWallBlack;
+        [SerializeField]
+        private GameObject prefabWallBlackCorner;
+        [SerializeField]
+        private GameObject prefabWallBlackDtr;
+        [SerializeField]
+        private GameObject prefabFloor;
         
         //Objects
-        public GameObject prefabSpawner;
-        public GameObject prefabEnemy;
+        [SerializeField]
+        private GameObject prefabSpawner;
+        [SerializeField]
+        private GameObject prefabEnemy;
 
         public void AddEnemy(int x, int y)
         {
@@ -53,8 +66,7 @@ namespace MapTools
             dynamicObject.name = $"EnemyX{x}Y{y}";
             dynamicObject.transform.localPosition = new Vector3(x, y, 0);
    
-            _dynamicObjects.Add(dynamicObject); 
-            
+            _dynamicObjects.Add(dynamicObject);
         }
         
         private void Start()
