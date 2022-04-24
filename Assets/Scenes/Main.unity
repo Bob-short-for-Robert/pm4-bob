@@ -241,6 +241,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
+--- !u!1 &626048932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5886790589937638233, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
+  m_PrefabInstance: {fileID: 588766674}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &626048937
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626048932}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1001 &1076660203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,7 +373,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5886790589937638235, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
   m_PrefabInstance: {fileID: 588766674}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 626048932}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90b080334430cb340a4644f2ac0cd57b, type: 3}
@@ -388,11 +414,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa86a9426588cb848b7ff4e582521d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mapMinSize: 45
+  randomMapSize: 38
+  minFillPercent: 14
+  randomFillPercent: 31
+  minFloorTiles: 303
+  spawnerMinCount: 5
+  spawnerRandomCount: 6
   prefabWallBlack: {fileID: 1180996452440591393, guid: 957c61d941d407440803cdd8262aa2db, type: 3}
   prefabWallBlackCorner: {fileID: 5288351208065684939, guid: 6ff21dd78d52fe946a542622f56fd14b, type: 3}
   prefabWallBlackDtr: {fileID: 2591326651857743580, guid: 65e7223c90b9ebe4db18eac25a0ca80a, type: 3}
   prefabFloor: {fileID: 9054245158945491170, guid: ea8b19e5e774f484498bee8e0f7d5b1c, type: 3}
-  spawner: {fileID: 4459202836492351147, guid: 830ec89aa8615c14fa14d3a647684710, type: 3}
+  prefabSpawner: {fileID: 4459202836492351147, guid: 830ec89aa8615c14fa14d3a647684710, type: 3}
+  prefabEnemy: {fileID: 7648850974024084239, guid: 1639165f473dec24798cf29da4693395, type: 3}
 --- !u!4 &1339930020
 Transform:
   m_ObjectHideFlags: 0
@@ -419,10 +453,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef1f37b8b692f64e983d72d00b85eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stringSeed: 2345q23451ewer
-  useStringSeed: 0
-  seed: 0
-  randomizeSeed: 1
+  userSeed: 75100
+  seed: 50959
+  randomizeSeed: 0
 --- !u!1 &1867068549
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ namespace MapTools
         private readonly List<GameObject> _dynamicObjects = new List<GameObject>();
         private List<List<bool>> _mapMatrix;
         private int _randomFillPercent = 35;
+        private readonly string _wallTag = "Wall";
         
         //config
         [SerializeField]
@@ -237,10 +238,11 @@ namespace MapTools
                 }
             }
 
-            GameObject tile = Instantiate(tilePrefab, tileGroup.transform);
+            var tile = Instantiate(tilePrefab, tileGroup.transform);
 
             tile.name = $"TileX{coordinate.x}Y{coordinate.y}";
             tile.transform.localPosition = new Vector3(coordinate.x, coordinate.y, 0);
+            tile.tag = _wallTag;
 
             _tileGrid[coordinate.x].Add(tile);
 
@@ -270,7 +272,7 @@ namespace MapTools
                dynamicObject.name = $"SpawnerPointX{spawnerLocation.x}Y{spawnerLocation.y}";
                dynamicObject.transform.localPosition = new Vector3(spawnerLocation.x, spawnerLocation.y, 0);
    
-               _dynamicObjects.Add(dynamicObject); 
+               _dynamicObjects.Add(dynamicObject);
             }
             
         }
