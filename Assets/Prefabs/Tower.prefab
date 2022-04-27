@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 1555594877322203433}
   - component: {fileID: 8928492523486185801}
   - component: {fileID: -8635214437775112251}
-  - component: {fileID: 8554634364020113199}
   - component: {fileID: 89951675472564085}
+  - component: {fileID: 4358311476570839382}
+  - component: {fileID: 7286542905016418618}
   m_Layer: 6
   m_Name: Tower
-  m_TagString: Tower
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,20 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.39, y: 1.13}
   m_EdgeRadius: 0
---- !u!114 &8554634364020113199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5815488391459319758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90b080334430cb340a4644f2ac0cd57b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shootInterval: 1
-  projectile: []
 --- !u!114 &89951675472564085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,3 +125,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+--- !u!114 &4358311476570839382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5815488391459319758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b78158622343b459e49f184b75ea6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootsPlayer: 0
+  shooter: {fileID: 7286542905016418618}
+--- !u!114 &7286542905016418618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5815488391459319758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b080334430cb340a4644f2ac0cd57b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootInterval: 1
+  projectile:
+  - {fileID: 8690424263816451739, guid: c897833f4b884c34783b79cd220d786c, type: 3}

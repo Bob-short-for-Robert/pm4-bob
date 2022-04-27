@@ -8,7 +8,6 @@ using static System.Console;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour
 {
-    
     public float playerSpeed = 2.0f;  
     
     private BoxCollider2D boxCollider;
@@ -19,12 +18,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
-    }
-
-    private bool checkResources()
-    {
-        //TODO add check if enough resources are available before placing
-        return true;
     }
 
     private void FixedUpdate()
