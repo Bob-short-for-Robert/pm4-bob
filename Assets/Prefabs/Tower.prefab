@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7286542905016418618}
   m_Layer: 6
   m_Name: Tower
-  m_TagString: Player
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,11 +134,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5815488391459319758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b78158622343b459e49f184b75ea6a, type: 3}
+  m_Script: {fileID: 11500000, guid: 628b6a31d98f46bea2c5741dd55189a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootsPlayer: 0
-  shooter: {fileID: 7286542905016418618}
+  destroyWhenActivated: 0
+  healthChange: -1
+  damageToPlayer: 0
 --- !u!114 &7286542905016418618
 MonoBehaviour:
   m_ObjectHideFlags: 0
