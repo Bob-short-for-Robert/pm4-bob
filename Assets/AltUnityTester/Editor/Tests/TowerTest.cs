@@ -28,11 +28,7 @@ namespace AltUnityTester.Editor.Tests
         public void TestSpawn()
         {
             altUnityDriver.PressKey(AltUnityKeyCode.E);
-            altUnityDriver.PressKey(AltUnityKeyCode.E);
-            altUnityDriver.PressKey(AltUnityKeyCode.E);
-            altUnityDriver.PressKey(AltUnityKeyCode.E);
-            // next tower can only be spawned after 1 second.
-            Assert.True(altUnityDriver.FindObjects(By.TAG, "Tower").Count == 1);
+            Assert.True(altUnityDriver.FindObject(By.TAG, "Tower").enabled);
         }
     }
 }
