@@ -21,7 +21,7 @@ public class ModifyHealthAttribute : MonoBehaviour
         HealthSystemAttribute healthScript = colliderData.gameObject.GetComponent<HealthSystemAttribute>();
         if (healthScript != null)
         {
-            if (damageToPlayer || !colliderData.CompareTag(tag: "Player"))
+            if (damageToPlayer || !colliderData.CompareTag("Player"))
             {
                 // subtract health from the player
                 healthScript.ModifyHealth(healthChange);

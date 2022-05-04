@@ -17,7 +17,6 @@ namespace MapTools
         private List<List<bool>> _mapMatrix;
         private int _randomFillPercent = 35;
         private const string WallTag = "Wall";
-        private const string DoorTag = "Door";
 
         //config
         [SerializeField]
