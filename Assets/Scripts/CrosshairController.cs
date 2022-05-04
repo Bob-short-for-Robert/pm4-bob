@@ -4,16 +4,12 @@ public class CrosshairController : MonoBehaviour
 {
     public Shooter shooter;
 
-    void Start()
+    private void Start()
     {
-            #if DEBUG
-            Cursor.visible = true;
-            #else
-            Cursor.visible = false;
-            #endif
+        Cursor.visible = Debug.isDebugBuild;
     }
 
-    void Update()
+    private void Update()
     {
         Vector3 mouse = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
             0.0f - Camera.main.transform.position.z));

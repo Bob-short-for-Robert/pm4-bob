@@ -97,8 +97,7 @@ namespace MapTools
                     }
                 }
             }
-
-            Console.WriteLine(wallCount);
+            
             return wallCount;
         }
     }
