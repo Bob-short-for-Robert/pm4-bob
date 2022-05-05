@@ -1,37 +1,32 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Altom.AltUnityDriver;
-using UnityEngine;
 
-namespace Altom.AltUnityTesterEditor.Tests.MapTools
+public class DoorTest
 {
-    public class DoorTest
+    private bool _first;
+    private AltUnityVector2 _startPos;
+    private AltUnityDriver _altUnityDriver;
+    //Before any test it connects with the socket
+    [OneTimeSetUp]
+    public void SetUp()
     {
-        private bool first;
-        private AltUnityVector2 startPos;
-        public AltUnityDriver.AltUnityDriver altUnityDriver;
-        //Before any test it connects with the socket
-        [OneTimeSetUp]
-        public void SetUp()
-        {
-            altUnityDriver =new AltUnityDriver.AltUnityDriver();
-            altUnityDriver.LoadScene("Main");
-            var player = altUnityDriver.FindObject(By.NAME, "Player");
-            first = true;
-            startPos = altUnityDriver.FindObject(By.NAME, "Player").getScreenPosition();
-        }
+        _altUnityDriver =new AltUnityDriver();
+        _altUnityDriver.LoadScene("Main");
+        var player = _altUnityDriver.FindObject(By.NAME, "Player");
+        _first = true;
+        _startPos = _altUnityDriver.FindObject(By.NAME, "Player").getScreenPosition();
+    }
 
-        //At the end of the test closes the connection with the socket
-        [OneTimeTearDown]
-        public void TearDown()
-        {
-            altUnityDriver.Stop();
-        }
+    //At the end of the test closes the connection with the socket
+    [OneTimeTearDown]
+    public void TearDown()
+    {
+        _altUnityDriver.Stop();
+    }
 
-        [SetUp]
-        public void Reset()
-        {
-            first = true;
-        }
+    [SetUp]
+    public void Reset()
+    {
+        _first = true;
     }
 }
