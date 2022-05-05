@@ -5,13 +5,17 @@
     -logpath "E:\Projects\bob\log"
 #>
 
-param ($projectpath, $buildpath, $logpath)
-write-host "Project Location -> $projectpath"
+param ($buildTag, $buildpath, $logpath, $increment, $unityPath)
 write-host "Build Location -> $buildpath"
 write-host "Logging Location -> $logpath"
+write-host "Build Tag -> $buildTag"
+write-host "Product Increment -> $increment"
 
-[Environment]::SetEnvironmentVariable('VERSION_NUMBER','1.1')
-[Environment]::SetEnvironmentVariable('BUILD_NUMBER','420')
+[Environment]::SetEnvironmentVariable('INCREMENT',$increment)
+[Environment]::SetEnvironmentVariable('BUILD_TAG',$buildTag)
+[Environment]::SetEnvironmentVariable('BUILD_PATH',$buildpath)
 
-& "C:\Program Files\Unity 2020.3.27f1\Editor\Unity.exe" -executeMethod Editor.BuildScript.Windows -logFile $logpath -quit -batchmode
+& $unityPath -executeMethod Editor.BuildScript.Windows -logFile $logpath -quit -batchmode
+
+Get-Content -Path $logpath -Wait | ? { $_ -match "Build succeeded" } | % { Write-Host "Success" }
 

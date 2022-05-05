@@ -10,10 +10,15 @@ namespace Editor
     {
         static void Windows()
         {
-            string filepath = @"E:\Projects\bob\test_builder\build.exe";
-            updateVersion();
-            BuildReport report = BuildPipeline.BuildPlayer(GetScenes(), filepath, BuildTarget.StandaloneWindows64,
+            
+            string buildPath = Environment.GetEnvironmentVariable("BUILD_PATH");
+            if (string.IsNullOrEmpty(buildPath))
+                buildPath = @"C:\bob\BoB.exe";
+            
+            SetVersion();
+            BuildReport report = BuildPipeline.BuildPlayer(GetScenes(), buildPath, BuildTarget.StandaloneWindows64,
                 BuildOptions.None);
+            
             BuildSummary summary = report.summary;
 
 
@@ -33,18 +38,34 @@ namespace Editor
             return EditorBuildSettings.scenes.Where(s => s.enabled).Select(s => s.path).ToArray();
         }
 
-        static void updateVersion()
+        static void SetVersion()
         {
-            string _versionNumber = Environment.GetEnvironmentVariable("VERSION_NUMBER");
-            if (string.IsNullOrEmpty(_versionNumber))
-                _versionNumber = "1.0.0.0";
+            string increment = Environment.GetEnvironmentVariable("INCREMENT");
+            if (string.IsNullOrEmpty(increment))
+                increment = "build";
 
-            string _buildNumber = Environment.GetEnvironmentVariable("BUILD_NUMBER");
-            if (string.IsNullOrEmpty(_buildNumber))
-                _buildNumber = "1";
+            string buildTag = Environment.GetEnvironmentVariable("BUILD_TAG");
+            if (string.IsNullOrEmpty(buildTag))
+                buildTag = "gitlab_tag";
+
+            string[] versions = PlayerSettings.bundleVersion.Split('.');
+
+            int MajorVersion = int.Parse(versions[0]);
+            int MinorVersion = int.Parse(versions[1]);
+            string BuildTag = versions[2];
+
+            if (increment == "major")
+            {
+                MajorVersion++;
+            }
+            else if (increment == "minor")
+            {
+                MinorVersion++;
+            }
+            BuildTag = buildTag;
 
             PlayerSettings.productName = "Book of Boilers";
-            PlayerSettings.bundleVersion = _versionNumber +"." + _buildNumber;
+            PlayerSettings.bundleVersion = MajorVersion + "." + MinorVersion + "." + BuildTag;
         }
     }
 }
