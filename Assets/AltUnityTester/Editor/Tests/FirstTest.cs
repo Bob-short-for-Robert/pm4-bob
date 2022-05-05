@@ -13,10 +13,10 @@ public class FirstTest
     public void SetUp()
     {
         altUnityDriver =new AltUnityDriver();
-        altUnityDriver.LoadScene("Main");
-        var player = altUnityDriver.FindObject(By.NAME, "Player");
+        //altUnityDriver.LoadScene("Main");
+        var player = altUnityDriver.FindObject(By.TAG, "Player");
         first = true;
-        startPos = altUnityDriver.FindObject(By.NAME, "Player").getScreenPosition();
+        startPos = player.getScreenPosition();
     }
 
     //At the end of the test closes the connection with the socket
