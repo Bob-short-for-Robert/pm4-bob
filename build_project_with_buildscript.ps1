@@ -17,5 +17,5 @@ write-host "Product Increment -> $increment"
 
 & $unityPath -executeMethod Editor.BuildScript.Windows -logFile $logpath -quit -batchmode
 
-Get-Content -Path $logpath -Wait | ? { $_ -match "Build succeeded" } | % { Write-Host "Success" }
+Get-Content -Path $logpath -Wait
 
