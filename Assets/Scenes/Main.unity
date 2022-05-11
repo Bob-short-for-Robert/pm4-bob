@@ -366,6 +366,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4835470304343589636, guid: e47c8adfca019914bb9727497da79d55, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 16.94696
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835470304343589636, guid: e47c8adfca019914bb9727497da79d55, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -20.416992
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e47c8adfca019914bb9727497da79d55, type: 3}
 --- !u!114 &1237265220 stripped
@@ -428,6 +436,7 @@ MonoBehaviour:
   prefabSpawner: {fileID: 4459202836492351147, guid: 830ec89aa8615c14fa14d3a647684710, type: 3}
   prefabEnemy: {fileID: 7648850974024084239, guid: 1639165f473dec24798cf29da4693395, type: 3}
   prefabDoor: {fileID: 3325267577347633284, guid: f4bd3e76872525240b752cc2a9674c91, type: 3}
+  playerDefaultProjectile: {fileID: 8690424263816451739, guid: c897833f4b884c34783b79cd220d786c, type: 3}
 --- !u!4 &1339930020
 Transform:
   m_ObjectHideFlags: 0

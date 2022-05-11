@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 1bbd8c5081180bf4c917841281c41d2f
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 853bb390721dda443adf91e5a1f95777
+  - enabled: 1
     path: Assets/Editor/Tests/TestScenes/CollisionTestScene.unity
     guid: 35ff563f128314b4b85a7770560e0f73
   - enabled: 1
@@ -14,10 +20,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     guid: effa7830e4ababc4c9fc425463df052b
-  - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 1bbd8c5081180bf4c917841281c41d2f
-  - enabled: 1
-    path: Assets/Scenes/Menu.unity
-    guid: 853bb390721dda443adf91e5a1f95777
   m_configObjects: {}
