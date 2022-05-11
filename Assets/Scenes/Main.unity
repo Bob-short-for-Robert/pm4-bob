@@ -239,6 +239,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5886790589937638235, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886790589937638235, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
+      propertyPath: _firePoint
+      value: 
+      objectReference: {fileID: 1455797925}
+    - target: {fileID: 5886790589937638235, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
+      propertyPath: projectile.Array.data[0]
+      value: 
+      objectReference: {fileID: 5236363670548593210, guid: 5a45bd72294ab5148b24b646eebb6cd3, type: 3}
     - target: {fileID: 5886790589937638237, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
       propertyPath: m_RootOrder
       value: 0

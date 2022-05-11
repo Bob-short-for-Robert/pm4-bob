@@ -10,6 +10,7 @@ public class HealthSystemAttribute : MonoBehaviour
     private int maxHealth;
 
     private bool isPlayer = false;
+    public GameObject effect;
 
     private void Start()
     {
@@ -48,6 +49,7 @@ public class HealthSystemAttribute : MonoBehaviour
         //DEAD
         if (health <= 0)
         {
+            
             ui.AddOnePoint();
             Destroy(gameObject);
         }

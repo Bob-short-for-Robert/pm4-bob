@@ -73,6 +73,7 @@ namespace MapTools
             _dynamicObjects.Add(dynamicObject);
         }
         
+        
         public void NewMap()
         {
             ClearMap();

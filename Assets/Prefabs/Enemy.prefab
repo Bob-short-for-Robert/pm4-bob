@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  effect: {fileID: 3573286615567245274, guid: b266c0c67346d4f43b995671a0a45b03, type: 3}
 --- !u!114 &3563328442015637741
 MonoBehaviour:
   m_ObjectHideFlags: 0

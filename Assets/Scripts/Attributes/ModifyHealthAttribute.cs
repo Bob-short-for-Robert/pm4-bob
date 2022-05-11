@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.Diagnostics;
+using UnityEngine.Serialization;
 
 [AddComponentMenu("Playground/Attributes/Modify Health")]
 public class ModifyHealthAttribute : MonoBehaviour
@@ -9,7 +10,7 @@ public class ModifyHealthAttribute : MonoBehaviour
     public int healthChange = -1;
 
     public bool damageToPlayer = true;
-
+    
     // This function gets called everytime this object collides with another
     private void OnCollisionEnter2D(Collision2D collisionData)
     {
@@ -28,7 +29,7 @@ public class ModifyHealthAttribute : MonoBehaviour
 
                 if (destroyWhenActivated)
                 {
-                    Destroy(this.gameObject);
+                    Destroy(gameObject);
                 }
             }
         }
