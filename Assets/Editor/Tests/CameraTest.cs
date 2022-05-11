@@ -6,37 +6,37 @@ using NUnit.Framework;
 
 public class CameraTest : MonoBehaviour
 {
-    private AltUnityDriver altUnityDriver = new AltUnityDriver();
-    private string SceneName = "Main";
+    private readonly AltUnityDriver _altUnityDriver = new AltUnityDriver();
+    private const string SCENE_NAME = "Main";
 
     //Before any test it connects with the socket
     [OneTimeSetUp]
     public void SetUp()
     {
-        altUnityDriver.LoadScene(SceneName);
+        _altUnityDriver.LoadScene(SCENE_NAME);
     }
 
     [SetUp]
     public void BeforeEach()
     {
-        altUnityDriver.LoadScene(SceneName);
+        _altUnityDriver.LoadScene(SCENE_NAME);
     }
 
     [Test]
     public void TestMoveCamera()
     {
-        float startX = altUnityDriver.FindObject(By.TAG, "MainCamera").getWorldPosition().x;
-        float startY = altUnityDriver.FindObject(By.TAG, "MainCamera").getWorldPosition().y;
-        altUnityDriver.PressKey(AltUnityKeyCode.D, 1F, 5F);
-        altUnityDriver.PressKey(AltUnityKeyCode.W, 1F, 5F);
-        Assert.GreaterOrEqual(altUnityDriver.FindObject(By.TAG, "MainCamera").getWorldPosition().x, startX);
-        Assert.GreaterOrEqual(altUnityDriver.FindObject(By.TAG, "MainCamera").getWorldPosition().y, startY);
+        float startX = _altUnityDriver.FindObject(By.TAG, "MainCamera").getWorldPosition().x;
+        float startY = _altUnityDriver.FindObject(By.TAG, "MainCamera").getWorldPosition().y;
+        _altUnityDriver.PressKey(AltUnityKeyCode.D, 1F, 5F);
+        _altUnityDriver.PressKey(AltUnityKeyCode.W, 1F, 5F);
+        Assert.GreaterOrEqual(_altUnityDriver.FindObject(By.TAG, "MainCamera").getWorldPosition().x, startX);
+        Assert.GreaterOrEqual(_altUnityDriver.FindObject(By.TAG, "MainCamera").getWorldPosition().y, startY);
     }
 
     //At the end of the test closes the connection with the socket
     [OneTimeTearDown]
     public void TearDown()
     {
-        altUnityDriver.Stop();
+        _altUnityDriver.Stop();
     }
 }

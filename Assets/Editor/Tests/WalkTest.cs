@@ -6,73 +6,70 @@ using UnityEngine;
 [TestFixture]
 public class WalkTest : MonoBehaviour
 {
-    private AltUnityDriver altUnityDriver = new AltUnityDriver();
+    private readonly AltUnityDriver _altUnityDriver = new AltUnityDriver();
 
-    private AltUnityObject player;
-
-    private string SceneName = "WalkTestScene";
+    private const string SCENE_NAME = "WalkTestScene";
 
     //Before any test it connects with the socket
     [OneTimeSetUp]
     public void SetUp()
     {
-        altUnityDriver.LoadScene(SceneName);
-        player = altUnityDriver.FindObject(By.NAME, "Player");
+        _altUnityDriver.LoadScene(SCENE_NAME);
     }
 
     [SetUp]
     public void BeforeEach()
     {
-        altUnityDriver.LoadScene(SceneName);
+        _altUnityDriver.LoadScene(SCENE_NAME);
     }
 
     [Test]
     public void TestWalkLeft()
     {
-        float start = altUnityDriver.FindObject(By.NAME, "Player").x;
-        altUnityDriver.PressKey(AltUnityKeyCode.A, 1F, 0.2F);
-        Assert.Less(altUnityDriver.FindObject(By.NAME, "Player").x, start);
-        altUnityDriver.PressKey(AltUnityKeyCode.D, 1F, 0.2F);
+        float start = _altUnityDriver.FindObject(By.NAME, "Player").x;
+        _altUnityDriver.PressKey(AltUnityKeyCode.A, 1F, 0.2F);
+        Assert.Less(_altUnityDriver.FindObject(By.NAME, "Player").x, start);
+        _altUnityDriver.PressKey(AltUnityKeyCode.D, 1F, 0.2F);
     }
 
     [Test]
     public void TestWalkRight()
     {
-        float start = altUnityDriver.FindObject(By.NAME, "Player").x;
+        float start = _altUnityDriver.FindObject(By.NAME, "Player").x;
 
-        altUnityDriver.PressKey(AltUnityKeyCode.D, 1F, 0.2F, true);
-        Assert.Greater(altUnityDriver.FindObject(By.NAME, "Player").x, start);
+        _altUnityDriver.PressKey(AltUnityKeyCode.D, 1F, 0.2F, true);
+        Assert.Greater(_altUnityDriver.FindObject(By.NAME, "Player").x, start);
 
         //return to default position
-        altUnityDriver.PressKey(AltUnityKeyCode.A, 1F, 0.2F, true);
+        _altUnityDriver.PressKey(AltUnityKeyCode.A, 1F, 0.2F, true);
     }
 
     [Test]
     public void TestWalkUp()
     {
-        float start = altUnityDriver.FindObject(By.NAME, "Player").y;
-        altUnityDriver.PressKey(AltUnityKeyCode.W, 1F, 0.2F, true);
-        Assert.Greater(altUnityDriver.FindObject(By.NAME, "Player").y, start);
+        float start = _altUnityDriver.FindObject(By.NAME, "Player").y;
+        _altUnityDriver.PressKey(AltUnityKeyCode.W, 1F, 0.2F, true);
+        Assert.Greater(_altUnityDriver.FindObject(By.NAME, "Player").y, start);
 
         //return to default position
-        altUnityDriver.PressKey(AltUnityKeyCode.S, 1F, 0.2F, true);
+        _altUnityDriver.PressKey(AltUnityKeyCode.S, 1F, 0.2F, true);
     }
 
     [Test]
     public void TestWalkDown()
     {
-        var start = altUnityDriver.FindObject(By.NAME, "Player").y;
-        altUnityDriver.PressKey(AltUnityKeyCode.S, 1F, 0.2F, true);
-        Assert.Less(altUnityDriver.FindObject(By.NAME, "Player").y, start);
+        var start = _altUnityDriver.FindObject(By.NAME, "Player").y;
+        _altUnityDriver.PressKey(AltUnityKeyCode.S, 1F, 0.2F, true);
+        Assert.Less(_altUnityDriver.FindObject(By.NAME, "Player").y, start);
 
         //return to default position
-        altUnityDriver.PressKey(AltUnityKeyCode.W, 1F, 0.2F, true);
+        _altUnityDriver.PressKey(AltUnityKeyCode.W, 1F, 0.2F, true);
     }
 
     //At the end of the test closes the connection with the socket
     [OneTimeTearDown]
     public void TearDown()
     {
-        altUnityDriver.Stop();
+        _altUnityDriver.Stop();
     }
 }
