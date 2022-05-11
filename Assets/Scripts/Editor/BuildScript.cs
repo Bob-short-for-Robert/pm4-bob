@@ -8,7 +8,7 @@ namespace Editor
 {
     public class BuildScript
     {
-        static void Windows()
+        public static void Windows()
         {
             
             string buildPath = Environment.GetEnvironmentVariable("BUILD_PATH");
@@ -33,12 +33,12 @@ namespace Editor
             }
         }
 
-        static string[] GetScenes()
+        private static string[] GetScenes()
         {
             return EditorBuildSettings.scenes.Where(s => s.enabled).Select(s => s.path).ToArray();
         }
 
-        static void SetVersion()
+        private static void SetVersion()
         {
             string increment = Environment.GetEnvironmentVariable("INCREMENT");
             if (string.IsNullOrEmpty(increment))
