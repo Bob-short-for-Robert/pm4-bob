@@ -17,7 +17,7 @@ public class SpawnPoint : MonoBehaviour
         _random = new Random();
     }
 
-    void Update()
+    private void Update()
     {
         if (spawnInterval == 0)
         {

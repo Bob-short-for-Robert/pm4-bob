@@ -12,7 +12,7 @@ public class UIScript : MonoBehaviour
     // If the scoreToWin is -1, the game becomes endless (no win conditions, but you could do game over)
     public int scoreToWin = 5;
 
-    public Text health, score, finalscore;
+    public Text health, score, finalscore, version;
     public Text winLabel;
     public GameObject statsPanel, gameOverPanel, winPanel;
 
@@ -27,6 +27,7 @@ public class UIScript : MonoBehaviour
         scores = 0;
         score.text = scores.ToString();
         finalscore.text = scores + "/" + scoreToWin;
+        version.text = Application.version;
     }
 
     //version of the one below with one parameter to be able to connect UnityEvents
