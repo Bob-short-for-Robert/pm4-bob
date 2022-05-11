@@ -17,6 +17,9 @@ namespace MapTools
         private Dictionary<int, GameObject> _projectileSet;
         private Dictionary<int, GameObject> _projectileGroups;
         private readonly List<GameObject> _projectile = new List<GameObject>();
+        private Dictionary<int, GameObject> _objectSet;
+        private Dictionary<int, GameObject> _objectGroups;
+        private readonly List<GameObject> _objects = new List<GameObject>();
         private List<List<bool>> _mapMatrix;
         private int _randomFillPercent = 35;
         private const string WallTag = "Wall";
@@ -94,6 +97,18 @@ namespace MapTools
             _dynamicObjects.Add(projectileObject);
         }
         
+        public void AddGameObject(GameObject gameObject, Vector3 vector, float angle)
+        {
+            var spawn = Instantiate(gameObject, gameObject.transform);
+            
+            spawn.name = $"ObjectX{vector.x}Y{vector.y}";
+            Debug.Log(spawn.layer);
+            spawn.transform.localPosition = new Vector3(vector.x, vector.y, vector.z);
+            spawn.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
+   
+            _objects.Add(spawn);
+        }
+        
         public void NewMap()
         {
             ClearMap();
@@ -120,6 +135,7 @@ namespace MapTools
             _tileGrid.ForEach(l => l.ForEach(o => Destroy(o.gameObject)));
             _tileGrid.Clear();
             _dynamicObjects.ForEach(o => Destroy(o.gameObject));
+            _objects.ForEach(o => Destroy(o.gameObject));
             _projectile.ForEach(p => Destroy(p.gameObject));
         }
 

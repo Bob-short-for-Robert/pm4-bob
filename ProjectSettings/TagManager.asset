@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Wall
   - UserInterface
+  - Environment
   layers:
   - Default
   - TransparentFX
