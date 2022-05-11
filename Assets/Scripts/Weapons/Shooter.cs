@@ -2,8 +2,14 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    public float shootInterval;
-    public GameObject[] projectile;
+    [SerializeField]
+    private float shootInterval;
+    
+    [SerializeField]
+    private GameObject[] projectile;
+
+    [SerializeField]
+    private Transform _firePoint;
 
     private float _shootTimer;
 
@@ -18,7 +24,7 @@ public class Shooter : MonoBehaviour
         {
             Vector3 position = transform.position;
             float angle = AngleBetweenTwoPoints(position, mousePos);
-            Instantiate(projectile[0], position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
+            Instantiate(projectile[0], _firePoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
         }
     }
 
