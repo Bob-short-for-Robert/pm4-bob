@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using MapTools;
 using System.Collections;
 
 [AddComponentMenu("Playground/Attributes/Health System")]
@@ -10,7 +11,6 @@ public class HealthSystemAttribute : MonoBehaviour
     private int maxHealth;
 
     private bool isPlayer = false;
-    public GameObject effect;
 
     private void Start()
     {
@@ -44,23 +44,30 @@ public class HealthSystemAttribute : MonoBehaviour
 
         health += amount;
 
-        updateUI(amount);
+        UpdateUI(amount);
 
         //DEAD
         if (health <= 0)
         {
-            
+            SpawnEffect();
             ui.AddOnePoint();
             Destroy(gameObject);
         }
     }
 
-    private void updateUI(int amount)
+    private void UpdateUI(int amount)
     {
         // Notify the UI so it will change the number in the corner
         if (ui != null && isPlayer)
         {
             ui.ChangeHealth(amount);
         }
+    }
+
+    private void SpawnEffect()
+    {
+        var map = GameObject.Find("Map");
+        var mapController = (MapGenerator) map.GetComponent(typeof(MapGenerator));
+        mapController.AddEffect(transform.position, 0);
     }
 }

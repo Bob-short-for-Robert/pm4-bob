@@ -17,6 +17,9 @@ namespace MapTools
         private Dictionary<int, GameObject> _projectileSet;
         private Dictionary<int, GameObject> _projectileGroups;
         private readonly List<GameObject> _projectile = new List<GameObject>();
+        private Dictionary<int, GameObject> _effectSet;
+        private Dictionary<int, GameObject> _effectGroups;
+        private readonly List<GameObject> _effects = new List<GameObject>();
         private List<List<bool>> _mapMatrix;
         private int _randomFillPercent = 35;
         private const string WallTag = "Wall";
@@ -66,6 +69,12 @@ namespace MapTools
         //Projectiles
         [SerializeField]
         private GameObject playerDefaultProjectile;
+        
+        //Effects
+        [SerializeField]
+        private GameObject effectGreenCircle;
+        [SerializeField]
+        private GameObject effectRedCircle;
 
         public void AddEnemy(int x, int y)
         {
@@ -91,7 +100,23 @@ namespace MapTools
             projectileObject.transform.localPosition = new Vector3(vector.x, vector.y, vector.z);
             projectileObject.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
    
-            _dynamicObjects.Add(projectileObject);
+            _projectile.Add(projectileObject);
+        }
+        
+        public void AddEffect(Vector3 vector, int effect)
+        {
+            if (effect >= _effectGroups.Count || effect >= _effectSet.Count)
+            {
+                return;
+            }
+            var effectPrefab = _effectSet[effect];
+            var effectGroup = _effectGroups[effect];
+            
+            var effectObject = Instantiate(effectPrefab, effectGroup.transform);
+   
+            effectObject.name = $"EnemyX{vector.x}Y{vector.y}";
+            effectObject.transform.localPosition = new Vector3(vector.x, vector.y, vector.z);
+            _effects.Add(effectObject);
         }
         
         public void NewMap()
@@ -111,6 +136,8 @@ namespace MapTools
             DynamicObjectsGroups();
             ProjectileSet();
             ProjectileGroups();
+            EffectSet();
+            EffectGroups();
             GenerateMap();
             SetMapObjects();
         }
@@ -121,6 +148,7 @@ namespace MapTools
             _tileGrid.Clear();
             _dynamicObjects.ForEach(o => Destroy(o.gameObject));
             _projectile.ForEach(p => Destroy(p.gameObject));
+            _effects.ForEach(e => Destroy(e.gameObject));
         }
 
         private void SetMapValue()
@@ -207,6 +235,31 @@ namespace MapTools
                     }
                 };
                 _projectileGroups.Add(keyValuePair.Key, projectile);
+            }
+        }
+        
+        private void EffectSet()
+        {
+            _effectSet = new Dictionary<int, GameObject>()
+            {
+                {0, effectGreenCircle},
+            };
+        }
+
+        private void EffectGroups()
+        {
+            _effectGroups = new Dictionary<int, GameObject>();
+            foreach (var keyValuePair in _effectSet)
+            {
+                var effect = new GameObject(keyValuePair.Value.name)
+                {
+                    transform =
+                    {
+                        parent = gameObject.transform,
+                        localPosition = new Vector3(0, 0, 0)
+                    }
+                };
+                _effectGroups.Add(keyValuePair.Key, effect);
             }
         }
 

@@ -7,9 +7,6 @@ public class Shooter : MonoBehaviour
     private float shootInterval;
     
     [SerializeField]
-    private GameObject[] projectile;
-
-    [SerializeField]
     private Transform _firePoint;
 
     private float _shootTimer;
@@ -23,7 +20,7 @@ public class Shooter : MonoBehaviour
     {
         if (!CanShoot()) return;
         
-        var position = transform.position;
+        var position = _firePoint.position;
         var angle = AngleBetweenTwoPoints(position, mousePos);
         var map = GameObject.Find("Map");
         var mapController = (MapGenerator) map.GetComponent(typeof(MapGenerator));

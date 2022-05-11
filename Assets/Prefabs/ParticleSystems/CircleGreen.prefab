@@ -105,7 +105,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -221,8 +221,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.30414417, g: 1, b: 0.051886797, a: 1}
-      maxColor: {r: 0.12653734, g: 0.5377358, b: 0.083704166, a: 1}
+      minColor: {r: 0.117919706, g: 0.4056604, b: 0, a: 1}
+      maxColor: {r: 0.5784779, g: 0.8962264, b: 0.36779106, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
