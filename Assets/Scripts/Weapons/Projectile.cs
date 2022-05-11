@@ -1,4 +1,5 @@
 using UnityEngine;
+using MapTools;
 
 public class Projectile : MonoBehaviour
 {
@@ -6,18 +7,19 @@ public class Projectile : MonoBehaviour
     public float lifeTime = 2.0f;
     private Rigidbody2D _mRigidbody;
 
-    void Start()
+    private void Start()
     {
         _mRigidbody = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    private void Update()
     {
         _mRigidbody.velocity = (Vector2) (transform.rotation * Vector3.left) * speed;
 
         lifeTime -= Time.deltaTime;
         if (lifeTime < 0)
         {
+            SpawnEffect(4);
             Destroy(gameObject);
         }
     }
@@ -26,7 +28,21 @@ public class Projectile : MonoBehaviour
     {
         if (col.CompareTag("Wall"))
         {
+            SpawnEffect(2);
             Destroy(gameObject);
         }
+        if (col.CompareTag("Enemy"))
+        {
+            SpawnEffect(3);
+            Destroy(gameObject);
+        }
+    }
+    
+    private void SpawnEffect(int effect)
+    {
+        var map = GameObject.Find("Map");
+        var mapController = (MapGenerator) map.GetComponent(typeof(MapGenerator));
+        var transform1 = transform;
+        mapController.AddEffect(transform1.position,effect, transform1.rotation);
     }
 }

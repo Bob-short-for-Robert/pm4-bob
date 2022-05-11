@@ -57,7 +57,6 @@ namespace MapTools
         [SerializeField]
         private GameObject prefabFloor;
         
-        
         //Objects
         [SerializeField]
         private GameObject prefabSpawner;
@@ -75,6 +74,12 @@ namespace MapTools
         private GameObject effectGreenCircle;
         [SerializeField]
         private GameObject effectRedCircle;
+        [SerializeField]
+        private GameObject effectSphereBrown;
+        [SerializeField]
+        private GameObject effectSphereFire;
+        [SerializeField]
+        private GameObject effectRedFire;
 
         public void AddEnemy(int x, int y)
         {
@@ -89,6 +94,11 @@ namespace MapTools
             _dynamicObjects.Add(dynamicObject);
         }
         
+        /// <summary>
+        /// Adds e Projectile to the Map
+        /// </summary>
+        /// <param name="vector">Start Position of the Projectile</param> 
+        /// <param name="angle">Flight Ange of the Projectile</param>
         public void AddProjectile(Vector3 vector, float angle)
         {
             var projectilePrefab = _projectileSet[0];
@@ -97,13 +107,18 @@ namespace MapTools
             var projectileObject = Instantiate(projectilePrefab, projectileGroup.transform);
    
             projectileObject.name = $"EnemyX{vector.x}Y{vector.y}";
-            projectileObject.transform.localPosition = new Vector3(vector.x, vector.y, vector.z);
+            projectileObject.transform.localPosition = vector;
             projectileObject.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
    
             _projectile.Add(projectileObject);
         }
         
-        public void AddEffect(Vector3 vector, int effect)
+        /// <summary>
+        /// Adds a Particle Effect to the map
+        /// </summary>
+        /// <param name="vector">Start Position of the Effect</param>
+        /// <param name="effect">Effect Type from the list</param>
+        public void AddEffect(Vector3 vector, int effect, Quaternion rotation = new Quaternion())
         {
             if (effect >= _effectGroups.Count || effect >= _effectSet.Count)
             {
@@ -115,7 +130,11 @@ namespace MapTools
             var effectObject = Instantiate(effectPrefab, effectGroup.transform);
    
             effectObject.name = $"EnemyX{vector.x}Y{vector.y}";
-            effectObject.transform.localPosition = new Vector3(vector.x, vector.y, vector.z);
+            effectObject.transform.localPosition = vector;
+            if (!effectPrefab.CompareTag("Circle"))
+            { 
+                effectObject.transform.rotation = rotation;  
+            }
             _effects.Add(effectObject);
         }
         
@@ -243,6 +262,10 @@ namespace MapTools
             _effectSet = new Dictionary<int, GameObject>()
             {
                 {0, effectGreenCircle},
+                {1, effectRedCircle},
+                {2, effectSphereBrown},
+                {3, effectSphereFire},
+                {4, effectRedFire}
             };
         }
 

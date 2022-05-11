@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6229826228597061929}
   - component: {fileID: 8025955696935101075}
   m_Layer: 0
-  m_Name: CircleGreen
+  m_Name: CircleFire
   m_TagString: Circle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,8 +221,8 @@ ParticleSystem:
     startColor:
       serializedVersion: 2
       minMaxState: 2
-      minColor: {r: 0.117919706, g: 0.4056604, b: 0, a: 1}
-      maxColor: {r: 0.5784779, g: 0.8962264, b: 0.36779106, a: 1}
+      minColor: {r: 0.7924528, g: 0.12816374, b: 0.018689923, a: 1}
+      maxColor: {r: 0.9245283, g: 0.7159205, b: 0.14391243, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -602,7 +602,7 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 1000
     size3D: 0
-    rotation3D: 0
+    rotation3D: 1
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
@@ -746,7 +746,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.5
+      value: 0.05
       mode: 0
       spread: 0
       speed:

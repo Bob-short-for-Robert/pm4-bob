@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEngine.Diagnostics;
-using UnityEngine.Serialization;
 
 [AddComponentMenu("Playground/Attributes/Modify Health")]
 public class ModifyHealthAttribute : MonoBehaviour

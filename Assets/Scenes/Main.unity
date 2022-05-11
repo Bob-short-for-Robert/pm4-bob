@@ -382,6 +382,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4835470304343589636, guid: e47c8adfca019914bb9727497da79d55, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 16.94696
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835470304343589636, guid: e47c8adfca019914bb9727497da79d55, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -20.416992
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e47c8adfca019914bb9727497da79d55, type: 3}
 --- !u!114 &1237265220 stripped
@@ -444,6 +452,10 @@ MonoBehaviour:
   prefabSpawner: {fileID: 4459202836492351147, guid: 830ec89aa8615c14fa14d3a647684710, type: 3}
   prefabEnemy: {fileID: 7648850974024084239, guid: 1639165f473dec24798cf29da4693395, type: 3}
   prefabDoor: {fileID: 3325267577347633284, guid: f4bd3e76872525240b752cc2a9674c91, type: 3}
+  playerDefaultProjectile: {fileID: 5236363670548593210, guid: 5a45bd72294ab5148b24b646eebb6cd3, type: 3}
+  effectGreenCircle: {fileID: 3573286615567245274, guid: b266c0c67346d4f43b995671a0a45b03, type: 3}
+  effectRedCircle: {fileID: 3573286615567245274, guid: abc624b67692f324c9094fcd886450f8, type: 3}
+  effectSphereBrown: {fileID: 3573286615567245274, guid: c3ce656c1d57d9343ae8180817bba087, type: 3}
 --- !u!4 &1339930020
 Transform:
   m_ObjectHideFlags: 0
