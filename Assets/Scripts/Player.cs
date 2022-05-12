@@ -8,8 +8,8 @@ using static System.Console;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour
 {
-    public float playerSpeed = 2.0f;  
-    
+    public float playerSpeed = 2.0f;
+
     private BoxCollider2D boxCollider;
     private RaycastHit2D raycasthit;
     private Vector3 moveDelta;
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
             Math.Abs(moveDelta.x * Time.deltaTime), collisionMasks);
         if (raycasthit.collider == null)
         {
-            transform.Translate(moveDelta.x * Time.deltaTime *playerSpeed, 0, 0);
+            transform.Translate(moveDelta.x * Time.deltaTime * playerSpeed, 0, 0);
         }
     }
 }

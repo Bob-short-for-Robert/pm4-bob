@@ -13,7 +13,7 @@ public class FollowPlayer : MonoBehaviour
 
     void Update()
     {
-        transform.position =
-            Vector3.MoveTowards(transform.position, _player.transform.position, speed * Time.deltaTime);
+        if (_player == null) return;
+        transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, speed * Time.deltaTime);
     }
 }
