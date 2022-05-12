@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -138,8 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 0.1
-  projectile:
-  - {fileID: 8690424263816451739, guid: c897833f4b884c34783b79cd220d786c, type: 3}
 --- !u!114 &5886790589937638239
 MonoBehaviour:
   m_ObjectHideFlags: 0
