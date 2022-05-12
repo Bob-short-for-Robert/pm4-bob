@@ -8,8 +8,7 @@ namespace MapTools
         {
             if (col.CompareTag("Player"))
             {
-                var map = GameObject.Find("Map");
-                var mapController = (MapGenerator) map.GetComponent(typeof(MapGenerator));
+                var mapController = (MapController) GameObject.Find("MapController").GetComponent(typeof(MapController));
                 mapController.NewMap();
             }
         }

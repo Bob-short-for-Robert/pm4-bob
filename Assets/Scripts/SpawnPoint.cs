@@ -36,8 +36,7 @@ public class SpawnPoint : MonoBehaviour
     private void SpawnEnemy()
     {
         Vector3 position = transform.position;
-        var map = GameObject.Find("Map");
-        var mapController = (MapGenerator) map.GetComponent(typeof(MapGenerator));
-        mapController.AddEnemy((int)position.x, (int)position.y);
+        var mapController = (MapController) GameObject.Find("MapController").GetComponent(typeof(MapController));
+        mapController.AddEnemy(enemies[0], (int)position.x, (int)position.y);
     }
 }

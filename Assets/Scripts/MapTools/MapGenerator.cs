@@ -11,116 +11,55 @@ namespace MapTools
         private Dictionary<int, GameObject> _tileSet;
         private Dictionary<int, GameObject> _tileGroups;
         private readonly List<List<GameObject>> _tileGrid = new List<List<GameObject>>();
-        private Dictionary<int, GameObject> _dynamicObjectsSet;
-        private Dictionary<int, GameObject> _dynamicObjectsGroups;
-        private readonly List<GameObject> _dynamicObjects = new List<GameObject>();
-        private Dictionary<int, GameObject> _projectileSet;
-        private Dictionary<int, GameObject> _projectileGroups;
-        private readonly List<GameObject> _projectile = new List<GameObject>();
+
         private List<List<bool>> _mapMatrix;
         private int _randomFillPercent = 35;
         private const string WallTag = "Wall";
 
         //config
-        [SerializeField]
-        [Range(40,50)]
-        private int mapMinSize = 45;
-        [Range(10,60)]
-        [SerializeField]
-        private int randomMapSize = 40;
-        [SerializeField]
-        [Range(10,20)]
-        private int minFillPercent = 12;
-        [SerializeField]
-        [Range(20,40)]
-        private int randomFillPercent = 30;
-        [SerializeField]
-        [Range(50, 500)]
-        private int minFloorTiles = 200;
-        [SerializeField]
-        [Range(1,10)]
-        private int  spawnerMinCount = 2;
-        [SerializeField]
-        [Range(0, 10)]
-        private int spawnerRandomCount = 3;
+        [SerializeField] [Range(40, 50)] private int mapMinSize = 45;
+        [Range(10, 60)] [SerializeField] private int randomMapSize = 40;
+        [SerializeField] [Range(10, 20)] private int minFillPercent = 12;
+        [SerializeField] [Range(20, 40)] private int randomFillPercent = 30;
+        [SerializeField] [Range(50, 500)] private int minFloorTiles = 200;
+        [SerializeField] [Range(1, 10)] private int spawnerMinCount = 2;
+        [SerializeField] [Range(0, 10)] private int spawnerRandomCount = 3;
 
         //Prefabs
-        [SerializeField]
-        private GameObject prefabWallBlack;
-        [SerializeField]
-        private GameObject prefabWallBlackCorner;
-        [SerializeField]
-        private GameObject prefabWallBlackDtr;
-        [SerializeField]
-        private GameObject prefabFloor;
-        
-        
-        //Objects
-        [SerializeField]
-        private GameObject prefabSpawner;
-        [SerializeField]
-        private GameObject prefabEnemy;
-        [SerializeField]
-        private GameObject prefabDoor;
-        
-        //Projectiles
-        [SerializeField]
-        private GameObject playerDefaultProjectile;
+        [SerializeField] private GameObject prefabWallBlack;
+        [SerializeField] private GameObject prefabWallBlackCorner;
+        [SerializeField] private GameObject prefabWallBlackDtr;
+        [SerializeField] private GameObject prefabFloor;
 
-        public void AddEnemy(int x, int y)
+
+        //Objects
+        [SerializeField] private GameObject prefabSpawner;
+        [SerializeField] private GameObject prefabDoor;
+
+        public void AddEnemy(GameObject enemy, int x, int y)
         {
-            var dynamicPrefab = _dynamicObjectsSet[1];
-            var dynamicGroup = _dynamicObjectsGroups[1];
-            
-            var dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
-   
+            var dynamicObject = Instantiate(enemy, enemy.transform);
+
             dynamicObject.name = $"EnemyX{x}Y{y}";
             dynamicObject.transform.localPosition = new Vector3(x, y, 0);
-   
-            _dynamicObjects.Add(dynamicObject);
         }
-        
-        public void AddProjectile(Vector3 vector, float angle)
+
+        public void AddProjectile(GameObject projectile, Vector3 vector, float angle)
         {
-            var projectilePrefab = _projectileSet[0];
-            var projectileGroup = _projectileGroups[0];
-            
-            var projectileObject = Instantiate(projectilePrefab, projectileGroup.transform);
-   
-            projectileObject.name = $"EnemyX{vector.x}Y{vector.y}";
+            var projectileObject = Instantiate(projectile, projectile.transform);
+
+            projectileObject.name = $"ProjectileX{vector.x}Y{vector.y}";
             projectileObject.transform.localPosition = new Vector3(vector.x, vector.y, vector.z);
             projectileObject.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-   
-            _dynamicObjects.Add(projectileObject);
         }
-        
-        public void NewMap()
-        {
-            ClearMap();
-            SetMapValue();
-            GenerateMap();
-            SetMapObjects();
-        }
-        
-        private void Start()
+
+        public void Start()
         {
             SetMapValue();
             CreateTileSet();
             CreateTileGroups();
-            DynamicObjectsSet();
-            DynamicObjectsGroups();
-            ProjectileSet();
-            ProjectileGroups();
             GenerateMap();
             SetMapObjects();
-        }
-        
-        private void ClearMap()
-        {
-            _tileGrid.ForEach(l => l.ForEach(o => Destroy(o.gameObject)));
-            _tileGrid.Clear();
-            _dynamicObjects.ForEach(o => Destroy(o.gameObject));
-            _projectile.ForEach(p => Destroy(p.gameObject));
         }
 
         private void SetMapValue()
@@ -158,57 +97,6 @@ namespace MapTools
             }
         }
 
-        private void DynamicObjectsSet()
-        {
-            _dynamicObjectsSet = new Dictionary<int, GameObject>()
-                {
-                    {0, prefabSpawner},
-                    {1, prefabEnemy}, 
-                    {2, prefabDoor}
-                };
-        }
-
-        private void DynamicObjectsGroups()
-        {
-            _dynamicObjectsGroups = new Dictionary<int, GameObject>();
-            foreach (var keyValuePair in _dynamicObjectsSet)
-            {
-                var dynamicObject = new GameObject(keyValuePair.Value.name)
-                {
-                    transform =
-                    {
-                        parent = gameObject.transform,
-                        localPosition = new Vector3(0, 0, 0)
-                    }
-                };
-                _dynamicObjectsGroups.Add(keyValuePair.Key, dynamicObject);
-            }
-        }
-        
-        private void ProjectileSet()
-        {
-            _projectileSet = new Dictionary<int, GameObject>()
-            {
-                {0, playerDefaultProjectile},
-            };
-        }
-
-        private void ProjectileGroups()
-        {
-            _projectileGroups = new Dictionary<int, GameObject>();
-            foreach (var keyValuePair in _projectileSet)
-            {
-                var projectile = new GameObject(keyValuePair.Value.name)
-                {
-                    transform =
-                    {
-                        parent = gameObject.transform,
-                        localPosition = new Vector3(0, 0, 0)
-                    }
-                };
-                _projectileGroups.Add(keyValuePair.Key, projectile);
-            }
-        }
 
         private void GenerateMap()
         {
@@ -218,7 +106,7 @@ namespace MapTools
             {
                 _mapMatrix = mapMatrixGenerator.GetMapMatrix((_mapSize.x, _mapSize.y), _randomFillPercent);
             }
-            
+
 
             for (int x = 0; x < _mapSize.x; x++)
             {
@@ -299,7 +187,7 @@ namespace MapTools
             _tileGrid[coordinate.x].Add(tile);
 
             tilePrefab.transform.eulerAngles = new Vector3(0, 0, 0);
-            
+
             void Rotate(int degree) => tilePrefab.transform.eulerAngles = Vector3.forward * degree;
         }
 
@@ -307,40 +195,30 @@ namespace MapTools
         {
             var spawn = new SpawnLocation(_mapMatrix);
             GameObject dynamicObject;
-            
+
             //spawn Player
             var playerSpawnLocation = spawn.PlayerSpawn();
 
             var player = GameObject.Find("Player");
             player.name = "Player";
             player.transform.localPosition = new Vector3(playerSpawnLocation.x, playerSpawnLocation.y);
-            
-            //spawn SpawnerPoint
-            var dynamicPrefab = _dynamicObjectsSet[0];
-            var dynamicGroup = _dynamicObjectsGroups[0];
 
+            //spawn SpawnerPoint
             for (var i = 0; i < (int) Random.value * spawnerMinCount + spawnerRandomCount; i++)
             {
-               var spawnerLocation = spawn.SpawnerLocation();
-                dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
-   
-               dynamicObject.name = $"SpawnerPointX{spawnerLocation.x}Y{spawnerLocation.y}";
-               dynamicObject.transform.localPosition = new Vector3(spawnerLocation.x, spawnerLocation.y, 0);
-   
-               _dynamicObjects.Add(dynamicObject);
+                var spawnerLocation = spawn.SpawnerLocation();
+                dynamicObject = Instantiate(prefabSpawner, prefabSpawner.transform);
+
+                dynamicObject.name = $"SpawnerPointX{spawnerLocation.x}Y{spawnerLocation.y}";
+                dynamicObject.transform.localPosition = new Vector3(spawnerLocation.x, spawnerLocation.y, 0);
             }
-            
+
             //spawn Door
-             dynamicPrefab = _dynamicObjectsSet[2];
-             dynamicGroup = _dynamicObjectsGroups[2];
-             var doorLocation = spawn.DoorLocation();
-             dynamicObject = Instantiate(dynamicPrefab, dynamicGroup.transform);
-   
-             dynamicObject.name = $"DoorX{doorLocation.x}Y{doorLocation.y}";
-             dynamicObject.transform.localPosition = new Vector3(doorLocation.x, doorLocation.y, 0);
-            // dynamicObject.tag = DoorTag;
-   
-             _dynamicObjects.Add(dynamicObject);
+            var doorLocation = spawn.DoorLocation();
+            dynamicObject = Instantiate(prefabDoor, prefabDoor.transform);
+
+            dynamicObject.name = $"DoorX{doorLocation.x}Y{doorLocation.y}";
+            dynamicObject.transform.localPosition = new Vector3(doorLocation.x, doorLocation.y, 0);
         }
 
         private WallVersions GetWallVersion((int x, int y) coordinate)
@@ -374,7 +252,7 @@ namespace MapTools
                 return WallVersions.CornerBR;
             }
 
-            if (SurroundingFits(new [] {2, 6}, new[] {1, 4, 7, 8, 9}))
+            if (SurroundingFits(new[] {2, 6}, new[] {1, 4, 7, 8, 9}))
             {
                 return WallVersions.CornerBL;
             }
@@ -444,11 +322,12 @@ namespace MapTools
 
             bool SurroundingFits(int[] walls, int[] floors)
             {
-                if (walls.Select(GetPrefix).Any(prefix => !_mapMatrix[coordinate.x + prefix.x][coordinate.y + prefix.y]))
+                if (walls.Select(GetPrefix)
+                    .Any(prefix => !_mapMatrix[coordinate.x + prefix.x][coordinate.y + prefix.y]))
                 {
                     return false;
                 }
-                
+
                 foreach (int field in floors)
                 {
                     var (x, y) = GetPrefix(field);
@@ -457,6 +336,7 @@ namespace MapTools
                         return false;
                     }
                 }
+
                 return true;
             }
 
@@ -492,11 +372,6 @@ namespace MapTools
             DiagonalTR,
             DiagonalBL,
             DiagonalBR
-        }
-
-        ~MapGenerator()
-        {
-            ClearMap();
         }
     }
 }
