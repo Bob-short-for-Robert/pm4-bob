@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5886790589937638232}
   - component: {fileID: 5886790589937638235}
   - component: {fileID: 5886790589937638239}
+  - component: {fileID: 3921030274746016679}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -138,8 +139,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 0.1
-  projectile:
-  - {fileID: 8690424263816451739, guid: c897833f4b884c34783b79cd220d786c, type: 3}
 --- !u!114 &5886790589937638239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,3 +152,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+--- !u!50 &3921030274746016679
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5886790589937638233}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
