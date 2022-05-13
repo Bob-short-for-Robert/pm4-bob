@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8928492523486185801}
   - component: {fileID: -8635214437775112251}
   - component: {fileID: 89951675472564085}
-  - component: {fileID: 4358311476570839382}
   - component: {fileID: 7286542905016418618}
+  - component: {fileID: -663605989538683820}
   m_Layer: 6
   m_Name: Tower
   m_TagString: Tower
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f556b7686e447fb4a971d9e98c8dc233, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b949198ce0707cc49ba371136d8ddf34, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +103,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.39, y: 1.13}
+    oldSize: {x: 2.1333334, y: 2.1333334}
     newSize: {x: 1.39, y: 1.13}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -125,21 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
---- !u!114 &4358311476570839382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5815488391459319758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 628b6a31d98f46bea2c5741dd55189a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyWhenActivated: 0
-  healthChange: -1
-  damageToPlayer: 0
 --- !u!114 &7286542905016418618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,3 +140,17 @@ MonoBehaviour:
   shootInterval: 1
   projectile:
   - {fileID: 8690424263816451739, guid: c897833f4b884c34783b79cd220d786c, type: 3}
+--- !u!114 &-663605989538683820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5815488391459319758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df6435868ed2b124a8e6dab83f88f925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootsPlayer: 0
+  shooter: {fileID: 7286542905016418618}

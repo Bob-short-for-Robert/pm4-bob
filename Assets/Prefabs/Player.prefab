@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5886790589937638232}
   - component: {fileID: 5886790589937638235}
   - component: {fileID: 5886790589937638239}
+  - component: {fileID: 5663648274445039718}
   - component: {fileID: 3921030274746016679}
   m_Layer: 7
   m_Name: Player
@@ -104,7 +105,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 2.1333334, y: 2.1333334}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -152,6 +153,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+--- !u!114 &5663648274445039718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5886790589937638233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269b2f10b25be64f9d80a4b88101829, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objToSpawn: {fileID: 225256020774590156, guid: 36e0d74b260f95242b447c768bb7f43f, type: 3}
 --- !u!50 &3921030274746016679
 Rigidbody2D:
   serializedVersion: 4

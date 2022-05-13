@@ -7,8 +7,8 @@ public class SpawnTower : MonoBehaviour
 {
     
     public GameObject objToSpawn;
-    public Transform objSpawnPlace;
     
+    private Transform objSpawnPlace;
     private float myTime = 0F;
     private float nextPlacement = 1F;
     private float placementRate = 1F;
@@ -16,7 +16,7 @@ public class SpawnTower : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        objSpawnPlace = GetComponent<Transform>();
     }
 
     private void FixedUpdate()
@@ -28,6 +28,7 @@ public class SpawnTower : MonoBehaviour
         {
             nextPlacement = myTime + placementRate;
             Instantiate(objToSpawn, objSpawnPlace.position, objSpawnPlace.rotation);
+            Debug.Log("tower placed");
             nextPlacement -= myTime;
             myTime = 0F;
         }
