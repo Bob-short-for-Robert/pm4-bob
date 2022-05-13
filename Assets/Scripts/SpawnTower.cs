@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using NLog.Fluent;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -17,7 +18,7 @@ public class SpawnTower : MonoBehaviour
     private float myTime = 0F;
     private float nextPlacement;
     private Vector3 displacement;
-    
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -53,7 +54,7 @@ public class SpawnTower : MonoBehaviour
 
     private bool AllowedToSpawn(Vector3 position)
     {
-        return true;
+        return !Physics.CheckSphere(position, objToSpawn.transform.lossyScale.magnitude);
     }
     
     private bool CheckResources()
