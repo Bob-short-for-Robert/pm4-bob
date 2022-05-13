@@ -100,11 +100,7 @@ jobs:
             Library-build-
             Library-
 
-<<<<<<< HEAD
-      - uses: game-ci/unity-builder@v2.0.4
-=======
       - uses: game-ci/unity-builder@v2
->>>>>>> origin/build_game_ci
         with:
           targetPlatform: WebGL
 
@@ -148,7 +144,7 @@ jobs:
             Library-build-
             Library-
 
-      - uses: game-ci/unity-builder@v2.0.4
+      - uses: game-ci/unity-builder@v2
         with:
           targetPlatform: StandaloneWindows64
 
@@ -192,11 +188,7 @@ jobs:
             Library-build-
             Library-
 
-<<<<<<< HEAD
-      - uses: game-ci/unity-builder@v2.0.4
-=======
       - uses: game-ci/unity-builder@v2
->>>>>>> origin/build_game_ci
         with:
           targetPlatform: Android
 
