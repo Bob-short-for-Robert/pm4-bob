@@ -10,10 +10,7 @@ public class Rotate : MonoBehaviour
     {
         var degree = DegreeBetweenTwoPoints(transform.position, towards.position);
         var to = new Vector3(0, 0, degree);
-        if (degree < 180)
-        {
-            transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, Time.deltaTime);
-        }
+        transform.rotation = Quaternion.Euler(to);
     }
     
     

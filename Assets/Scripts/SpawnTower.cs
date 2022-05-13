@@ -30,7 +30,7 @@ public class SpawnTower : MonoBehaviour
         //TODO make this only available after selecting correct Tower
         myTime += Time.deltaTime;
         // waits for 1 Second before allowing to spawn another Tower
-        if (Input.GetKey(KeyCode.E) && CheckResources() && AllowedToSpawn() && myTime > nextPlacement)
+        if (Input.GetKey(KeyCode.E) && CheckResources() && AllowedToSpawn(objSpawnPlace.position + displacement) && myTime > nextPlacement)
         {
             SetDisplacement();
             nextPlacement = myTime + placementRate;
@@ -51,9 +51,8 @@ public class SpawnTower : MonoBehaviour
         }
     }
 
-    private bool AllowedToSpawn()
+    private bool AllowedToSpawn(Vector3 position)
     {
-        // TODO add check for wall and other obj which might block the spawning of the obj
         return true;
     }
     

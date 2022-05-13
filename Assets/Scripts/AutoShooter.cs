@@ -19,7 +19,10 @@ public class AutoShooter : MonoBehaviour
 
         if (toBeShot != null)
         {
-            toBeRotated.RotateTowards(toBeShot.transform);
+            if (gameObject.CompareTag("Tower"))
+            {
+                toBeRotated.RotateTowards(toBeShot.transform);
+            }
             shooter.Shoot(toBeShot.transform.position);
         }
     }
