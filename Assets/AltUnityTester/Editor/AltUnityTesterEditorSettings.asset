@@ -22,13 +22,13 @@ MonoBehaviour:
     _status: 0
     _isSuite: 1
     _parentName: 
-    _testCaseCount: 8
+    _testCaseCount: 16
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 8
+    _testSelectedCount: 16
   - _selected: 1
     _testName: AltUnityTester
     _status: 0
@@ -67,7 +67,7 @@ MonoBehaviour:
     _testSelectedCount: 4
   - _selected: 1
     _testName: AltUnityTester.Editor.Tests.MenuTest
-    _status: 1
+    _status: 0
     _isSuite: 1
     _parentName: AltUnityTester.Editor.Tests
     _testCaseCount: 4
@@ -79,55 +79,79 @@ MonoBehaviour:
     _testSelectedCount: 4
   - _selected: 1
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestControls
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: AltUnityTester.Editor.Tests.MenuTest
     _testCaseCount: 1
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0.3885745
-    path: Assets/AltUnityTester/Editor/Tests/MenuTest.cs
+    _testDuration: 0
+    path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
   - _selected: 1
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestSettings
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: AltUnityTester.Editor.Tests.MenuTest
     _testCaseCount: 1
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0.2072628
-    path: Assets/AltUnityTester/Editor/Tests/MenuTest.cs
+    _testDuration: 0
+    path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
   - _selected: 1
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestStart
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: AltUnityTester.Editor.Tests.MenuTest
     _testCaseCount: 1
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0.2899182
-    path: Assets/AltUnityTester/Editor/Tests/MenuTest.cs
+    _testDuration: 0
+    path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
   - _selected: 1
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestStatistics
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: AltUnityTester.Editor.Tests.MenuTest
     _testCaseCount: 1
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 1.0891194
-    path: Assets/AltUnityTester/Editor/Tests/MenuTest.cs
+    _testDuration: 0
+    path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
   - _selected: 1
-    _testName: FirstTest
-    _status: -1
+    _testName: CameraTest
+    _status: 0
+    _isSuite: 1
+    _parentName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 1
+  - _selected: 1
+    _testName: CameraTest.TestMoveCamera
+    _status: 0
+    _isSuite: 0
+    _parentName: CameraTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/CameraTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: CollisionTest
+    _status: 0
     _isSuite: 1
     _parentName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 4
@@ -138,56 +162,160 @@ MonoBehaviour:
     path: 
     _testSelectedCount: 4
   - _selected: 1
-    _testName: FirstTest.TestA
-    _status: -1
+    _testName: CollisionTest.TestCollisionDown
+    _status: 0
     _isSuite: 0
-    _parentName: FirstTest
+    _parentName: CollisionTest
     _testCaseCount: 1
     _foldOut: 0
-    _testResultMessage: 'OneTimeSetUp: Altom.AltUnityDriver.NotFoundException : Object
-      //*[@tag=Player] not found'
+    _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
-    path: Assets/AltUnityTester/Editor/Tests/FirstTest.cs
+    path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
   - _selected: 1
-    _testName: FirstTest.TestD
-    _status: -1
+    _testName: CollisionTest.TestCollisionLeft
+    _status: 0
     _isSuite: 0
-    _parentName: FirstTest
+    _parentName: CollisionTest
     _testCaseCount: 1
     _foldOut: 0
-    _testResultMessage: 'OneTimeSetUp: Altom.AltUnityDriver.NotFoundException : Object
-      //*[@tag=Player] not found'
+    _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
-    path: Assets/AltUnityTester/Editor/Tests/FirstTest.cs
+    path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
   - _selected: 1
-    _testName: FirstTest.TestS
-    _status: -1
+    _testName: CollisionTest.TestCollisionRight
+    _status: 0
     _isSuite: 0
-    _parentName: FirstTest
+    _parentName: CollisionTest
     _testCaseCount: 1
     _foldOut: 0
-    _testResultMessage: 'OneTimeSetUp: Altom.AltUnityDriver.NotFoundException : Object
-      //*[@tag=Player] not found'
+    _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
-    path: Assets/AltUnityTester/Editor/Tests/FirstTest.cs
+    path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
   - _selected: 1
-    _testName: FirstTest.TestW
-    _status: -1
+    _testName: CollisionTest.TestCollisionUp
+    _status: 0
     _isSuite: 0
-    _parentName: FirstTest
+    _parentName: CollisionTest
     _testCaseCount: 1
     _foldOut: 0
-    _testResultMessage: 'OneTimeSetUp: Altom.AltUnityDriver.NotFoundException : Object
-      //*[@tag=Player] not found'
+    _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
-    path: Assets/AltUnityTester/Editor/Tests/FirstTest.cs
+    path: Assets/Editor/Tests/CollisionTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: ShooterTest
+    _status: 0
+    _isSuite: 1
+    _parentName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _testCaseCount: 3
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 3
+  - _selected: 1
+    _testName: ShooterTest.TestMoveCrosshair
+    _status: 0
+    _isSuite: 0
+    _parentName: ShooterTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/ShooterTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: ShooterTest.TestShootEnemy
+    _status: 0
+    _isSuite: 0
+    _parentName: ShooterTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/ShooterTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: ShooterTest.TestShootWall
+    _status: 0
+    _isSuite: 0
+    _parentName: ShooterTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/ShooterTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: WalkTest
+    _status: 0
+    _isSuite: 1
+    _parentName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _testCaseCount: 4
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 4
+  - _selected: 1
+    _testName: WalkTest.TestWalkDown
+    _status: 0
+    _isSuite: 0
+    _parentName: WalkTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: WalkTest.TestWalkLeft
+    _status: 0
+    _isSuite: 0
+    _parentName: WalkTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: WalkTest.TestWalkRight
+    _status: 0
+    _isSuite: 0
+    _parentName: WalkTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: WalkTest.TestWalkUp
+    _status: 0
+    _isSuite: 0
+    _parentName: WalkTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
   - _selected: 1
     _testName: E:/Projects/bob/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
@@ -218,11 +346,20 @@ MonoBehaviour:
     _path: Assets/Scenes/Menu.unity
     _buildIndex: 0
   - _toBeBuilt: 1
-    _path: 
+    _path: Assets/Scenes/Main.unity
     _buildIndex: 1
+  - _toBeBuilt: 1
+    _path: Assets/Editor/Tests/TestScenes/CollisionTestScene.unity
+    _buildIndex: 2
+  - _toBeBuilt: 1
+    _path: Assets/Editor/Tests/TestScenes/ShooterTestScene.unity
+    _buildIndex: 3
+  - _toBeBuilt: 1
+    _path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
+    _buildIndex: 4
   platform: 1
   StandaloneTarget: 5
-  RanInEditor: 1
+  RanInEditor: 0
   ScenePathDisplayed: 0
   InputVisualizer: 0
   ShowPopUp: 1
