@@ -1,33 +1,37 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AutoShooter : MonoBehaviour
 {
-    public bool shootsPlayer;
-    public Shooter shooter;
+    [SerializeField]
+    private bool shootsPlayer;
+    [SerializeField]
+    private Shooter shooter;
+    [SerializeField]
+    private Rotate toBeRotated;
+    
     private GameObject toBeShot;
     
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        toBeShot = shootsPlayer ? SearchPlayer() : FindClosestEnemy();
+        toBeShot = shootsPlayer ? SearchPlayer() : FindClosest(gameObject, "Enemy");
 
         if (toBeShot != null)
         {
+            toBeRotated.RotateTowards(toBeShot.transform);
             shooter.Shoot(toBeShot.transform.position);
         }
     }
 
-    private GameObject FindClosestEnemy()
+    private GameObject FindClosest(GameObject origin, String find)
     {
         GameObject closest = null;
         float distanceToClosest = Mathf.Infinity;
-        GameObject[] allEnemy = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] allEnemy = GameObject.FindGameObjectsWithTag(find);
         foreach (var currentEmeny in allEnemy)
         {
-            float currentDistance = (currentEmeny.transform.position - this.transform.position).sqrMagnitude;
+            float currentDistance = (currentEmeny.transform.position - origin.transform.position).sqrMagnitude;
             if (currentDistance < distanceToClosest)
             {
                 distanceToClosest = currentDistance;

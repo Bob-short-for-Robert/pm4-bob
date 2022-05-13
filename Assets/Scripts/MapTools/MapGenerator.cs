@@ -80,12 +80,12 @@ namespace MapTools
             _dynamicObjects.Add(dynamicObject);
         }
         
-        public void AddProjectile(Vector3 vector, float angle)
+        public void AddProjectile(Vector3 vector, float angle, GameObject projectile)
         {
             var projectilePrefab = _projectileSet[0];
             var projectileGroup = _projectileGroups[0];
             
-            var projectileObject = Instantiate(projectilePrefab, projectileGroup.transform);
+            var projectileObject = Instantiate(projectile, projectileGroup.transform);
    
             projectileObject.name = $"EnemyX{vector.x}Y{vector.y}";
             projectileObject.transform.localPosition = new Vector3(vector.x, vector.y, vector.z);

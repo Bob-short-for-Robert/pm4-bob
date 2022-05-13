@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 0.1
+  projectile: {fileID: 8690424263816451739, guid: c897833f4b884c34783b79cd220d786c, type: 3}
 --- !u!114 &5886790589937638239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1269b2f10b25be64f9d80a4b88101829, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objToSpawn: {fileID: 225256020774590156, guid: 36e0d74b260f95242b447c768bb7f43f, type: 3}
+  objToSpawn: {fileID: 7073014070189908506, guid: 36e0d74b260f95242b447c768bb7f43f, type: 3}
+  placementRate: 1
+  displacementDistance: 3
 --- !u!50 &3921030274746016679
 Rigidbody2D:
   serializedVersion: 4
