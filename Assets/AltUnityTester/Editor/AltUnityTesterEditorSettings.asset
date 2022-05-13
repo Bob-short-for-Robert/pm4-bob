@@ -1,0 +1,233 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073b5878cbef2364cb928faafba64ca5, type: 3}
+  m_Name: AltUnityTesterEditorSettings
+  m_EditorClassIdentifier: 
+  appendToName: 0
+  AdbPath: /usr/local/bin/adb
+  IProxyPath: /usr/local/bin/iproxy
+  XcrunPath: /usr/bin/xcrun
+  MyTests:
+  - _selected: 1
+    _testName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _status: 0
+    _isSuite: 1
+    _parentName: 
+    _testCaseCount: 8
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 8
+  - _selected: 1
+    _testName: AltUnityTester
+    _status: 0
+    _isSuite: 1
+    _parentName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _testCaseCount: 4
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 4
+  - _selected: 1
+    _testName: AltUnityTester.Editor
+    _status: 0
+    _isSuite: 1
+    _parentName: AltUnityTester
+    _testCaseCount: 4
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 4
+  - _selected: 1
+    _testName: AltUnityTester.Editor.Tests
+    _status: 0
+    _isSuite: 1
+    _parentName: AltUnityTester.Editor
+    _testCaseCount: 4
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 4
+  - _selected: 1
+    _testName: AltUnityTester.Editor.Tests.MenuTest
+    _status: 1
+    _isSuite: 1
+    _parentName: AltUnityTester.Editor.Tests
+    _testCaseCount: 4
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 4
+  - _selected: 1
+    _testName: AltUnityTester.Editor.Tests.MenuTest.TestControls
+    _status: 1
+    _isSuite: 0
+    _parentName: AltUnityTester.Editor.Tests.MenuTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0.3885745
+    path: Assets/AltUnityTester/Editor/Tests/MenuTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: AltUnityTester.Editor.Tests.MenuTest.TestSettings
+    _status: 1
+    _isSuite: 0
+    _parentName: AltUnityTester.Editor.Tests.MenuTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0.2072628
+    path: Assets/AltUnityTester/Editor/Tests/MenuTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: AltUnityTester.Editor.Tests.MenuTest.TestStart
+    _status: 1
+    _isSuite: 0
+    _parentName: AltUnityTester.Editor.Tests.MenuTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0.2899182
+    path: Assets/AltUnityTester/Editor/Tests/MenuTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: AltUnityTester.Editor.Tests.MenuTest.TestStatistics
+    _status: 1
+    _isSuite: 0
+    _parentName: AltUnityTester.Editor.Tests.MenuTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 1.0891194
+    path: Assets/AltUnityTester/Editor/Tests/MenuTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: FirstTest
+    _status: -1
+    _isSuite: 1
+    _parentName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _testCaseCount: 4
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 4
+  - _selected: 1
+    _testName: FirstTest.TestA
+    _status: -1
+    _isSuite: 0
+    _parentName: FirstTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 'OneTimeSetUp: Altom.AltUnityDriver.NotFoundException : Object
+      //*[@tag=Player] not found'
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/AltUnityTester/Editor/Tests/FirstTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: FirstTest.TestD
+    _status: -1
+    _isSuite: 0
+    _parentName: FirstTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 'OneTimeSetUp: Altom.AltUnityDriver.NotFoundException : Object
+      //*[@tag=Player] not found'
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/AltUnityTester/Editor/Tests/FirstTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: FirstTest.TestS
+    _status: -1
+    _isSuite: 0
+    _parentName: FirstTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 'OneTimeSetUp: Altom.AltUnityDriver.NotFoundException : Object
+      //*[@tag=Player] not found'
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/AltUnityTester/Editor/Tests/FirstTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: FirstTest.TestW
+    _status: -1
+    _isSuite: 0
+    _parentName: FirstTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 'OneTimeSetUp: Altom.AltUnityDriver.NotFoundException : Object
+      //*[@tag=Player] not found'
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/AltUnityTester/Editor/Tests/FirstTest.cs
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: E:/Projects/bob/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+    _status: 0
+    _isSuite: 1
+    _parentName: 
+    _testCaseCount: 0
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 1
+    _testName: E:/Projects/bob/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+    _status: 0
+    _isSuite: 1
+    _parentName: 
+    _testCaseCount: 0
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  Scenes:
+  - _toBeBuilt: 1
+    _path: Assets/Scenes/Menu.unity
+    _buildIndex: 0
+  - _toBeBuilt: 1
+    _path: 
+    _buildIndex: 1
+  platform: 1
+  StandaloneTarget: 5
+  RanInEditor: 1
+  ScenePathDisplayed: 0
+  InputVisualizer: 0
+  ShowPopUp: 1
+  BuildLocationPath: 
+  LatestInspectorVersion: 1.4.0
+  ShowInsectorPopUpInEditor: 0
+  AltUnityTesterPort: 13000
+  KeepAUTSymbolDefined: 0
