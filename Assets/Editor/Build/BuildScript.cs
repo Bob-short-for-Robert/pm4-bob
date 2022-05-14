@@ -10,6 +10,9 @@ namespace Editor
 {
     public class BuildScript
     {
+        private static readonly string Eol = Environment.NewLine;
+        private static readonly string[] Secrets =
+            {"androidKeystorePass", "androidKeyaliasName", "androidKeyaliasPass"};
         public static void Windows()
         {
             Dictionary<string, string> options = GetValidatedOptions();
