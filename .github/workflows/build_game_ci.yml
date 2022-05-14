@@ -66,6 +66,7 @@ jobs:
           path: ${{ steps.testRunner.outputs.artifactsPath }}
   
   buildWebGL:
+    needs: testRunner
     name: Build for WebGL 🖥️
     runs-on: ubuntu-latest
     strategy:
@@ -106,7 +107,6 @@ jobs:
           customParameters: -buildTag ${{ env.BRANCH }} -increment tag
           targetPlatform: WebGL
           versioning: None
-          buildName: BoB
           
       - run: echo 'Project Version ${{ steps.myBuildStep.outputs.buildVersion }}'
 
@@ -118,7 +118,7 @@ jobs:
         
   buildWindows:
     needs: testRunner
-    name: Build for Windows with Script 🖥️
+    name: Build for Windows 🖥️
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
