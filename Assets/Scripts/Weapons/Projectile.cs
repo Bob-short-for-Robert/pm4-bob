@@ -19,7 +19,6 @@ public class Projectile : MonoBehaviour
         lifeTime -= Time.deltaTime;
         if (lifeTime < 0)
         {
-            SpawnEffect(4);
             Destroy(gameObject);
         }
     }
@@ -28,21 +27,11 @@ public class Projectile : MonoBehaviour
     {
         if (col.CompareTag("Wall"))
         {
-            SpawnEffect(2);
             Destroy(gameObject);
         }
         if (col.CompareTag("Enemy"))
         {
-            SpawnEffect(3);
             Destroy(gameObject);
         }
-    }
-    
-    private void SpawnEffect(int effect)
-    {
-        var map = GameObject.Find("Map");
-        var mapController = (MapGenerator) map.GetComponent(typeof(MapGenerator));
-        var transform1 = transform;
-        mapController.AddEffect(transform1.position,effect, transform1.rotation);
     }
 }

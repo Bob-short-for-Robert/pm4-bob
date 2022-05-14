@@ -456,6 +456,8 @@ MonoBehaviour:
   effectGreenCircle: {fileID: 3573286615567245274, guid: b266c0c67346d4f43b995671a0a45b03, type: 3}
   effectRedCircle: {fileID: 3573286615567245274, guid: abc624b67692f324c9094fcd886450f8, type: 3}
   effectSphereBrown: {fileID: 3573286615567245274, guid: c3ce656c1d57d9343ae8180817bba087, type: 3}
+  effectSphereFire: {fileID: 3573286615567245274, guid: 8cc57ff667193264b96fbcb6f2bc4439, type: 3}
+  effectRedFire: {fileID: 3573286615567245274, guid: bf46743393569834a9a1a262179186bf, type: 3}
 --- !u!4 &1339930020
 Transform:
   m_ObjectHideFlags: 0
