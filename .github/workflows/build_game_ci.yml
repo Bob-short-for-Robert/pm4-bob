@@ -100,8 +100,11 @@ jobs:
             Library-
 
       - uses: game-ci/unity-builder@v2
+        id: myBuildStep
         with:
           targetPlatform: WebGL
+          
+      - run: echo 'Project Version: ${{ steps.myBuildStep.outputs.buildVersion }}'
 
       - uses: actions/upload-artifact@v2
         with:
@@ -143,8 +146,61 @@ jobs:
             Library-
 
       - uses: game-ci/unity-builder@v2
+        id: myBuildStep
         with:
           targetPlatform: StandaloneWindows64
+
+      - run: echo 'Project Version: ${{ steps.myBuildStep.outputs.buildVersion }}'
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-StandaloneWindows64
+          path: build/StandaloneWindows64
+        
+
+  buildWindowsOWNSCRIPT:
+    name: Build for Windows with Script 🖥️
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Create LFS file list
+        run: git lfs ls-files -l | cut -d' ' -f1 | sort > .lfs-assets-id
+
+      - name: Restore LFS cache
+        uses: actions/cache@v2
+        id: lfs-cache
+        with:
+          path: .git/lfs
+          key: ${{ runner.os }}-lfs-${{ hashFiles('.lfs-assets-id') }}
+
+      - name: Git LFS Pull
+        run: |
+          git lfs pull
+          git add .
+          git reset --hard
+
+      - name: Restore Library cache
+        uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-build-StandaloneWindows64
+          restore-keys: |
+            Library-build-
+            Library-
+
+      - uses: game-ci/unity-builder@v2
+        id: myBuildStep
+        with:
+          buildMethod: Editor.BuildScript.Windows
+          customParameters: -buildTag ${GITHUB_REF##*/} -increment tag
+          versioning: None
+
+
+      - run: echo 'Project Version: ${{ steps.myBuildStep.outputs.buildVersion }}'
 
       - uses: actions/upload-artifact@v2
         with:
