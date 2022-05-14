@@ -199,14 +199,13 @@ jobs:
           buildMethod: Editor.BuildScript.Windows
           customParameters: -buildTag "${{ env.BRANCH }}" -increment tag
           versioning: None
-          buildsPath: build/script
           buildName: bob
       - run: echo "Project Version ${{ steps.myBuildStep.outputs.buildVersion }}"
 
       - uses: actions/upload-artifact@v2
         with:
           name: build-Script
-          path: build/script/StandaloneWindows64
+          path: build/StandaloneWindows64
   
   buildAndroid:
     needs: testRunner
