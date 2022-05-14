@@ -13,7 +13,7 @@ namespace Editor
         private static readonly string Eol = Environment.NewLine;
         private static readonly string[] Secrets =
             {"androidKeystorePass", "androidKeyaliasName", "androidKeyaliasPass"};
-        public static void Windows()
+        public static void Builder()
         {
             Dictionary<string, string> options = GetValidatedOptions();
 
@@ -29,8 +29,11 @@ namespace Editor
             if (string.IsNullOrEmpty(buildPath))
                 buildPath = @"C:\bob\BoB.exe";
             
+            
+            var buildTarget = (BuildTarget) Enum.Parse(typeof(BuildTarget), options["buildTarget"]);
+            
             SetVersion(increment, buildTag);
-            BuildReport report = BuildPipeline.BuildPlayer(GetScenes(), buildPath, BuildTarget.StandaloneWindows64,
+            BuildReport report = BuildPipeline.BuildPlayer(GetScenes(), buildPath, buildTarget,
                 BuildOptions.None);
             
             BuildSummary summary = report.summary;
