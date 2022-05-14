@@ -4,6 +4,7 @@ on: push
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  BRANCH: ${ GITHUB_REF##*/ }
 
 jobs:
   checkLicense:
@@ -196,14 +197,16 @@ jobs:
         id: myBuildStep
         with:
           buildMethod: Editor.BuildScript.Windows
-          customParameters: -buildTag ${GITHUB_REF##*/} -increment tag
+          customParameters: -buildTag "${{ env.BRANCH }}" -increment tag
           versioning: None
-      - run: echo "Project Version ${steps.myBuildStep.outputs.buildVersion}"
+          buildsPath: build/script
+          buildName: bob
+      - run: echo "Project Version ${{ steps.myBuildStep.outputs.buildVersion }}"
 
       - uses: actions/upload-artifact@v2
         with:
-          name: build-StandaloneWindows64
-          path: build/StandaloneWindows64
+          name: build-Script
+          path: build/script/StandaloneWindows64
   
   buildAndroid:
     needs: testRunner

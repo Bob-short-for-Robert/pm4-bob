@@ -17,15 +17,15 @@ namespace Editor
         {
             Dictionary<string, string> options = GetValidatedOptions();
 
-            string increment = Environment.GetEnvironmentVariable("INCREMENT");
+            string increment = options["increment"];
             if (string.IsNullOrEmpty(increment))
                 increment = "build";
 
-            string buildTag = Environment.GetEnvironmentVariable("BUILD_TAG");
+            string buildTag = options["buildTag"];
             if (string.IsNullOrEmpty(buildTag))
                 buildTag = "gitlab_tag";
             
-            string buildPath = Environment.GetEnvironmentVariable("BUILD_PATH");
+            string buildPath = options["customBuildPath"];
             if (string.IsNullOrEmpty(buildPath))
                 buildPath = @"C:\bob\BoB.exe";
             
@@ -54,6 +54,15 @@ namespace Editor
 
         private static void SetVersion(string increment, string buildTag)
         {
+            
+
+            Console.WriteLine(
+                $"{Eol}" +
+                $"###########################{Eol}" +
+                $"#       Set Version       #{Eol}" +
+                $"###########################{Eol}" +
+                $"{Eol}"
+            );
             string[] versions = PlayerSettings.bundleVersion.Split('.');
 
             int MajorVersion = int.Parse(versions[0]);
@@ -72,6 +81,12 @@ namespace Editor
 
             PlayerSettings.productName = "Book of Boilers";
             PlayerSettings.bundleVersion = MajorVersion + "." + MinorVersion + "." + BuildTag;
+            
+            Console.WriteLine(
+                $"{Eol}" +
+                $"bundleversion -> {PlayerSettings.bundleVersion}" +
+                $"{Eol}"
+            );
         }
         
 
