@@ -401,7 +401,6 @@ MonoBehaviour:
   prefabFloor: {fileID: 9054245158945491170, guid: ea8b19e5e774f484498bee8e0f7d5b1c, type: 3}
   prefabSpawner: {fileID: 4459202836492351147, guid: 830ec89aa8615c14fa14d3a647684710, type: 3}
   prefabDoor: {fileID: 3325267577347633284, guid: f4bd3e76872525240b752cc2a9674c91, type: 3}
-  prefabPlayer: {fileID: 5886790589937638233, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
 --- !u!4 &1339930020
 Transform:
   m_ObjectHideFlags: 0
