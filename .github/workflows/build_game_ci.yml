@@ -200,7 +200,7 @@ jobs:
           customParameters: -buildTag ${{ env.BRANCH }} -increment tag
           versioning: None
           buildName: bob
-          buildScript: build/script
+          buildPath: build/script
       - run: echo "Project Version ${{ steps.myBuildStep.outputs.buildVersion }}"
 
       - uses: actions/upload-artifact@v2
