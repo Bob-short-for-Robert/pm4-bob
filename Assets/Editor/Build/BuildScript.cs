@@ -71,30 +71,16 @@ namespace Editor
                 $"###########################{Eol}" +
                 $"{Eol}"
             );
-            string[] versions = PlayerSettings.bundleVersion.Split('.');
 
-            int MajorVersion = int.Parse(versions[0]);
-            int MinorVersion = int.Parse(versions[1]);
-            string BuildTag = versions[2];
             string newVersion = buildVersion;
 
-            if (increment == "version")
+            if (increment == "release")
             {
-                version = newVersion;
+                version = buildVersion;
             }
             else
             {
-                if (increment == "major")
-                {
-                    MajorVersion++;
-                }
-                else if (increment == "minor")
-                {
-                    MinorVersion++;
-                }
-
-                BuildTag = buildTag;
-                version = MajorVersion + "." + MinorVersion + "." + BuildTag;
+                version = buildVersion + "." + buildTag;
             }
 
             PlayerSettings.productName = "Book of Boilers";

@@ -99,9 +99,9 @@ jobs:
         id: myBuildStep
         with:
           buildMethod: Editor.BuildScript.Builder
-          customParameters: -buildTag ${{ env.BRANCH }} -increment minor
+          customParameters: -buildTag ${{ env.BRANCH }} -increment release
           targetPlatform: WebGL
-          versioning: None
+          versioning: Semantic
 
       - run: echo 'Project Version ${{ steps.myBuildStep.outputs.buildVersion }}'
 
@@ -150,9 +150,9 @@ jobs:
         id: myBuildStep
         with:
           buildMethod: Editor.BuildScript.Builder
-          customParameters: -buildTag ${{ env.BRANCH }} -increment tag
+          customParameters: -buildTag ${{ env.BRANCH }} -increment release
           targetPlatform: StandaloneWindows64
-          versioning: None
+          versioning: Semantic
           buildName: BoB
       - run: echo "Project Version ${{ steps.myBuildStep.outputs.buildVersion }}"
 
