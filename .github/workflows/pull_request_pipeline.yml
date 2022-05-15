@@ -95,7 +95,7 @@ jobs:
         id: myBuildStep
         with:
           buildMethod: Editor.BuildScript.Builder
-          customParameters: -buildTag ${{ env.BRANCH }} -increment branch
+          customParameters: -buildTag ${{ GITHUB_HEAD_REF }} -increment branch
           targetPlatform: WebGL
           versioning: Semantic
           
@@ -146,7 +146,7 @@ jobs:
         id: myBuildStep
         with:
           buildMethod: Editor.BuildScript.Builder
-          customParameters: -buildTag ${{ env.BRANCH }} -increment branch
+          customParameters: -buildTag ${{ GITHUB_HEAD_REF }} -increment branch
           targetPlatform: StandaloneWindows64
           buildName: BoB
           versioning: Semantic
