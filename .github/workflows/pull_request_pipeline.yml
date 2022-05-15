@@ -4,7 +4,7 @@ on: pull_request
 
 env:
   UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-  BRANCH: ${{ github.ref_name }}
+  BRANCH: ${{ github.event.pull_request.head.ref }}
 
 jobs:
   testRunner:
@@ -95,7 +95,7 @@ jobs:
         id: myBuildStep
         with:
           buildMethod: Editor.BuildScript.Builder
-          customParameters: -buildTag ${{ GITHUB_HEAD_REF }} -increment branch
+          customParameters: -buildTag ${{ env.BRANCH }} -increment branch
           targetPlatform: WebGL
           versioning: Semantic
           
@@ -146,7 +146,7 @@ jobs:
         id: myBuildStep
         with:
           buildMethod: Editor.BuildScript.Builder
-          customParameters: -buildTag ${{ GITHUB_HEAD_REF }} -increment branch
+          customParameters: -buildTag ${{ env.BRANCH }} -increment branch
           targetPlatform: StandaloneWindows64
           buildName: BoB
           versioning: Semantic
