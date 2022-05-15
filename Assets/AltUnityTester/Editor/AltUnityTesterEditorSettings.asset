@@ -17,7 +17,7 @@ MonoBehaviour:
   IProxyPath: /usr/local/bin/iproxy
   XcrunPath: /usr/bin/xcrun
   MyTests:
-  - _selected: 1
+  - _selected: 0
     _testName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _status: 0
     _isSuite: 1
@@ -28,8 +28,8 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 16
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: AltUnityTester
     _status: 0
     _isSuite: 1
@@ -40,8 +40,8 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 4
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: AltUnityTester.Editor
     _status: 0
     _isSuite: 1
@@ -52,8 +52,8 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 4
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: AltUnityTester.Editor.Tests
     _status: 0
     _isSuite: 1
@@ -64,8 +64,8 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 4
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: AltUnityTester.Editor.Tests.MenuTest
     _status: 0
     _isSuite: 1
@@ -76,8 +76,8 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 4
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestControls
     _status: 0
     _isSuite: 0
@@ -89,7 +89,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestSettings
     _status: 0
     _isSuite: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestStart
     _status: 0
     _isSuite: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestStatistics
     _status: 0
     _isSuite: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: CameraTest
     _status: 0
     _isSuite: 1
@@ -136,8 +136,8 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 1
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: CameraTest.TestMoveCamera
     _status: 0
     _isSuite: 0
@@ -149,7 +149,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/CameraTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: CollisionTest
     _status: 0
     _isSuite: 1
@@ -160,8 +160,8 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 4
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: CollisionTest.TestCollisionDown
     _status: 0
     _isSuite: 0
@@ -173,7 +173,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: CollisionTest.TestCollisionLeft
     _status: 0
     _isSuite: 0
@@ -185,7 +185,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: CollisionTest.TestCollisionRight
     _status: 0
     _isSuite: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: CollisionTest.TestCollisionUp
     _status: 0
     _isSuite: 0
@@ -209,7 +209,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: ShooterTest
     _status: 0
     _isSuite: 1
@@ -220,8 +220,8 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 3
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: ShooterTest.TestMoveCrosshair
     _status: 0
     _isSuite: 0
@@ -233,7 +233,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/ShooterTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: ShooterTest.TestShootEnemy
     _status: 0
     _isSuite: 0
@@ -245,7 +245,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/ShooterTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: ShooterTest.TestShootWall
     _status: 0
     _isSuite: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/ShooterTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: WalkTest
     _status: 0
     _isSuite: 1
@@ -268,8 +268,8 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 4
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: WalkTest.TestWalkDown
     _status: 0
     _isSuite: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: WalkTest.TestWalkLeft
     _status: 0
     _isSuite: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: WalkTest.TestWalkRight
     _status: 0
     _isSuite: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: WalkTest.TestWalkUp
     _status: 0
     _isSuite: 0
