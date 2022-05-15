@@ -1,4 +1,4 @@
-name: Build Windows and WebGl for Pull Requests
+name: Pull Requests Pipeline 👾 💸
 
 on: pull_request
 

@@ -11,8 +11,11 @@ namespace Editor
     public class BuildScript
     {
         private static readonly string Eol = Environment.NewLine;
+        private static string version = "";
+
         private static readonly string[] Secrets =
             {"androidKeystorePass", "androidKeyaliasName", "androidKeyaliasPass"};
+
         public static void Builder()
         {
             Dictionary<string, string> options = GetValidatedOptions();
@@ -24,18 +27,22 @@ namespace Editor
             string buildTag = options["buildTag"];
             if (string.IsNullOrEmpty(buildTag))
                 buildTag = "gitlab_tag";
-            
+
+            string buildVersion = options["buildVersion"];
+            if (string.IsNullOrEmpty(buildTag))
+                buildVersion = "none";
+
             string buildPath = options["customBuildPath"];
             if (string.IsNullOrEmpty(buildPath))
                 buildPath = @"C:\bob\BoB.exe";
-            
-            
+
+
             var buildTarget = (BuildTarget) Enum.Parse(typeof(BuildTarget), options["buildTarget"]);
-            
-            SetVersion(increment, buildTag);
+
+            SetVersion(increment, buildTag, buildVersion);
             BuildReport report = BuildPipeline.BuildPlayer(GetScenes(), buildPath, buildTarget,
                 BuildOptions.None);
-            
+
             BuildSummary summary = report.summary;
 
 
@@ -55,10 +62,8 @@ namespace Editor
             return EditorBuildSettings.scenes.Where(s => s.enabled).Select(s => s.path).ToArray();
         }
 
-        private static void SetVersion(string increment, string buildTag)
+        private static void SetVersion(string increment, string buildTag, string buildVersion)
         {
-            
-
             Console.WriteLine(
                 $"{Eol}" +
                 $"###########################{Eol}" +
@@ -71,27 +76,38 @@ namespace Editor
             int MajorVersion = int.Parse(versions[0]);
             int MinorVersion = int.Parse(versions[1]);
             string BuildTag = versions[2];
+            string newVersion = buildVersion;
 
-            if (increment == "major")
+            if (increment == "version")
             {
-                MajorVersion++;
+                version = newVersion;
             }
-            else if (increment == "minor")
+            else
             {
-                MinorVersion++;
+                if (increment == "major")
+                {
+                    MajorVersion++;
+                }
+                else if (increment == "minor")
+                {
+                    MinorVersion++;
+                }
+
+                BuildTag = buildTag;
+                version = MajorVersion + "." + MinorVersion + "." + BuildTag;
             }
-            BuildTag = buildTag;
 
             PlayerSettings.productName = "Book of Boilers";
-            PlayerSettings.bundleVersion = MajorVersion + "." + MinorVersion + "." + BuildTag;
-            
+            PlayerSettings.bundleVersion = version;
+
+
             Console.WriteLine(
                 $"{Eol}" +
                 $"bundleversion -> {PlayerSettings.bundleVersion}" +
                 $"{Eol}"
             );
         }
-        
+
 
         private static Dictionary<string, string> GetValidatedOptions()
         {

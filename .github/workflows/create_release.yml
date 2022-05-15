@@ -1,4 +1,4 @@
-name: Create Release and Deploy to Github Pages 🎮 📈
+name: Release and Deploy 🎮 📈
 
 on:
   push:
