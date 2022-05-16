@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5936924698169762134, guid: 22dca2ff5f02ce2468c2ee8f6832b3fa, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5936924698169762134, guid: 22dca2ff5f02ce2468c2ee8f6832b3fa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -383,7 +383,6 @@ MonoBehaviour:
   prefabFloor: {fileID: 9054245158945491170, guid: ea8b19e5e774f484498bee8e0f7d5b1c, type: 3}
   prefabSpawner: {fileID: 4459202836492351147, guid: 830ec89aa8615c14fa14d3a647684710, type: 3}
   prefabDoor: {fileID: 3325267577347633284, guid: f4bd3e76872525240b752cc2a9674c91, type: 3}
-  playerDefaultProjectile: {fileID: 8690424263816451739, guid: c897833f4b884c34783b79cd220d786c, type: 3}
 --- !u!4 &1339930020
 Transform:
   m_ObjectHideFlags: 0
@@ -396,7 +395,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1339930021
 MonoBehaviour:
@@ -413,6 +412,23 @@ MonoBehaviour:
   userSeed: 50259
   seed: 50959
   randomizeSeed: 1
+--- !u!1 &1767797450 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5886790589937638233, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
+  m_PrefabInstance: {fileID: 3921030274122079246}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1767797456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767797450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb4577d73f42f054796fa5f2fcadae87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1867068549
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +597,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5886790589937638235, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
   m_PrefabInstance: {fileID: 3921030274122079246}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1767797450}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90b080334430cb340a4644f2ac0cd57b, type: 3}
