@@ -19,8 +19,8 @@ public class Shooter : MonoBehaviour
         
         var position = transform.position;
         var angle = AngleBetweenTwoPoints(position, mousePos);
-        var mapController = (MapController) GameObject.Find("MapController").GetComponent(typeof(MapController));
-        mapController.AddProjectile(projectile, position, angle);
+        
+        SpawnObject.Spawn(projectile, position, angle);
     }
 
     private bool CanShoot()

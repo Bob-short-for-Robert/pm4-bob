@@ -35,24 +35,7 @@ namespace MapTools
         //Objects
         [SerializeField] private GameObject prefabSpawner;
         [SerializeField] private GameObject prefabDoor;
-
-        public void AddEnemy(GameObject enemy, int x, int y)
-        {
-            var dynamicObject = Instantiate(enemy, enemy.transform);
-
-            dynamicObject.name = $"EnemyX{x}Y{y}";
-            dynamicObject.transform.localPosition = new Vector3(x, y, 0);
-        }
-
-        public void AddProjectile(GameObject projectile, Vector3 vector, float angle)
-        {
-            var projectileObject = Instantiate(projectile, projectile.transform);
-
-            projectileObject.name = $"ProjectileX{vector.x}Y{vector.y}";
-            projectileObject.transform.localPosition = new Vector3(vector.x, vector.y, vector.z);
-            projectileObject.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
-        }
-
+        
         public void Start()
         {
             SetMapValue();
@@ -194,31 +177,20 @@ namespace MapTools
         private void SetMapObjects()
         {
             var spawn = new SpawnLocation(_mapMatrix);
-            GameObject dynamicObject;
 
             //spawn Player
-            var playerSpawnLocation = spawn.PlayerSpawn();
-
             var player = GameObject.Find("Player");
             player.name = "Player";
-            player.transform.localPosition = new Vector3(playerSpawnLocation.x, playerSpawnLocation.y);
+            player.transform.localPosition = spawn.PlayerSpawn();
 
             //spawn SpawnerPoint
             for (var i = 0; i < (int) Random.value * spawnerMinCount + spawnerRandomCount; i++)
             {
-                var spawnerLocation = spawn.SpawnerLocation();
-                dynamicObject = Instantiate(prefabSpawner, prefabSpawner.transform);
-
-                dynamicObject.name = $"SpawnerPointX{spawnerLocation.x}Y{spawnerLocation.y}";
-                dynamicObject.transform.localPosition = new Vector3(spawnerLocation.x, spawnerLocation.y, 0);
+                SpawnObject.Spawn(prefabSpawner, spawn.SpawnerLocation(), 0);
             }
 
             //spawn Door
-            var doorLocation = spawn.DoorLocation();
-            dynamicObject = Instantiate(prefabDoor, prefabDoor.transform);
-
-            dynamicObject.name = $"DoorX{doorLocation.x}Y{doorLocation.y}";
-            dynamicObject.transform.localPosition = new Vector3(doorLocation.x, doorLocation.y, 0);
+            SpawnObject.Spawn(prefabDoor, spawn.DoorLocation(), 0);
         }
 
         private WallVersions GetWallVersion((int x, int y) coordinate)

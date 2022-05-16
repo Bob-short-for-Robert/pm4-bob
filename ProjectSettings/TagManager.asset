@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - UserInterface
   - Resources
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
