@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public static class ResourceManager
 {
@@ -32,5 +33,16 @@ public static class ResourceManager
         Resource res = o.GetComponent<Resource>();
         Collected[res.Name] += res.quantity;
         GameObject.Destroy(o);
+    }
+
+    public static void DropResource(GameObject[] possibleDrops, int dropCycles, int dropLikelihood, Vector3 location)
+    {
+        for (int i = 0; i < dropCycles; i++)
+        {
+            if (Random.Range(0, 101) <= dropLikelihood)
+            {
+                SpawnObject.Spawn(possibleDrops[Random.Range(0, possibleDrops.Length)], location, 0);
+            }
+        }
     }
 }

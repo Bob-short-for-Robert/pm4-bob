@@ -1,27 +1,41 @@
 using NUnit.Framework;
 using Altom.AltUnityDriver;
+using UnityEngine;
 
 public class ResourceManagerTest
 {
-    public AltUnityDriver altUnityDriver;
-    //Before any test it connects with the socket
-    [OneTimeSetUp]
-    public void SetUp()
+    private readonly AltUnityDriver _altUnityDriver = new AltUnityDriver();
+
+    private const string SCENE_NAME = "ResourceMangerTestScene";
+
+    [SetUp]
+    public void BeforeEach()
     {
-        altUnityDriver =new AltUnityDriver();
+        _altUnityDriver.LoadScene(SCENE_NAME);
     }
 
     //At the end of the test closes the connection with the socket
     [OneTimeTearDown]
     public void TearDown()
     {
-        altUnityDriver.Stop();
+        _altUnityDriver.Stop();
     }
 
     [Test]
-    public void Test()
+    public void CollectResources()
     {
-	//Here you can write the test
+        
+        int resNr = _altUnityDriver.FindObjects(By.TAG, "Resources").Count;
+        _altUnityDriver.PressKey(AltUnityKeyCode.A, 1f, 2f, true);
+        Assert.LessOrEqual(_altUnityDriver.FindObjects(By.TAG, "Resources").Count, resNr);
     }
 
+
+    [Test]
+    public void TestMonsterDrops()
+    {
+        int resNr = _altUnityDriver.FindObjects(By.TAG, "Resources").Count;
+        _altUnityDriver.Click(new AltUnityVector2(-1, 0), 500, 0.01f, true);
+        Assert.Greater(_altUnityDriver.FindObjects(By.TAG, "Resources").Count, resNr);
+    }
 }
