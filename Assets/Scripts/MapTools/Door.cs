@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MapTools
 {
@@ -8,9 +9,7 @@ namespace MapTools
         {
             if (col.CompareTag("Player"))
             {
-                var map = GameObject.Find("Map");
-                var mapController = (MapGenerator) map.GetComponent(typeof(MapGenerator));
-                mapController.NewMap();
+                SceneManager.LoadScene("Main");
             }
         }
     }

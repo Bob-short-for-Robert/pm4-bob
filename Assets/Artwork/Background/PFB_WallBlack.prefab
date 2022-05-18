@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 775914600134472654}
   - component: {fileID: 5193748738892889362}
   - component: {fileID: -7384459450227760221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PFB_WallBlack
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - UserInterface
   - Circle
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
