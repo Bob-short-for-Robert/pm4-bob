@@ -50,7 +50,6 @@ namespace Effects
             { 
                 effectObject.transform.rotation = transform.rotation;  
             }
-            effectObject.transform.SetParent(GameObject.Find("Map").GetComponent<RectTransform>(), false);
         }
     }
 }
