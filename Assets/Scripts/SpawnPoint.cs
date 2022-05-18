@@ -5,9 +5,9 @@ using Random = System.Random;
 
 public class SpawnPoint : MonoBehaviour
 {
-   [Header("Spawn Interval in Seconds")] public float spawnInterval;
+    [Header("Spawn Interval in Seconds")] public float spawnInterval;
     public GameObject[] enemies;
-    
+
     private float _spawnTimer;
 
     private Random _random;
@@ -23,7 +23,7 @@ public class SpawnPoint : MonoBehaviour
         {
             return;
         }
-        
+
         _spawnTimer -= Time.deltaTime;
         if (_spawnTimer <= 0)
         {
@@ -32,12 +32,10 @@ public class SpawnPoint : MonoBehaviour
         }
     }
 
-
     private void SpawnEnemy()
     {
+        //keep method for later wraping of wave logic
         Vector3 position = transform.position;
-        var map = GameObject.Find("Map");
-        var mapController = (MapGenerator) map.GetComponent(typeof(MapGenerator));
-        mapController.AddEnemy((int)position.x, (int)position.y);
+        SpawnObject.Spawn(enemies[0], position, 0);
     }
 }
