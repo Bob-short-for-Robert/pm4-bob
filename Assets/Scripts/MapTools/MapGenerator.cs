@@ -17,9 +17,6 @@ namespace MapTools
         private Dictionary<int, GameObject> _projectileSet;
         private Dictionary<int, GameObject> _projectileGroups;
         private readonly List<GameObject> _projectile = new List<GameObject>();
-        private Dictionary<int, GameObject> _effectSet;
-        private Dictionary<int, GameObject> _effectGroups;
-        private readonly List<GameObject> _effects = new List<GameObject>();
         private List<List<bool>> _mapMatrix;
         private int _randomFillPercent = 35;
         private const string WallTag = "Wall";
@@ -69,18 +66,6 @@ namespace MapTools
         [SerializeField]
         private GameObject playerDefaultProjectile;
         
-        //Effects
-        [SerializeField]
-        private GameObject effectGreenCircle;
-        [SerializeField]
-        private GameObject effectRedCircle;
-        [SerializeField]
-        private GameObject effectSphereBrown;
-        [SerializeField]
-        private GameObject effectSphereFire;
-        [SerializeField]
-        private GameObject effectRedFire;
-
         public void AddEnemy(int x, int y)
         {
             var dynamicPrefab = _dynamicObjectsSet[1];
@@ -94,11 +79,6 @@ namespace MapTools
             _dynamicObjects.Add(dynamicObject);
         }
         
-        /// <summary>
-        /// Adds e Projectile to the Map
-        /// </summary>
-        /// <param name="vector">Start Position of the Projectile</param> 
-        /// <param name="angle">Flight Ange of the Projectile</param>
         public void AddProjectile(Vector3 vector, float angle)
         {
             var projectilePrefab = _projectileSet[0];
@@ -111,31 +91,6 @@ namespace MapTools
             projectileObject.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
    
             _projectile.Add(projectileObject);
-        }
-        
-        /// <summary>
-        /// Adds a Particle Effect to the map
-        /// </summary>
-        /// <param name="vector">Start Position of the Effect</param>
-        /// <param name="effect">Effect Type from the list</param>
-        public void AddEffect(Vector3 vector, int effect, Quaternion rotation = new Quaternion())
-        {
-            if (effect >= _effectGroups.Count || effect >= _effectSet.Count)
-            {
-                return;
-            }
-            var effectPrefab = _effectSet[effect];
-            var effectGroup = _effectGroups[effect];
-            
-            var effectObject = Instantiate(effectPrefab, effectGroup.transform);
-   
-            effectObject.name = $"EnemyX{vector.x}Y{vector.y}";
-            effectObject.transform.localPosition = vector;
-            if (!effectPrefab.CompareTag("Circle"))
-            { 
-                effectObject.transform.rotation = rotation;  
-            }
-            _effects.Add(effectObject);
         }
         
         public void NewMap()
@@ -155,8 +110,6 @@ namespace MapTools
             DynamicObjectsGroups();
             ProjectileSet();
             ProjectileGroups();
-            EffectSet();
-            EffectGroups();
             GenerateMap();
             SetMapObjects();
         }
@@ -167,7 +120,6 @@ namespace MapTools
             _tileGrid.Clear();
             _dynamicObjects.ForEach(o => Destroy(o.gameObject));
             _projectile.ForEach(p => Destroy(p.gameObject));
-            _effects.ForEach(e => Destroy(e.gameObject));
         }
 
         private void SetMapValue()
@@ -254,35 +206,6 @@ namespace MapTools
                     }
                 };
                 _projectileGroups.Add(keyValuePair.Key, projectile);
-            }
-        }
-        
-        private void EffectSet()
-        {
-            _effectSet = new Dictionary<int, GameObject>()
-            {
-                {0, effectGreenCircle},
-                {1, effectRedCircle},
-                {2, effectSphereBrown},
-                {3, effectSphereFire},
-                {4, effectRedFire}
-            };
-        }
-
-        private void EffectGroups()
-        {
-            _effectGroups = new Dictionary<int, GameObject>();
-            foreach (var keyValuePair in _effectSet)
-            {
-                var effect = new GameObject(keyValuePair.Value.name)
-                {
-                    transform =
-                    {
-                        parent = gameObject.transform,
-                        localPosition = new Vector3(0, 0, 0)
-                    }
-                };
-                _effectGroups.Add(keyValuePair.Key, effect);
             }
         }
 

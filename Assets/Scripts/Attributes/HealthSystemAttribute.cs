@@ -49,7 +49,6 @@ public class HealthSystemAttribute : MonoBehaviour
         //DEAD
         if (health <= 0)
         {
-            SpawnEffect();
             ui.AddOnePoint();
             Destroy(gameObject);
         }
@@ -62,12 +61,5 @@ public class HealthSystemAttribute : MonoBehaviour
         {
             ui.ChangeHealth(amount);
         }
-    }
-
-    private void SpawnEffect()
-    {
-        var map = GameObject.Find("Map");
-        var mapController = (MapGenerator) map.GetComponent(typeof(MapGenerator));
-        mapController.AddEffect(transform.position, 0);
     }
 }
