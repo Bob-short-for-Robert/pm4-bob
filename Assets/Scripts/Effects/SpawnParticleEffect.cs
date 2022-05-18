@@ -42,13 +42,13 @@ namespace Effects
 
         private void SpawnEffect()
         {
-            var effectObject = Instantiate(spawnParticleEffect, GameObject.Find("Map").transform);
-            var locationsVector = transform.localPosition;
-            effectObject.name = $"ParticleEffectX{locationsVector.x}Y{locationsVector.y}";
-            effectObject.transform.localPosition = locationsVector;
             if (!spawnParticleEffect.CompareTag("Circle"))
             { 
-                effectObject.transform.rotation = transform.rotation;  
+                SpawnObject.Spawn(spawnParticleEffect, transform.localPosition, transform.rotation);
+            }
+            else
+            {
+                SpawnObject.Spawn(spawnParticleEffect, transform.localPosition);
             }
         }
     }
