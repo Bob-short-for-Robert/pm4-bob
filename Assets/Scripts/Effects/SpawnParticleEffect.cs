@@ -42,9 +42,9 @@ namespace Effects
 
         private void SpawnEffect()
         {
-            var effectObject = Instantiate(spawnParticleEffect, spawnParticleEffect.transform);
+            var effectObject = Instantiate(spawnParticleEffect, GameObject.Find("Map").transform);
             var locationsVector = transform.localPosition;
-            effectObject.name = $"EnemyX{locationsVector.x}Y{locationsVector.y}";
+            effectObject.name = $"ParticleEffectX{locationsVector.x}Y{locationsVector.y}";
             effectObject.transform.localPosition = locationsVector;
             if (!spawnParticleEffect.CompareTag("Circle"))
             { 

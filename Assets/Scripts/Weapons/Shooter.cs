@@ -1,13 +1,14 @@
 using MapTools;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Shooter : MonoBehaviour
 {
     [SerializeField]
     private float shootInterval;
     
-    [SerializeField]
-    private Transform _firePoint;
+    [FormerlySerializedAs("_firePoint")] [SerializeField]
+    private Transform firePoint;
 
     private float _shootTimer;
 
@@ -21,7 +22,7 @@ public class Shooter : MonoBehaviour
     {
         if (!CanShoot()) return;
         
-        var position = _firePoint.position;
+        var position = firePoint.position;
         var angle = AngleBetweenTwoPoints(position, mousePos);
         
         SpawnObject.Spawn(projectile, position, angle);
