@@ -21,21 +21,12 @@ namespace Editor
             Dictionary<string, string> options = GetValidatedOptions();
 
             string increment = options["increment"];
-            if (string.IsNullOrEmpty(increment))
-                increment = "build";
 
             string buildTag = options["buildTag"];
-            if (string.IsNullOrEmpty(buildTag))
-                buildTag = "gitlab_tag";
 
             string buildVersion = options["buildVersion"];
-            if (string.IsNullOrEmpty(buildTag))
-                buildVersion = "none";
 
             string buildPath = options["customBuildPath"];
-            if (string.IsNullOrEmpty(buildPath))
-                buildPath = @"C:\bob\BoB.exe";
-
 
             var buildTarget = (BuildTarget) Enum.Parse(typeof(BuildTarget), options["buildTarget"]);
 
@@ -48,12 +39,12 @@ namespace Editor
 
             if (summary.result == BuildResult.Succeeded)
             {
-                Debug.Log("Build succeeded: " + summary.totalSize + " bytes");
+                Console.WriteLine("Build succeeded: " + summary.totalSize + " bytes");
             }
 
             if (summary.result == BuildResult.Failed)
             {
-                Debug.Log("Build failed");
+                Console.WriteLine("Build Failed");
             }
         }
 
@@ -99,39 +90,39 @@ namespace Editor
         {
             ParseCommandLineArguments(out Dictionary<string, string> validatedOptions);
 
-            if (!validatedOptions.TryGetValue("projectPath", out string _))
-            {
-                Console.WriteLine("Missing argument -projectPath");
-                EditorApplication.Exit(110);
-            }
-
             if (!validatedOptions.TryGetValue("buildTarget", out string buildTarget))
             {
                 Console.WriteLine("Missing argument -buildTarget");
-                EditorApplication.Exit(120);
+                EditorApplication.Exit(100);
             }
 
             if (!Enum.IsDefined(typeof(BuildTarget), buildTarget ?? string.Empty))
             {
-                EditorApplication.Exit(121);
+                EditorApplication.Exit(101);
             }
 
             if (!validatedOptions.TryGetValue("customBuildPath", out string _))
             {
                 Console.WriteLine("Missing argument -customBuildPath");
+                EditorApplication.Exit(110);
+            }
+            
+            if (!validatedOptions.TryGetValue("buildVersion", out string _))
+            {
+                Console.WriteLine("Missing argument -buildVersion");
+                EditorApplication.Exit(120);
+            }
+            
+            if (!validatedOptions.TryGetValue("increment", out string _))
+            {
+                Console.WriteLine("Missing argument -increment");
                 EditorApplication.Exit(130);
             }
-
-            const string defaultCustomBuildName = "TestBuild";
-            if (!validatedOptions.TryGetValue("customBuildName", out string customBuildName))
+            
+            if (!validatedOptions.TryGetValue("buildTag", out string _))
             {
-                Console.WriteLine($"Missing argument -customBuildName, defaulting to {defaultCustomBuildName}.");
-                validatedOptions.Add("customBuildName", defaultCustomBuildName);
-            }
-            else if (customBuildName == "")
-            {
-                Console.WriteLine($"Invalid argument -customBuildName, defaulting to {defaultCustomBuildName}.");
-                validatedOptions.Add("customBuildName", defaultCustomBuildName);
+                Console.WriteLine("Missing argument -buildTag");
+                EditorApplication.Exit(140);
             }
 
             return validatedOptions;
