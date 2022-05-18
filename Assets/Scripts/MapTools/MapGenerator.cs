@@ -41,10 +41,6 @@ namespace MapTools
             SetMapValue();
             CreateTileSet();
             CreateTileGroups();
-            DynamicObjectsSet();
-            DynamicObjectsGroups();
-            ProjectileSet();
-            ProjectileGroups();
             GenerateMap();
             SetMapObjects();
         }
@@ -53,8 +49,6 @@ namespace MapTools
         {
             _tileGrid.ForEach(l => l.ForEach(o => Destroy(o.gameObject)));
             _tileGrid.Clear();
-            _dynamicObjects.ForEach(o => Destroy(o.gameObject));
-            _projectile.ForEach(p => Destroy(p.gameObject));
         }
 
         private void SetMapValue()
