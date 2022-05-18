@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5738518564884278419}
   - component: {fileID: 3563328442015637741}
   - component: {fileID: -3639838866018545678}
+  - component: {fileID: -292347904566634682}
   m_Layer: 7
   m_Name: Boss
   m_TagString: Enemy
@@ -175,3 +176,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-292347904566634682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7648850974024084239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7c8e3126926354e8d3772a358e4c34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleDrops:
+  - {fileID: 6445524938816833678, guid: 0e29194933a7abd438098f0ae1d00918, type: 3}
+  dropCycles: 1
+  dropLikelihood: 100

@@ -23,7 +23,6 @@ public class SpawnPoint : MonoBehaviour
         {
             return;
         }
-
         _spawnTimer -= Time.deltaTime;
         if (_spawnTimer <= 0)
         {
