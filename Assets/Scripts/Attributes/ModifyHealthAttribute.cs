@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor;
 using UnityEngine.Diagnostics;
 
 [AddComponentMenu("Playground/Attributes/Modify Health")]
@@ -28,7 +29,7 @@ public class ModifyHealthAttribute : MonoBehaviour
 
                 if (destroyWhenActivated)
                 {
-                    Destroy(this.gameObject);
+                    Destroy(gameObject);
                 }
             }
         }

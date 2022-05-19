@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Wall
   - UserInterface
+  - Resources
   - SpawnPoint
   layers:
   - Default

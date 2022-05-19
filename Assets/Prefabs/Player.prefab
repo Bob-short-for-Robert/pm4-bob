@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 0.1
+  projectile: {fileID: 0}
 --- !u!114 &5886790589937638239
 MonoBehaviour:
   m_ObjectHideFlags: 0
