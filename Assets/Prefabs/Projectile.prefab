@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8690424263816451736}
   - component: {fileID: 7896901604170166681}
   - component: {fileID: 4330182745190945249}
+  - component: {fileID: 6077403932324446686}
+  - component: {fileID: -4541874398662195715}
   m_Layer: 7
   m_Name: Projectile
   m_TagString: Projectile
@@ -138,7 +140,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 2.1333334, y: 2.1333334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -162,3 +164,37 @@ MonoBehaviour:
   destroyWhenActivated: 1
   healthChange: -1
   damageToPlayer: 0
+--- !u!114 &6077403932324446686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8690424263816451739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b9d77b72564bc18c85cfe68afa1355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnParticleEffect: {fileID: 3573286615567245274, guid: 435807eec81dd004f93ee21f8ec2e8db, type: 3}
+  onDestroy: 0
+  onCollision: 1
+  useTag: 1
+  tag: Enemy
+--- !u!114 &-4541874398662195715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8690424263816451739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b9d77b72564bc18c85cfe68afa1355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnParticleEffect: {fileID: 3573286615567245274, guid: c3ce656c1d57d9343ae8180817bba087, type: 3}
+  onDestroy: 0
+  onCollision: 1
+  useTag: 1
+  tag: Wall
