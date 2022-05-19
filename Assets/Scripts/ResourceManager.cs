@@ -45,4 +45,12 @@ public static class ResourceManager
             }
         }
     }
+    
+    public static void UseResource(Dictionary<string, int> useResources)
+    {
+        foreach (var use in useResources)
+        {
+            Collected[use.Key] -= use.Value;
+        }
+    }
 }

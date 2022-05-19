@@ -18,11 +18,11 @@ MonoBehaviour:
   XcrunPath: /usr/bin/xcrun
   MyTests:
   - _selected: 0
-    _testName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _testName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _status: 0
     _isSuite: 1
     _parentName: 
-    _testCaseCount: 16
+    _testCaseCount: 21
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
@@ -33,7 +33,7 @@ MonoBehaviour:
     _testName: AltUnityTester
     _status: 0
     _isSuite: 1
-    _parentName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 4
     _foldOut: 0
     _testResultMessage: 
@@ -126,10 +126,34 @@ MonoBehaviour:
     path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
   - _selected: 0
+    _testName: AutoShooterTest
+    _status: 0
+    _isSuite: 1
+    _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: AutoShooterTest.TestShooting
+    _status: 0
+    _isSuite: 0
+    _parentName: AutoShooterTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/AutoShooterTest.cs
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: CameraTest
     _status: 0
     _isSuite: 1
-    _parentName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 1
     _foldOut: 0
     _testResultMessage: 
@@ -153,7 +177,7 @@ MonoBehaviour:
     _testName: CollisionTest
     _status: 0
     _isSuite: 1
-    _parentName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 4
     _foldOut: 0
     _testResultMessage: 
@@ -210,10 +234,46 @@ MonoBehaviour:
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
   - _selected: 0
+    _testName: ResourceManagerTest
+    _status: 0
+    _isSuite: 1
+    _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _testCaseCount: 2
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: ResourceManagerTest.CollectResources
+    _status: 0
+    _isSuite: 0
+    _parentName: ResourceManagerTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/ResourceManagerTest.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: ResourceManagerTest.TestMonsterDrops
+    _status: 0
+    _isSuite: 0
+    _parentName: ResourceManagerTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/ResourceManagerTest.cs
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: ShooterTest
     _status: 0
     _isSuite: 1
-    _parentName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 3
     _foldOut: 0
     _testResultMessage: 
@@ -231,7 +291,7 @@ MonoBehaviour:
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
-    path: Assets/Editor/Tests/ShooterTest.cs
+    path: Assets/Editor/Tests/AutoShooterTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: ShooterTest.TestShootEnemy
@@ -243,7 +303,7 @@ MonoBehaviour:
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
-    path: Assets/Editor/Tests/ShooterTest.cs
+    path: Assets/Editor/Tests/AutoShooterTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: ShooterTest.TestShootWall
@@ -255,13 +315,49 @@ MonoBehaviour:
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
-    path: Assets/Editor/Tests/ShooterTest.cs
+    path: Assets/Editor/Tests/AutoShooterTest.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: SpawnTowerTest
+    _status: 0
+    _isSuite: 1
+    _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _testCaseCount: 2
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: SpawnTowerTest.TestSpawn
+    _status: 0
+    _isSuite: 0
+    _parentName: SpawnTowerTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/SpawnTowerTest.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: SpawnTowerTest.TestSpawnFail
+    _status: 0
+    _isSuite: 0
+    _parentName: SpawnTowerTest
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/SpawnTowerTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: WalkTest
     _status: 0
     _isSuite: 1
-    _parentName: E:/Projects/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 4
     _foldOut: 0
     _testResultMessage: 
@@ -318,7 +414,7 @@ MonoBehaviour:
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
   - _selected: 1
-    _testName: E:/Projects/bob/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+    _testName: C:/projects/study/bob/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
     _status: 0
     _isSuite: 1
     _parentName: 
@@ -330,7 +426,7 @@ MonoBehaviour:
     path: 
     _testSelectedCount: 0
   - _selected: 1
-    _testName: E:/Projects/bob/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+    _testName: C:/projects/study/bob/Library/ScriptAssemblies/Unity.Rider.Editor.dll
     _status: 0
     _isSuite: 1
     _parentName: 
@@ -347,19 +443,25 @@ MonoBehaviour:
     _buildIndex: 0
   - _toBeBuilt: 1
     _path: Assets/Scenes/Main.unity
-    _buildIndex: 1
+    _buildIndex: 0
   - _toBeBuilt: 1
     _path: Assets/Editor/Tests/TestScenes/CollisionTestScene.unity
-    _buildIndex: 2
+    _buildIndex: 0
   - _toBeBuilt: 1
     _path: Assets/Editor/Tests/TestScenes/ShooterTestScene.unity
-    _buildIndex: 3
+    _buildIndex: 0
   - _toBeBuilt: 1
     _path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
-    _buildIndex: 4
+    _buildIndex: 0
+  - _toBeBuilt: 1
+    _path: Assets/Editor/Tests/TestScenes/PlaceTowerTestScene.unity
+    _buildIndex: 0
+  - _toBeBuilt: 1
+    _path: Assets/Editor/Tests/TestScenes/AutoShooterTestScene.unity
+    _buildIndex: 0
   platform: 1
   StandaloneTarget: 5
-  RanInEditor: 0
+  RanInEditor: 1
   ScenePathDisplayed: 0
   InputVisualizer: 0
   ShowPopUp: 1
