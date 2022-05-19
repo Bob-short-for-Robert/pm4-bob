@@ -7,6 +7,7 @@ public class Shooter : MonoBehaviour
 
     private float _shootTimer;
 
+    public GameObject projectile;
     private void Update()
     {
         _shootTimer -= Time.deltaTime;
@@ -18,9 +19,8 @@ public class Shooter : MonoBehaviour
         
         var position = transform.position;
         var angle = AngleBetweenTwoPoints(position, mousePos);
-        var map = GameObject.Find("Map");
-        var mapController = (MapGenerator) map.GetComponent(typeof(MapGenerator));
-        mapController.AddProjectile(position, angle);
+        
+        SpawnObject.Spawn(projectile, position, angle);
     }
 
     private bool CanShoot()

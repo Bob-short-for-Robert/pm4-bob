@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MapTools
 {
@@ -8,9 +9,13 @@ namespace MapTools
         {
             if (col.CompareTag("Player"))
             {
-                var map = GameObject.Find("Map");
-                var mapController = (MapGenerator) map.GetComponent(typeof(MapGenerator));
-                mapController.NewMap();
+                //Destroy is called foreach object on reload. so "kill" enemies before reload to despawn their drops
+                foreach (var o in GameObject.FindGameObjectsWithTag("Enemy"))
+                {
+                    Destroy(o);
+                }
+
+                SceneManager.LoadScene("Main");
             }
         }
     }
