@@ -7,6 +7,9 @@ TagManager:
   - Projectile
   - Enemy
   - Wall
+  - UserInterface
+  - Resources
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -36,7 +39,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - UserInterface
   - 
   - 
   - 
@@ -46,4 +49,7 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UserInterface
+    uniqueID: 2074268971
     locked: 0
