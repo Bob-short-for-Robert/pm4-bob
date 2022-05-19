@@ -7,10 +7,6 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] public GameObject pauseMenu; 
     
-    void Start () 
-    {
-        Debug.Log("Hello world!");
-    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
