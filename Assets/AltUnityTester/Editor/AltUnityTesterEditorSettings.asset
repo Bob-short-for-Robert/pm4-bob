@@ -23,7 +23,7 @@ MonoBehaviour:
     _isSuite: 1
     _parentName: 
     _testCaseCount: 21
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -35,7 +35,7 @@ MonoBehaviour:
     _isSuite: 1
     _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 4
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
     _isSuite: 1
     _parentName: AltUnityTester
     _testCaseCount: 4
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
     _isSuite: 1
     _parentName: AltUnityTester.Editor
     _testCaseCount: 4
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -67,11 +67,11 @@ MonoBehaviour:
     _testSelectedCount: 0
   - _selected: 0
     _testName: AltUnityTester.Editor.Tests.MenuTest
-    _status: 1
+    _status: 0
     _isSuite: 1
     _parentName: AltUnityTester.Editor.Tests
     _testCaseCount: 4
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -79,59 +79,59 @@ MonoBehaviour:
     _testSelectedCount: 0
   - _selected: 0
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestControls
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: AltUnityTester.Editor.Tests.MenuTest
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0.396074
+    _testDuration: 0
     path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestSettings
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: AltUnityTester.Editor.Tests.MenuTest
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0.1579161
+    _testDuration: 0
     path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestStart
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: AltUnityTester.Editor.Tests.MenuTest
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0.2419222
+    _testDuration: 0
     path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: AltUnityTester.Editor.Tests.MenuTest.TestStatistics
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: AltUnityTester.Editor.Tests.MenuTest
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0.1788466
+    _testDuration: 0
     path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: AutoShooterTest
-    _status: -1
+    _status: 0
     _isSuite: 1
     _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -139,40 +139,23 @@ MonoBehaviour:
     _testSelectedCount: 0
   - _selected: 0
     _testName: AutoShooterTest.TestShooting
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: AutoShooterTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: 'UnityEngine.UnityException : Find can only be called from
-      the main thread.
-
-      Constructors and field initializers will be executed
-      from the loading thread when loading a scene.
-
-      Don''t use this function
-      in the constructor or field initializers, instead move initialization code
-      to the Awake or Start function.'
-    _testStackTrace: "  at (wrapper managed-to-native) UnityEngine.GameObject.Find(string)\r\n 
-      at SpawnObject.GetNewObject (UnityEngine.GameObject obj, UnityEngine.Vector3
-      location) [0x00001] in C:\\projects\\study\\bob\\Assets\\Scripts\\MapTools\\SpawnObject.cs:30
-      \r\n  at SpawnObject.Spawn (UnityEngine.GameObject obj, UnityEngine.Vector3
-      location) [0x00001] in C:\\projects\\study\\bob\\Assets\\Scripts\\MapTools\\SpawnObject.cs:19
-      \r\n  at AutoShooterTest.TestShooting () [0x00001] in C:\\projects\\study\\bob\\Assets\\Editor\\Tests\\AutoShooterTest.cs:36
-      \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
-      at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
-      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
-      culture) [0x00032] in <695d1cc93cca45069c528c15c9fdd749>:0 "
-    _testDuration: 0.0509914
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/AutoShooterTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: CameraTest
-    _status: 1
+    _status: 0
     _isSuite: 1
     _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -180,23 +163,23 @@ MonoBehaviour:
     _testSelectedCount: 0
   - _selected: 0
     _testName: CameraTest.TestMoveCamera
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: CameraTest
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 10.5044127
+    _testDuration: 0
     path: Assets/Editor/Tests/CameraTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: CollisionTest
-    _status: -1
+    _status: 0
     _isSuite: 1
     _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 4
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -204,65 +187,59 @@ MonoBehaviour:
     _testSelectedCount: 0
   - _selected: 0
     _testName: CollisionTest.TestCollisionDown
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: CollisionTest
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 2.1224363
+    _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: CollisionTest.TestCollisionLeft
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: CollisionTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: "  Expected: greater than or equal to 749.0f\r\n  But was: 
-      592.0f\r\n"
-    _testStackTrace: 'at CollisionTest.TestCollisionLeft () [0x00039] in C:\projects\study\bob\Assets\Editor\Tests\CollisionTest.cs:37
-
-'
-    _testDuration: 2.1094236
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: CollisionTest.TestCollisionRight
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: CollisionTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: "  Expected: less than or equal to 435.0f\r\n  But was: 
-      592.0f\r\n"
-    _testStackTrace: 'at CollisionTest.TestCollisionRight () [0x00039] in C:\projects\study\bob\Assets\Editor\Tests\CollisionTest.cs:45
-
-'
-    _testDuration: 2.8674716
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: CollisionTest.TestCollisionUp
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: CollisionTest
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 2.5240962
+    _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: ResourceManagerTest
-    _status: -1
+    _status: 0
     _isSuite: 1
     _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 2
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -270,61 +247,35 @@ MonoBehaviour:
     _testSelectedCount: 0
   - _selected: 0
     _testName: ResourceManagerTest.CollectResources
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: ResourceManagerTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: 'Altom.AltUnityDriver.SceneNotFoundException : Could not
-      found a scene with the name: ResourceMangerTestScene.'
-    _testStackTrace: "  at Altom.AltUnityDriver.Commands.DriverCommunicationWebSocket.handleErrors
-      (Altom.AltUnityDriver.Commands.CommandError error) [0x00336] in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\DriverCommunicationWebSocket.cs:224
-      \r\n  at Altom.AltUnityDriver.Commands.DriverCommunicationWebSocket.Recvall[T]
-      (Altom.AltUnityDriver.Commands.CommandParams param) [0x0016b] in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\DriverCommunicationWebSocket.cs:121
-      \r\n  at Altom.AltUnityDriver.Commands.AltUnityLoadScene.Execute () [0x00013]
-      in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\UnityCommands\\AltUnityLoadScene.cs:16
-      \r\n  at Altom.AltUnityDriver.AltUnityDriver.LoadScene (System.String scene,
-      System.Boolean loadSingle) [0x00001] in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\AltUnityDriver.cs:98
-      \r\n  at ResourceManagerTest.BeforeEach () [0x00001] in C:\\projects\\study\\bob\\Assets\\Editor\\Tests\\ResourceManagerTest.cs:14
-      \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
-      at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
-      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
-      culture) [0x00032] in <695d1cc93cca45069c528c15c9fdd749>:0 "
-    _testDuration: 0.0147441
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/ResourceManagerTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: ResourceManagerTest.TestMonsterDrops
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: ResourceManagerTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: 'Altom.AltUnityDriver.SceneNotFoundException : Could not
-      found a scene with the name: ResourceMangerTestScene.'
-    _testStackTrace: "  at Altom.AltUnityDriver.Commands.DriverCommunicationWebSocket.handleErrors
-      (Altom.AltUnityDriver.Commands.CommandError error) [0x00336] in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\DriverCommunicationWebSocket.cs:224
-      \r\n  at Altom.AltUnityDriver.Commands.DriverCommunicationWebSocket.Recvall[T]
-      (Altom.AltUnityDriver.Commands.CommandParams param) [0x0016b] in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\DriverCommunicationWebSocket.cs:121
-      \r\n  at Altom.AltUnityDriver.Commands.AltUnityLoadScene.Execute () [0x00013]
-      in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\UnityCommands\\AltUnityLoadScene.cs:16
-      \r\n  at Altom.AltUnityDriver.AltUnityDriver.LoadScene (System.String scene,
-      System.Boolean loadSingle) [0x00001] in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\AltUnityDriver.cs:98
-      \r\n  at ResourceManagerTest.BeforeEach () [0x00001] in C:\\projects\\study\\bob\\Assets\\Editor\\Tests\\ResourceManagerTest.cs:14
-      \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
-      at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
-      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
-      culture) [0x00032] in <695d1cc93cca45069c528c15c9fdd749>:0 "
-    _testDuration: 0.0138366
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/ResourceManagerTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: ShooterTest
-    _status: -1
+    _status: 0
     _isSuite: 1
     _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 3
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -332,58 +283,47 @@ MonoBehaviour:
     _testSelectedCount: 0
   - _selected: 0
     _testName: ShooterTest.TestMoveCrosshair
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: ShooterTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: "  Expected: not equal to 40.0f\r\n  But was:  40.0f\r\n"
-    _testStackTrace: 'at ShooterTest.TestMoveCrosshair () [0x00068] in C:\projects\study\bob\Assets\Editor\Tests\ShooterTest.cs:33
-
-'
-    _testDuration: 0.6691227
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/AutoShooterTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: ShooterTest.TestShootEnemy
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: ShooterTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: "  Expected: True\r\n  But was:  False\r\n"
-    _testStackTrace: 'at ShooterTest.TestShootEnemy () [0x0005c] in C:\projects\study\bob\Assets\Editor\Tests\ShooterTest.cs:45
-
-'
-    _testDuration: 2.7926378
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/AutoShooterTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: ShooterTest.TestShootWall
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: ShooterTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: 'System.InvalidOperationException : Assert.Equals should
-      not be used for Assertions'
-    _testStackTrace: "  at NUnit.Framework.Assert.Equals (System.Object a, System.Object
-      b) [0x00001] in <10b6135e63434fdba4fc6c109928ab3b>:0 \r\n  at ShooterTest.TestShootWall
-      () [0x00048] in C:\\projects\\study\\bob\\Assets\\Editor\\Tests\\ShooterTest.cs:59
-      \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
-      at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
-      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
-      culture) [0x00032] in <695d1cc93cca45069c528c15c9fdd749>:0 "
-    _testDuration: 2.8076287
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/AutoShooterTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: SpawnTowerTest
-    _status: -1
+    _status: 0
     _isSuite: 1
     _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 2
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -391,49 +331,35 @@ MonoBehaviour:
     _testSelectedCount: 0
   - _selected: 0
     _testName: SpawnTowerTest.TestSpawn
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: SpawnTowerTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: 'Altom.AltUnityDriver.NotFoundException : Object //*[@tag=Tower]
-      not found'
-    _testStackTrace: "  at Altom.AltUnityDriver.Commands.DriverCommunicationWebSocket.handleErrors
-      (Altom.AltUnityDriver.Commands.CommandError error) [0x0032a] in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\DriverCommunicationWebSocket.cs:222
-      \r\n  at Altom.AltUnityDriver.Commands.DriverCommunicationWebSocket.Recvall[T]
-      (Altom.AltUnityDriver.Commands.CommandParams param) [0x0016b] in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\DriverCommunicationWebSocket.cs:121
-      \r\n  at Altom.AltUnityDriver.Commands.AltUnityFindObject.Execute () [0x00013]
-      in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\Commands\\FindObjects\\AltUnityFindObject.cs:19
-      \r\n  at Altom.AltUnityDriver.AltUnityDriver.FindObject (Altom.AltUnityDriver.By
-      by, System.String value, Altom.AltUnityDriver.By cameraBy, System.String cameraValue,
-      System.Boolean enabled) [0x00001] in C:\\projects\\study\\bob\\Assets\\AltUnityTester\\AltUnityDriver\\AltUnityDriver.cs:121
-      \r\n  at SpawnTowerTest.TestSpawn () [0x00033] in C:\\projects\\study\\bob\\Assets\\Editor\\Tests\\SpawnTowerTest.cs:36
-      \r\n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\r\n 
-      at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
-      invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
-      culture) [0x00032] in <695d1cc93cca45069c528c15c9fdd749>:0 "
-    _testDuration: 3.2369578
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/SpawnTowerTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: SpawnTowerTest.TestSpawnFail
-    _status: 1
+    _status: 0
     _isSuite: 0
     _parentName: SpawnTowerTest
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
-    _testDuration: 0.1714513
+    _testDuration: 0
     path: Assets/Editor/Tests/SpawnTowerTest.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: WalkTest
-    _status: -1
+    _status: 0
     _isSuite: 1
     _parentName: C:/projects/study/bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 4
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -441,58 +367,50 @@ MonoBehaviour:
     _testSelectedCount: 0
   - _selected: 0
     _testName: WalkTest.TestWalkDown
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: WalkTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: "  Expected: less than 314\r\n  But was:  314\r\n"
-    _testStackTrace: 'at WalkTest.TestWalkDown () [0x00038] in C:\projects\study\bob\Assets\Editor\Tests\WalkTest.cs:63
-
-'
-    _testDuration: 0.323358
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
   - _selected: 0
     _testName: WalkTest.TestWalkLeft
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: WalkTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: "  Expected: less than 592.0f\r\n  But was:  592.0f\r\n"
-    _testStackTrace: 'at WalkTest.TestWalkLeft () [0x00039] in C:\projects\study\bob\Assets\Editor\Tests\WalkTest.cs:31
-
-'
-    _testDuration: 0.2967847
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
   - _selected: 0
     _testName: WalkTest.TestWalkRight
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: WalkTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: "  Expected: greater than 592.0f\r\n  But was:  592.0f\r\n"
-    _testStackTrace: 'at WalkTest.TestWalkRight () [0x00039] in C:\projects\study\bob\Assets\Editor\Tests\WalkTest.cs:41
-
-'
-    _testDuration: 0.2905878
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
   - _selected: 0
     _testName: WalkTest.TestWalkUp
-    _status: -1
+    _status: 0
     _isSuite: 0
     _parentName: WalkTest
     _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: "  Expected: greater than 314.0f\r\n  But was:  314.0f\r\n"
-    _testStackTrace: 'at WalkTest.TestWalkUp () [0x00039] in C:\projects\study\bob\Assets\Editor\Tests\WalkTest.cs:52
-
-'
-    _testDuration: 0.2841226
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
   - _selected: 1
@@ -543,7 +461,7 @@ MonoBehaviour:
     _buildIndex: 6
   platform: 1
   StandaloneTarget: 5
-  RanInEditor: 1
+  RanInEditor: 0
   ScenePathDisplayed: 0
   InputVisualizer: 0
   ShowPopUp: 1
