@@ -22,7 +22,7 @@ public static class ResourceManager
         bool enoughResources = true;
         foreach (var compareKey in compare.Keys)
         {
-            enoughResources &= compare[compareKey] < Collected[compareKey];
+            enoughResources &= compare[compareKey] <= Collected[compareKey];
         }
 
         return enoughResources;
