@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class SpawnTower : MonoBehaviour
 {
-    [SerializeField] public GameObject objToSpawn;
     [SerializeField] private float placementRate = 1F;
     [SerializeField] private float displacementDistance = 3F;
 
+    private GameObject _towerToSpawn;
     private Transform _objSpawnPlace;
     private float _myTime = 0F;
     private float _nextPlacement;
@@ -21,26 +21,40 @@ public class SpawnTower : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlaceTower(objToSpawn);
+        PlaceTower();
     }
 
-    public void PlaceTower(GameObject tower)
+    public void PlaceTower()
     {
         _myTime += Time.deltaTime;
         // waits for 1 Second before allowing to spawn another Tower
         SetDisplacement();
-        var neededResources = createDic(tower.GetComponent<NecessaryResources>());
+        var neededResources = createDic(_towerToSpawn.GetComponent<NecessaryResources>());
 
-        if (Input.GetKey(KeyCode.E) && ResourceManager.HasResources(neededResources)
-                                    && SpawnObject.AllowedToSpawn(tower, _objSpawnPlace.position + _displacement)
-                                    && _myTime > _nextPlacement)
+        if (Input.GetKey(KeyCode.E))
         {
-            ResourceManager.UseResource(neededResources);
-            _nextPlacement = _myTime + placementRate;
-            SpawnObject.Spawn(tower, _objSpawnPlace.position + _displacement, _objSpawnPlace.rotation);
-            _nextPlacement -= _myTime;
-            _myTime = 0F;
+            Debug.Log("E");
+            if (canPlaceTower())
+            {
+                Debug.Log("placeTower");
+                ResourceManager.UseResource(neededResources);
+                _nextPlacement = _myTime + placementRate;
+                SpawnObject.Spawn(_towerToSpawn, _objSpawnPlace.position + _displacement, _objSpawnPlace.rotation);
+                _nextPlacement -= _myTime;
+                _myTime = 0F;
+            }
         }
+    }
+
+    private bool canPlaceTower()
+    {
+        var neededResources = createDic(_towerToSpawn.GetComponent<NecessaryResources>());
+        return SpawnObject.AllowedToSpawn(_towerToSpawn, _objSpawnPlace.position + _displacement) && ResourceManager.HasResources(neededResources) && _myTime > _nextPlacement;
+    }
+
+    public void setTower(GameObject tower)
+    {
+        _towerToSpawn = tower;
     }
 
     //TODO solve in NecessaryResources

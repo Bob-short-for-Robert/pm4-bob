@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2817803324716480838}
   - component: {fileID: 5259929109290996296}
   m_Layer: 0
-  m_Name: "Turm gesch\xFCtz feuer"
+  m_Name: WaffenlaufFeuer
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

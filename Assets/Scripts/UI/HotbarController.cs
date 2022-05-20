@@ -1,41 +1,43 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HotbarController : MonoBehaviour
 {
-    public int HotBarSlotSize => gameObject.transform.childCount;
-    private List<GameObject> hotbarSlots = new List<GameObject>();
+    [SerializeField] private List<GameObject> towers = new List<GameObject>();
 
     private KeyCode[] hotbarKeys =
         {KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6};
+   
+    private SpawnTower _spawnTower;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        setSlotSprites();
+        _spawnTower = GameObject.Find("Player").GetComponent<SpawnTower>();
+        _spawnTower.setTower(towers[0]);
     }
 
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < hotbarKeys.Length; i++)
+        for (int i = 0; i < hotbarKeys.Length - 1; i++)
         {
-            if (Input.GetKeyDown(hotbarKeys[i]))
+            if (Input.GetKeyDown(hotbarKeys[i]) && i < towers.Count)
             {
-                Debug.Log("Use item: " + i);
-                
-                return;
+                _spawnTower.setTower(towers[i]);
             }
         }
     }
     
-    private void SetUpHotbarSlots()
+    private void setSlotSprites()
     {
-        for (int i = 0; i < HotBarSlotSize; i++)
+        int i = 0;
+        foreach (Transform child in GameObject.Find("Hotbar").transform)
         {
-            GameObject item = new GameObject();
-            hotbarSlots.Add(item);
-        }
+            child.Find("ItemSprite").GetComponent<Image>().sprite = towers[i].transform.Find("WaffenlaufFeuer").GetComponent<SpriteRenderer>().sprite;
+            i++;
+        };
     }
 }
