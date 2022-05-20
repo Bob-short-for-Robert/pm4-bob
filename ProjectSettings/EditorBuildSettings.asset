@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     guid: effa7830e4ababc4c9fc425463df052b
+  - enabled: 1
+    path: Assets/Editor/Tests/TestScenes/PlaceTowerTestScene.unity
+    guid: 909937b3d09cd304abdbb0af62702a25
+  - enabled: 1
+    path: Assets/Editor/Tests/TestScenes/AutoShooterTestScene.unity
+    guid: b33cbe2bff0d4154e9c7ab979d5fb97b
   m_configObjects: {}

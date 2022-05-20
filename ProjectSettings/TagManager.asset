@@ -10,6 +10,8 @@ TagManager:
   - UserInterface
   - Resources
   - SpawnPoint
+  - Circle
+  - Tower
   layers:
   - Default
   - TransparentFX
