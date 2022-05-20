@@ -36,7 +36,7 @@ public class HotbarController : MonoBehaviour
         int i = 0;
         foreach (Transform child in GameObject.Find("Hotbar").transform)
         {
-            child.Find("ItemSprite").GetComponent<Image>().sprite = towers[i].transform.Find("WaffenlaufFeuer").GetComponent<SpriteRenderer>().sprite;
+            child.Find("ItemSprite").GetComponent<Image>().sprite = towers[i].transform.Find("Waffenlauf").GetComponent<SpriteRenderer>().sprite;
             i++;
         };
     }
