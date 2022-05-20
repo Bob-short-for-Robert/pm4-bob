@@ -6,8 +6,10 @@ public class Shooter : MonoBehaviour
     public float shootInterval;
 
     private float _shootTimer;
+    
+    [SerializeField] private GameObject projectile;
 
-    public GameObject projectile;
+    [SerializeField] private GameObject firePoint;
     private void Update()
     {
         _shootTimer -= Time.deltaTime;
@@ -17,7 +19,7 @@ public class Shooter : MonoBehaviour
     {
         if (!CanShoot()) return;
         
-        var position = transform.position;
+        var position = firePoint.transform.position;
         var angle = AngleBetweenTwoPoints(position, mousePos);
         
         SpawnObject.Spawn(projectile, position, angle);

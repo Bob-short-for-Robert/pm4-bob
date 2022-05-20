@@ -9,6 +9,12 @@ namespace MapTools
         {
             if (col.CompareTag("Player"))
             {
+                //Destroy is called foreach object on reload. so "kill" enemies before reload to despawn their drops
+                foreach (var o in GameObject.FindGameObjectsWithTag("Enemy"))
+                {
+                    Destroy(o);
+                }
+
                 SceneManager.LoadScene("Main");
             }
         }
