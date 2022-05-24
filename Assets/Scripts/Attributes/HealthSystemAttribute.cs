@@ -6,6 +6,7 @@ public class HealthSystemAttribute : MonoBehaviour
 {
     public int health = 3;
 
+    private GameController gc;
     private UIScript ui;
     private int maxHealth;
 
@@ -14,6 +15,7 @@ public class HealthSystemAttribute : MonoBehaviour
     private void Start()
     {
         // Find the UI in the scene and store a reference for later use
+        gc = GameController.Instance;
         ui = GameObject.FindObjectOfType<UIScript>();
 
         if (CompareTag("Player"))
@@ -48,8 +50,11 @@ public class HealthSystemAttribute : MonoBehaviour
         //DEAD
         if (health <= 0)
         {
-            ui.AddOnePoint();
-            Destroy(gameObject);
+            gc.AddOnePoint();
+            if (!isPlayer)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 

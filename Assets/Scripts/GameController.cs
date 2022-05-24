@@ -1,18 +1,47 @@
 ﻿using System;
 using UnityEngine;
-using System.Collections;
-using UnityEngine.PlayerLoop;
 
 public class GameController : MonoBehaviour
 {
-    
-    private void Start()
+    public int Score { get; private set; }
+    public int HighScore { get; private set; }
+
+    private static GameController _instance;
+
+    public static GameController Instance
     {
-        
+        get
+        {
+            if (!_instance)
+            {
+                _instance = new GameObject().AddComponent<GameController>();
+                // name it for easy recognition
+                _instance.name = _instance.GetType().ToString();
+                // mark root as DontDestroyOnLoad();
+                DontDestroyOnLoad(_instance.gameObject);
+            }
+
+            return _instance;
+        }
     }
 
-    private void Update()
+    //version of the one below with one parameter to be able to connect UnityEvents
+    public void AddOnePoint()
     {
-        
+        AddPoints();
+    }
+
+    public void AddPoints(int amount = 1)
+    {
+        Score += amount;
+        if (HighScore < Score)
+        {
+            HighScore = Score;
+        }
+    }
+
+    public void ResetScore()
+    {
+        Score = 0;
     }
 }
