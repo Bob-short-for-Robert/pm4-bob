@@ -10,25 +10,25 @@ namespace UI
 
         private void Update()
         {
-            List<Resource> inventory = ResourceManager.GetInventory();
-            foreach (var vResource in inventory)
+            Dictionary<string, int> collected = ResourceManager.GetCollected();
+            foreach (var vResource in collected)
             {
-                GameObject resUi = this.transform.Find(vResource.Name)?.gameObject;
+                GameObject resUi = this.transform.Find(vResource.Key)?.gameObject;
                 if (resUi == null)
                 {
                     resUi = Instantiate(resourceUi, this.transform);
-                    resUi.name = vResource.Name;
+                    resUi.name = vResource.Key;
                 }
 
                 foreach (Text child in resUi.GetComponentsInChildren<Text>())
                 {
                     if (child.name == "ResourceLabel")
                     {
-                        child.text = vResource.Name;
+                        child.text = vResource.Key;
                     }
                     else if (child.name == "ResourceCount")
                     {
-                        child.text = vResource.quantity.ToString();
+                        child.text = vResource.Value.ToString();
                     }
                 }
             }

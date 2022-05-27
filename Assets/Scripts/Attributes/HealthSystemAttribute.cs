@@ -50,7 +50,7 @@ public class HealthSystemAttribute : MonoBehaviour
         //DEAD
         if (health <= 0)
         {
-            gc.AddOnePoint();
+            gc.AddPoints(1);
             if (!isPlayer)
             {
                 Destroy(gameObject);

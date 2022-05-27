@@ -25,12 +25,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    //version of the one below with one parameter to be able to connect UnityEvents
-    public void AddOnePoint()
-    {
-        AddPoints();
-    }
-
     public void AddPoints(int amount = 1)
     {
         Score += amount;

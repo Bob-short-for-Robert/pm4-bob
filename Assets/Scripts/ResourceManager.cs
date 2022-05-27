@@ -6,8 +6,6 @@ using Random = UnityEngine.Random;
 
 public static class ResourceManager
 {
-    private static List<Resource> Inventory = new List<Resource>();
-
     private static readonly Dictionary<string, int> Collected = new Dictionary<string, int>()
     {
         {"Stone", 0},
@@ -19,9 +17,9 @@ public static class ResourceManager
         return Collected[name];
     }
 
-    public static List<Resource> GetInventory()
+    public static Dictionary<string, int> GetCollected()
     {
-        return Inventory;
+        return Collected;
     }
 
     public static bool HasResources(Dictionary<string, int> compare)
@@ -39,15 +37,6 @@ public static class ResourceManager
     {
         Resource res = o.GetComponent<Resource>();
         Collected[res.Name] += res.quantity;
-        if (Inventory.Exists(resource => resource.Name == res.Name))
-        {
-            Inventory.Find(resource => resource.Name == res.Name).quantity += res.quantity;
-        }
-        else
-        {
-            Inventory.Add(res);
-        }
-
         GameObject.Destroy(o);
     }
 
@@ -67,7 +56,6 @@ public static class ResourceManager
         foreach (var use in useResources)
         {
             Collected[use.Key] -= use.Value;
-            Inventory.Find(resource => resource.Name == use.Key).quantity -= use.Value;
         }
     }
 }

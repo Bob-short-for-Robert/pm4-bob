@@ -61,28 +61,6 @@ namespace PlayMode
             Assert.AreEqual("10", _scoreDisplay.text);
         }
 
-        /*
-        [UnityTest]
-        public IEnumerator TestReferencesNotNullAfterLoad2()
-        {
-            yield return new WaitWhile(() => _sceneLoaded == false);
-            SetupReferences();
-            Assert.IsNotNull(_someComponentReference);
-            //Add all other references as well for quick nullref testing
-            yield return null;
-        }
-
-        [UnityTest]
-        public IEnumerator TestReferencesNotNullAfterLoad()
-        {
-            yield return new WaitWhile(() => _sceneLoaded == false);
-            SetupReferences();
-            Assert.IsNotNull(_someComponentReference);
-            //Add all other references as well for quick nullref testing
-            yield return null;
-        }
-        */
-
         private void Clicked()
         {
             _clicked = true;
