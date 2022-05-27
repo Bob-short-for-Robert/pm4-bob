@@ -33,10 +33,8 @@ public class SpawnTower : MonoBehaviour
 
         if (Input.GetKey(KeyCode.E))
         {
-            Debug.Log("E");
             if (canPlaceTower())
             {
-                Debug.Log("placeTower");
                 ResourceManager.UseResource(neededResources);
                 _nextPlacement = _myTime + placementRate;
                 SpawnObject.Spawn(_towerToSpawn, _objSpawnPlace.position + _displacement, _objSpawnPlace.rotation);
