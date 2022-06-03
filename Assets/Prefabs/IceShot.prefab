@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 462894943009279092}
   - component: {fileID: 1865205506770846177}
   - component: {fileID: 5935894853665012223}
-  - component: {fileID: 9042871653821996892}
+  - component: {fileID: -3031475743385024533}
   m_Layer: 7
   m_Name: IceShot
   m_TagString: Projectile
@@ -147,7 +147,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6340704, y: 0.36266002}
   m_EdgeRadius: 0
---- !u!114 &9042871653821996892
+--- !u!114 &-3031475743385024533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,11 +156,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5418049088898019801}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 628b6a31d98f46bea2c5741dd55189a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f0125f9a17b4263a137254d51f6b847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyWhenActivated: 1
-  healthChange: 0
-  slowTarget: 4
+  slowTarget: 3
   slowTargetForSeconds: 2
-  damageToPlayer: 0

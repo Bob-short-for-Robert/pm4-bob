@@ -8,8 +8,6 @@ public class ModifyHealthAttribute : MonoBehaviour
 {
     public bool destroyWhenActivated = false;
     public int healthChange = -1;
-    public float slowTarget = 0;
-    public float slowTargetForSeconds = 0;
 
     public bool damageToPlayer = true;
 
@@ -34,13 +32,6 @@ public class ModifyHealthAttribute : MonoBehaviour
                     Destroy(gameObject);
                 }
             }
-        }
-
-        //TODO pull out speed out of FollowPlayer and Player into parent class
-        var speedScriptEnemy = colliderData.gameObject.GetComponent<FollowPlayer>();
-        if (speedScriptEnemy != null)
-        {
-            speedScriptEnemy.ModifySpeed(slowTarget, slowTargetForSeconds);
         }
     }
 }

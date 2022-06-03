@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type:
   - Wood
-  count: 05000000
+  count: 01000000
 --- !u!1 &7396127509967470227
 GameObject:
   m_ObjectHideFlags: 0
