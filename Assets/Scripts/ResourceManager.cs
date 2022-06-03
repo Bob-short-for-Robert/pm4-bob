@@ -17,12 +17,17 @@ public static class ResourceManager
         return Collected[name];
     }
 
+    public static Dictionary<string, int> GetCollected()
+    {
+        return Collected;
+    }
+
     public static bool HasResources(Dictionary<string, int> compare)
     {
         bool enoughResources = true;
         foreach (var compareKey in compare.Keys)
         {
-            enoughResources &= compare[compareKey] < Collected[compareKey];
+            enoughResources &= compare[compareKey] <= Collected[compareKey];
         }
 
         return enoughResources;
@@ -45,7 +50,7 @@ public static class ResourceManager
             }
         }
     }
-    
+
     public static void UseResource(Dictionary<string, int> useResources)
     {
         foreach (var use in useResources)
