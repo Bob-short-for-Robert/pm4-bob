@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace EditMode.MapTools
+namespace Tests.EditMode.MapTools
 {
     public class TestMaps
     {

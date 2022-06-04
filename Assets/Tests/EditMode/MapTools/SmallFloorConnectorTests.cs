@@ -2,8 +2,7 @@
 using MapTools;
 using NUnit.Framework;
 
-
-namespace EditMode.MapTools
+namespace Tests.EditMode.MapTools
 {
     [TestFixture]
     public class SmallFloorConnectorTests : TestMaps

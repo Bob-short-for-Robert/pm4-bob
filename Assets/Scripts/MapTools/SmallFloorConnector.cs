@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace MapTools
 {
+    /// <summary>
+    /// Removes all smale floors on the given map
+    /// </summary>
     public class SmallFloorConnector
     {
         private (bool wall, int floorID)[,] _floorMatrix;

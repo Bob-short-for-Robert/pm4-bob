@@ -4,6 +4,9 @@ using Random = UnityEngine.Random;
 
 namespace MapTools
 {
+    /// <summary>
+    /// Calculate the spawn position of an object.
+    /// </summary>
     public class SpawnLocation
     {
         private readonly List<List<bool>> _mapMatrix;
@@ -13,6 +16,10 @@ namespace MapTools
             _mapMatrix = mapMatrix;
         }
 
+        /// <summary>
+        /// Calculate the Player spawn position.
+        /// </summary>
+        /// <returns>Spawn position</returns>
         public Vector3 PlayerSpawn()
         {
             (int x, int y) spawnPoint = (_mapMatrix.Count / 2, _mapMatrix[0].Count / 2);
@@ -25,6 +32,10 @@ namespace MapTools
             return new Vector3(spawnPoint.x, spawnPoint.y, 0);
         }
 
+        /// <summary>
+        /// Calculate the Door spawn position.
+        /// </summary>
+        /// <returns>Spawn position</returns>
         public Vector3 DoorLocation()
         {
             (int x, int y) spawnPoint = (_mapMatrix.Count / 2, _mapMatrix[0].Count - 1);
@@ -36,6 +47,10 @@ namespace MapTools
             return new Vector3(spawnPoint.x, spawnPoint.y, 0);
         }
 
+        /// <summary>
+        /// Calculate the Spawner spawn position.
+        /// </summary>
+        /// <returns>Spawn position</returns>
         public Vector3 SpawnerLocation()
         {
             (int x, int y) spawnPoint = (0, 0);
