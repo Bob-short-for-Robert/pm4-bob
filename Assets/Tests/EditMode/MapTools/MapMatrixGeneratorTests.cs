@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using MapTools;
+﻿using MapTools;
 using NUnit.Framework;
 using Random = UnityEngine.Random;
 
