@@ -207,5 +207,32 @@ namespace Tests.EditMode.MapTools
                 new List<bool>(){true, true , true , true , true , true , true , true , true , true , true , true , true , true , true , true , true , true , true , true , true , true , true , true},
             };
         }
+
+        protected static (List<List<bool>> matrix, (int x, int y) size, int randomFillPrecent) GeneratorTestMap()
+        {
+            return  (new List<List<bool>>()
+            {
+                new List<bool>(){true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                new List<bool>(){true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                new List<bool>(){true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                new List<bool>(){true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                new List<bool>(){true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true },
+                new List<bool>(){true, true, true, true, true, true, true, true, true, true, true, true, false, false, true, true, true, true, true, true },
+                new List<bool>(){true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, true, true, true, true, true },
+                new List<bool>(){true, true, true, true, true, true, true, true, true, true, true, false, false, false, false, true, true, true, true, true },
+                new List<bool>(){true, true, true, true, true, true, true, false, false, true, true, true, false, false, false, false, true, true, true, true },
+                new List<bool>(){true, true, true, false, false, false, false, false, false, false, true, true, true, false, false, false, false, true, true, true },
+                new List<bool>(){true, true, false, false, false, false, false, false, false, false, true, true, true, false, false, false, false, true, true, true },
+                new List<bool>(){true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true},
+                new List<bool>(){true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true },
+                new List<bool>(){true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true },
+                new List<bool>(){true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, true },
+                new List<bool>(){true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true},
+                new List<bool>(){true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true},
+                new List<bool>(){true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, true, true },
+                new List<bool>(){true, true, true, true, true, true, false, false, true, true, false, false, false, false, false, false, false, true, true, true},
+                new List<bool>(){true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true }
+            }, (20, 20), 50);
+        }
     }
 }
