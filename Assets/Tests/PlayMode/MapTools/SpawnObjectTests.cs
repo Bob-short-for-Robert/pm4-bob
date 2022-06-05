@@ -60,25 +60,5 @@ namespace Tests.PlayMode.MapTools
             var name = GameObject.FindGameObjectWithTag("Tower").name;
             Assert.AreEqual("TestPrefabX20Y30", name);
         }
-        
-        [UnityTest]
-        public IEnumerator TestAllowedToSpawnTrue()
-        {
-            yield return new WaitWhile(() => _sceneLoaded == false);
-
-            var posToSet = GameObject.Find("TileX3Y54").transform.position;
-            SpawnObject.AllowedToSpawn(_gameObject, posToSet);
-            Assert.True(SpawnObject.AllowedToSpawn(_gameObject, posToSet));
-        }
-        
-        [UnityTest]
-        public IEnumerator TestAllowedToSpawnFalse()
-        {
-            yield return new WaitWhile(() => _sceneLoaded == false);
-
-            var posToSet = GameObject.Find("Player").transform.position;
-            SpawnObject.AllowedToSpawn(_gameObject, posToSet);
-            Assert.False(SpawnObject.AllowedToSpawn(_gameObject, posToSet));
-        }
     }
 }
