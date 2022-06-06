@@ -1,5 +1,7 @@
 using System;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using static BOB_Logger;
 
 public class AutoShooter : MonoBehaviour
 {
@@ -24,7 +26,10 @@ public class AutoShooter : MonoBehaviour
                 toBeRotated.RotateTowards(toBeShot.transform);
             }
             shooter.Shoot(toBeShot.transform.position);
+            return;
         }
+
+        Log("No Enemy found to shoot at", LogLevel.Silly);
     }
 
     private GameObject FindClosest(GameObject origin, String find)

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEditor.PackageManager;
+using static BOB_Logger;
 
 [AddComponentMenu("Playground/Movement/Camera Follow")]
 public class CameraFollow : MonoBehaviour
@@ -73,6 +75,8 @@ public class CameraFollow : MonoBehaviour
 
                 transform.position = boundPosition;
             }
+            return;
         }
+        Log("No Target found for Camera to follow", LogLevel.Error);
     }
 }
