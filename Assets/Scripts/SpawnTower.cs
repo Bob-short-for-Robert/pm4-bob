@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SpawnTower : MonoBehaviour
 {
-    [SerializeField] public GameObject objToSpawn;
+    [SerializeField] public BuildingSO objToSpawn;
     [SerializeField] private float placementRate = 1F;
     [SerializeField] private float displacementDistance = 3F;
 
@@ -21,7 +21,7 @@ public class SpawnTower : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PlaceTower(objToSpawn);
+        PlaceTower(objToSpawn.pref.gameObject);
     }
 
     public void PlaceTower(GameObject tower)
@@ -64,5 +64,15 @@ public class SpawnTower : MonoBehaviour
             // default displacement to the left if player is not moving
             _displacement.x = -3;
         }
+    }
+    
+    public void SetObjToSpawn(BuildingSO obj)
+    {
+        objToSpawn = obj;
+    }
+    
+    public BuildingSO GetObjToSpawn()
+    {
+        return objToSpawn;
     }
 }
