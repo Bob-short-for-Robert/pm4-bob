@@ -1,14 +1,21 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 
 namespace MapTools
 {
-    using System.Collections.Generic;
+    /// <summary>
+    /// Removes all small floors on the given map
+    /// </summary>
     public class SmallFloorConnector
     {
         private (bool wall, int floorID)[,] _floorMatrix;
         private readonly List<int> _floorCounts = new List<int>();
         private List<List<bool>> _mapMatrix;
 
+        /// <summary>
+        /// Removes all smale floors
+        /// </summary>
+        /// <param name="mapMatrix">Map in which the smale floor should be removed</param>
         public void ConnectSmallFloors(List<List<bool>> mapMatrix)
         {
             _mapMatrix = mapMatrix;
@@ -62,7 +69,7 @@ namespace MapTools
 
         private int CheckSurroundingFloors(int x, int y)
         {
-            List<int> ids = new List<int>();
+            var ids = new List<int>();
 
             if (!_floorMatrix[x - 1, y].wall)
             {
@@ -142,9 +149,9 @@ namespace MapTools
             }
         }
 
-        private int GetMaxIndex(List<int> list)
+        private static int GetMaxIndex(List<int> list)
         {
-            int[] numbers = list.ToArray();
+            var numbers = list.ToArray();
             var biggestNumber = numbers.Max();
             return list.IndexOf(biggestNumber);
         }
