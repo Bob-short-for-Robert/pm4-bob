@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using static BOB_Logger;
 
 public class SpawnTower : MonoBehaviour
 {
@@ -63,6 +65,7 @@ public class SpawnTower : MonoBehaviour
         {
             // default displacement to the left if player is not moving
             _displacement.x = -3;
+            Log("displace Player", LogLevel.Info);
         }
     }
     

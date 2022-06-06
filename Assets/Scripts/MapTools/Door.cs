@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.PackageManager;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace MapTools
@@ -15,6 +16,7 @@ namespace MapTools
             }
 
             SceneManager.LoadScene("Main");
+            BOB_Logger.Log("LOADING NEXT LEVEL", LogLevel.Info);
         }
     }
 }

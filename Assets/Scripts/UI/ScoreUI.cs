@@ -8,7 +8,6 @@ namespace UI
     {
         public Text score, highScore;
 
-        // Start is called before the first frame update
         void Update()
         {
             score.text = GameController.Instance.Score.ToString();
