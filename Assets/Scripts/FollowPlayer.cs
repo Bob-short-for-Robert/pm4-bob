@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
-    public float speed = 2;
-
+    [SerializeField]
+    private SpeedSystemAttribute _speedSystem;
+    
     private GameObject _player;
 
     void Start()
@@ -14,6 +15,6 @@ public class FollowPlayer : MonoBehaviour
     void Update()
     {
         transform.position =
-            Vector3.MoveTowards(transform.position, _player.transform.position, speed * Time.deltaTime);
+            Vector3.MoveTowards(transform.position, _player.transform.position, _speedSystem.GetSpeed() * Time.deltaTime);
     }
 }

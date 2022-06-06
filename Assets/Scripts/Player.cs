@@ -8,7 +8,7 @@ using static System.Console;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Player : MonoBehaviour
 {
-    public float playerSpeed = 2.0f;  
+    public SpeedSystemAttribute _speedSystem;
     
     private BoxCollider2D boxCollider;
     private RaycastHit2D raycasthit;
@@ -39,14 +39,14 @@ public class Player : MonoBehaviour
             Math.Abs(moveDelta.y * Time.deltaTime), collisionMasks);
         if (raycasthit.collider == null)
         {
-            transform.Translate(0, moveDelta.y * Time.deltaTime * playerSpeed, 0);
+            transform.Translate(0, moveDelta.y * Time.deltaTime * _speedSystem.GetSpeed(), 0);
         }
 
         raycasthit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(moveDelta.x, 0),
             Math.Abs(moveDelta.x * Time.deltaTime), collisionMasks);
         if (raycasthit.collider == null)
         {
-            transform.Translate(moveDelta.x * Time.deltaTime *playerSpeed, 0, 0);
+            transform.Translate(moveDelta.x * Time.deltaTime * _speedSystem.GetSpeed(), 0, 0);
         }
     }
 }

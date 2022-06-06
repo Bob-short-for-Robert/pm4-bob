@@ -14,7 +14,6 @@ namespace MapTools
 
         private List<List<bool>> _mapMatrix;
         private int _randomFillPercent = 35;
-        private const string WallTag = "Wall";
 
         //config
         [SerializeField] [Range(40, 50)] private int mapMinSize = 45;
@@ -165,7 +164,6 @@ namespace MapTools
 
             tile.name = $"TileX{coordinate.x}Y{coordinate.y}";
             tile.transform.localPosition = new Vector3(coordinate.x, coordinate.y, 0);
-            tile.tag = WallTag;
 
             _tileGrid[coordinate.x].Add(tile);
 
