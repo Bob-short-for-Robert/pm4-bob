@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5935894853665012223}
   - component: {fileID: -3031475743385024533}
   - component: {fileID: 5556834300840842787}
+  - component: {fileID: 3000312442782112593}
+  - component: {fileID: 2571743378108135032}
   m_Layer: 7
   m_Name: IceShot
   m_TagString: Projectile
@@ -178,3 +180,37 @@ MonoBehaviour:
   destroyWhenActivated: 1
   healthChange: 0
   damageToPlayer: 0
+--- !u!114 &3000312442782112593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418049088898019801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b9d77b72564bc18c85cfe68afa1355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnParticleEffect: {fileID: 3573286615567245274, guid: 2e5e99074f8bda9418662c204bc2d8fd, type: 3}
+  onDestroy: 0
+  onCollision: 1
+  useTag: 1
+  tag: Enemy
+--- !u!114 &2571743378108135032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418049088898019801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b9d77b72564bc18c85cfe68afa1355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnParticleEffect: {fileID: 3573286615567245274, guid: 188f0d3c94f07e041a7e38fb5956685d, type: 3}
+  onDestroy: 0
+  onCollision: 1
+  useTag: 1
+  tag: Wall
