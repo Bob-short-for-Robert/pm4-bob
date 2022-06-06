@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: FireTower
   m_EditorClassIdentifier: 
   pref: {fileID: 153610317689234832, guid: 36e0d74b260f95242b447c768bb7f43f, type: 3}
-  sprite: {fileID: 21300000, guid: 0a9ebc1232c1e6a469c4636db751495d, type: 3}
+  sprite: {fileID: 21300000, guid: 1a98eeeb7f27f6a4aa41fc3a9d2b9151, type: 3}

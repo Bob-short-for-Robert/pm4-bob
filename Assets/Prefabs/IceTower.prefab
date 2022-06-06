@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2817803324716480838}
   - component: {fileID: 5259929109290996296}
   m_Layer: 0
-  m_Name: "Turm gesch\xFCtz feuer"
+  m_Name: Waffenlauf
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5289249639295731633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.457, z: 0}
+  m_LocalPosition: {x: -0.006, y: 0.463, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 142003428360284600}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 2656efbe0334fa244a1a55126a539a3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f900b7725a0c57047bf0f95567b83600, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 1721646570539396134}
   - component: {fileID: 3815698857941335311}
   m_Layer: 6
-  m_Name: FireTower
+  m_Name: IceTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type:
   - Wood
-  count: 01000000
+  count: 02000000
 --- !u!1 &7396127509967470227
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,5 +282,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 2
-  projectile: {fileID: 5418049088898019801, guid: 15fd0b58dbe2a73428d187b3b3f0801a, type: 3}
+  projectile: {fileID: 5418049088898019801, guid: de0ad520bd71d60498f692c8b518f86e, type: 3}
   firePoint: {fileID: 7396127509967470227}
