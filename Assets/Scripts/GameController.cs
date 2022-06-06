@@ -1,5 +1,7 @@
 ﻿using System;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using static BOB_Logger;
 
 public class GameController : MonoBehaviour
 {
@@ -19,6 +21,10 @@ public class GameController : MonoBehaviour
                 _instance.name = _instance.GetType().ToString();
                 // mark root as DontDestroyOnLoad();
                 DontDestroyOnLoad(_instance.gameObject);
+            }
+            else
+            {
+                Log("GameController missing", LogLevel.Error);
             }
 
             return _instance;

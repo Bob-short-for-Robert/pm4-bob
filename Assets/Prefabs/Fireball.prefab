@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1865205506770846177}
   - component: {fileID: 5935894853665012223}
   - component: {fileID: 9042871653821996892}
+  - component: {fileID: -1400148180436226497}
+  - component: {fileID: 3841886652666358555}
   m_Layer: 7
   m_Name: Fireball
   m_TagString: Projectile
@@ -162,3 +164,37 @@ MonoBehaviour:
   destroyWhenActivated: 1
   healthChange: -1
   damageToPlayer: 0
+--- !u!114 &-1400148180436226497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418049088898019801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b9d77b72564bc18c85cfe68afa1355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnParticleEffect: {fileID: 3573286615567245274, guid: 8cc57ff667193264b96fbcb6f2bc4439, type: 3}
+  onDestroy: 0
+  onCollision: 1
+  useTag: 1
+  tag: Enemy
+--- !u!114 &3841886652666358555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418049088898019801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8b9d77b72564bc18c85cfe68afa1355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnParticleEffect: {fileID: 3573286615567245274, guid: ba268d90b966bdb49bd5d9ceb9679938, type: 3}
+  onDestroy: 0
+  onCollision: 1
+  useTag: 1
+  tag: Wall

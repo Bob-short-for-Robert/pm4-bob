@@ -1,6 +1,8 @@
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static BOB_Logger;
 
 namespace UI
 {
@@ -12,6 +14,7 @@ namespace UI
         {
             GameController.Instance.ResetScore();
             SceneManager.LoadScene(GAME_SCENE);
+            Log("NEW RUN STARTED", LogLevel.Info);
         }
     }
 }
