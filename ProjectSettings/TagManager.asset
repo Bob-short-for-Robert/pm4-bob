@@ -12,6 +12,7 @@ TagManager:
   - SpawnPoint
   - Circle
   - Tower
+  - Floor
   layers:
   - Default
   - TransparentFX

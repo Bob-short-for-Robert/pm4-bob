@@ -17,31 +17,31 @@ MonoBehaviour:
   IProxyPath: /usr/local/bin/iproxy
   XcrunPath: /usr/bin/xcrun
   MyTests:
-  - _selected: 1
-    _testName: C:/git/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+  - _selected: 0
+    _testName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _status: 0
     _isSuite: 1
     _parentName: 
-    _testCaseCount: 23
+    _testCaseCount: 22
     _foldOut: 1
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 23
-  - _selected: 1
+    _testSelectedCount: 1
+  - _selected: 0
     _testName: AutoShooterTest
     _status: 0
     _isSuite: 1
-    _parentName: C:/git/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 1
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 1
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: AutoShooterTest.TestShooting
     _status: 0
     _isSuite: 0
@@ -53,55 +53,19 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/AutoShooterTest.cs
     _testSelectedCount: 0
-  - _selected: 1
-    _testName: BookMenuTest
-    _status: 0
-    _isSuite: 1
-    _parentName: C:/git/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
-    _testCaseCount: 2
-    _foldOut: 0
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0
-    path: 
-    _testSelectedCount: 2
-  - _selected: 1
-    _testName: BookMenuTest.BookMenuTestSimplePasses
-    _status: 0
-    _isSuite: 0
-    _parentName: BookMenuTest
-    _testCaseCount: 1
-    _foldOut: 0
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0
-    path: Assets/Editor/Tests/BookMenuTest.cs
-    _testSelectedCount: 0
-  - _selected: 1
-    _testName: BookMenuTest.BookMenuTestWithEnumeratorPasses
-    _status: 0
-    _isSuite: 0
-    _parentName: BookMenuTest
-    _testCaseCount: 1
-    _foldOut: 0
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0
-    path: Assets/Editor/Tests/BookMenuTest.cs
-    _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: CameraTest
     _status: 0
     _isSuite: 1
-    _parentName: C:/git/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 1
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 1
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: CameraTest.TestMoveCamera
     _status: 0
     _isSuite: 0
@@ -113,19 +77,19 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/CameraTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: CollisionTest
     _status: 0
     _isSuite: 1
-    _parentName: C:/git/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 4
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 4
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: CollisionTest.TestCollisionDown
     _status: 0
     _isSuite: 0
@@ -137,7 +101,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: CollisionTest.TestCollisionLeft
     _status: 0
     _isSuite: 0
@@ -149,7 +113,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: CollisionTest.TestCollisionRight
     _status: 0
     _isSuite: 0
@@ -161,7 +125,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: CollisionTest.TestCollisionUp
     _status: 0
     _isSuite: 0
@@ -173,19 +137,68 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
     _testSelectedCount: 0
+  - _selected: 0
+    _testName: EditMode
+    _status: -1
+    _isSuite: 1
+    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _testCaseCount: 1
+    _foldOut: 1
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 1
   - _selected: 1
+    _testName: EditMode.MapTools
+    _status: -1
+    _isSuite: 1
+    _parentName: EditMode
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 1
+  - _selected: 1
+    _testName: EditMode.MapTools.SmallFloorConnectorTests
+    _status: -1
+    _isSuite: 1
+    _parentName: EditMode.MapTools
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 1
+  - _selected: 1
+    _testName: EditMode.MapTools.SmallFloorConnectorTests.TestOneFloor
+    _status: -1
+    _isSuite: 0
+    _parentName: EditMode.MapTools.SmallFloorConnectorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 'OneTimeSetUp: Invalid signature for SetUp or TearDown method:
+      Init'
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Editor/Tests/MapTools/SmallFloorConnectorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: MenuTest
     _status: 0
     _isSuite: 1
-    _parentName: C:/git/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 4
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 4
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: MenuTest.TestControls
     _status: 0
     _isSuite: 0
@@ -195,9 +208,9 @@ MonoBehaviour:
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
-    path: Assets/Editor/Tests/BookMenuTest.cs
+    path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: MenuTest.TestSettings
     _status: 0
     _isSuite: 0
@@ -207,9 +220,9 @@ MonoBehaviour:
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
-    path: Assets/Editor/Tests/BookMenuTest.cs
+    path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: MenuTest.TestStart
     _status: 0
     _isSuite: 0
@@ -219,9 +232,9 @@ MonoBehaviour:
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
-    path: Assets/Editor/Tests/BookMenuTest.cs
+    path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: MenuTest.TestStatistics
     _status: 0
     _isSuite: 0
@@ -231,21 +244,21 @@ MonoBehaviour:
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
-    path: Assets/Editor/Tests/BookMenuTest.cs
+    path: Assets/Editor/Tests/MenuTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: ResourceManagerTest
     _status: 0
     _isSuite: 1
-    _parentName: C:/git/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 2
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 2
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: ResourceManagerTest.CollectResources
     _status: 0
     _isSuite: 0
@@ -257,7 +270,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/ResourceManagerTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: ResourceManagerTest.TestMonsterDrops
     _status: 0
     _isSuite: 0
@@ -269,19 +282,19 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/ResourceManagerTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: ShooterTest
     _status: 0
     _isSuite: 1
-    _parentName: C:/git/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 3
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 3
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: ShooterTest.TestMoveCrosshair
     _status: 0
     _isSuite: 0
@@ -293,7 +306,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/AutoShooterTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: ShooterTest.TestShootEnemy
     _status: 0
     _isSuite: 0
@@ -305,7 +318,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/AutoShooterTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: ShooterTest.TestShootWall
     _status: 0
     _isSuite: 0
@@ -317,19 +330,19 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/AutoShooterTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: SpawnTowerTest
     _status: 0
     _isSuite: 1
-    _parentName: C:/git/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 2
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 2
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: SpawnTowerTest.TestSpawn
     _status: 0
     _isSuite: 0
@@ -341,7 +354,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/SpawnTowerTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: SpawnTowerTest.TestSpawnFail
     _status: 0
     _isSuite: 0
@@ -353,19 +366,19 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/SpawnTowerTest.cs
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: WalkTest
     _status: 0
     _isSuite: 1
-    _parentName: C:/git/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
+    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
     _testCaseCount: 4
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 4
-  - _selected: 1
+    _testSelectedCount: 0
+  - _selected: 0
     _testName: WalkTest.TestWalkDown
     _status: 0
     _isSuite: 0
@@ -377,7 +390,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: WalkTest.TestWalkLeft
     _status: 0
     _isSuite: 0
@@ -389,7 +402,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: WalkTest.TestWalkRight
     _status: 0
     _isSuite: 0
@@ -401,7 +414,7 @@ MonoBehaviour:
     _testDuration: 0
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
-  - _selected: 1
+  - _selected: 0
     _testName: WalkTest.TestWalkUp
     _status: 0
     _isSuite: 0
@@ -414,7 +427,7 @@ MonoBehaviour:
     path: Assets/Editor/Tests/TestScenes/WalkTestScene.unity
     _testSelectedCount: 0
   - _selected: 1
-    _testName: C:/git/pm4-bob/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
+    _testName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll
     _status: 0
     _isSuite: 1
     _parentName: 
@@ -426,7 +439,7 @@ MonoBehaviour:
     path: 
     _testSelectedCount: 0
   - _selected: 1
-    _testName: C:/git/pm4-bob/Library/ScriptAssemblies/Unity.Rider.Editor.dll
+    _testName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Unity.Rider.Editor.dll
     _status: 0
     _isSuite: 1
     _parentName: 
@@ -436,6 +449,66 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/PlayMode.dll
+    _status: 0
+    _isSuite: 1
+    _parentName: 
+    _testCaseCount: 2
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: PlayMode
+    _status: 0
+    _isSuite: 1
+    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/PlayMode.dll
+    _testCaseCount: 2
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: PlayMode.BookUITests
+    _status: 0
+    _isSuite: 1
+    _parentName: PlayMode
+    _testCaseCount: 2
+    _foldOut: 1
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: PlayMode.BookUITests.TestCurrentScoreIsUpdated
+    _status: 0
+    _isSuite: 0
+    _parentName: PlayMode.BookUITests
+    _testCaseCount: 1
+    _foldOut: 1
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/BookUITests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: PlayMode.BookUITests.TestTransitionToMain
+    _status: 0
+    _isSuite: 0
+    _parentName: PlayMode.BookUITests
+    _testCaseCount: 1
+    _foldOut: 1
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/BookUITests.cs
     _testSelectedCount: 0
   Scenes:
   - _toBeBuilt: 1
@@ -464,7 +537,7 @@ MonoBehaviour:
     _buildIndex: 7
   platform: 1
   StandaloneTarget: 5
-  RanInEditor: 0
+  RanInEditor: 1
   ScenePathDisplayed: 0
   InputVisualizer: 0
   ShowPopUp: 1
