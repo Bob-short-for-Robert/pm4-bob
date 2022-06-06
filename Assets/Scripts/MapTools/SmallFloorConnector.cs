@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace MapTools
 {
     /// <summary>
-    /// Removes all smale floors on the given map
+    /// Removes all small floors on the given map
     /// </summary>
     public class SmallFloorConnector
     {
