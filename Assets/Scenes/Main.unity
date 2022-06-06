@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buildingSOList:
   - {fileID: 11400000, guid: 55ab4dea2b6570648aed19b035e6b954, type: 2}
-  - {fileID: 11400000, guid: 55ab4dea2b6570648aed19b035e6b954, type: 2}
+  - {fileID: 11400000, guid: f48f165276693b0409cd58d44e902b14, type: 2}
   _spawnTower: {fileID: 1719479285}
 --- !u!1001 &300461817
 PrefabInstance:
@@ -359,6 +359,22 @@ PrefabInstance:
     - target: {fileID: 7023321499698809419, guid: 1328827a1a3d52f439bdcd396c1e19a0, type: 3}
       propertyPath: m_Name
       value: UIElement
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094324956726802981, guid: 1328827a1a3d52f439bdcd396c1e19a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094324956726802981, guid: 1328827a1a3d52f439bdcd396c1e19a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8094324956726802981, guid: 1328827a1a3d52f439bdcd396c1e19a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7073014070189908506, guid: 36e0d74b260f95242b447c768bb7f43f, type: 3}
+    - target: {fileID: 8094324956726802981, guid: 1328827a1a3d52f439bdcd396c1e19a0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1328827a1a3d52f439bdcd396c1e19a0, type: 3}

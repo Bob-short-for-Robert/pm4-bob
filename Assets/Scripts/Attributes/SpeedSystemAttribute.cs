@@ -1,45 +1,32 @@
 using System;
+using System.Collections.Generic;
+using Codice.Client.BaseCommands;
 using UnityEngine;
 
 [AddComponentMenu("Playground/Attributes/Speed System")]
 public class SpeedSystemAttribute : MonoBehaviour
 {
-    [SerializeField]
-    private int speed = 3;
-    
-    private int _slow = 0;
-    private float _isSlowedFor = 0;
+    [SerializeField] private float speed = 3;
+
+    private EffectList<SlowEffect> _listOfSlowsWithTime = new EffectList<SlowEffect>();
 
     private void Update()
     {
-        if (_isSlowedFor <= 0)
-        {
-            _isSlowedFor = 0;
-            _slow = 0;
-        }
-        else
-        {
-            _isSlowedFor -= Time.deltaTime;
-        }
+        _listOfSlowsWithTime.ReduceEffectTime(Time.deltaTime);
     }
 
-    public int GetSpeed()
+    public float GetSpeed()
     {
-        return speed - _slow;
+        var effectiveSpeed = speed - _listOfSlowsWithTime.getActiveEffect();
+        if (effectiveSpeed < 0)
+        {
+            return 0;
+        }
+        return effectiveSpeed;
     }
-    
-    public void ModifySpeed(int reduceSpeed, float timeSpan)
-    {
-        //avoid going over 0 speed by forcing
-        if (speed - reduceSpeed < 0)
-        {
-            _slow = speed;
-        }
-        else
-        {
-            _slow -= reduceSpeed;
-        }
 
-        _isSlowedFor += timeSpan;
+    public void ApplySlow(SlowEffect slowEffect)
+    {
+        _listOfSlowsWithTime.Add(slowEffect);
     }
 }

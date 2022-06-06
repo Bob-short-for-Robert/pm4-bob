@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1865205506770846177}
   - component: {fileID: 5935894853665012223}
   - component: {fileID: -3031475743385024533}
+  - component: {fileID: 5556834300840842787}
   m_Layer: 7
   m_Name: IceShot
   m_TagString: Projectile
@@ -138,7 +139,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.28, y: 1.28}
+    oldSize: {x: 2.1333334, y: 2.1333334}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -159,5 +160,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0125f9a17b4263a137254d51f6b847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowTarget: 3
+  slowTarget: 1
   slowTargetForSeconds: 2
+  damageToPlayer: 0
+--- !u!114 &5556834300840842787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418049088898019801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628b6a31d98f46bea2c5741dd55189a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyWhenActivated: 1
+  healthChange: 0
+  damageToPlayer: 0

@@ -3,8 +3,12 @@ using UnityEngine;
 [AddComponentMenu("Playground/Attributes/Modify Speed")]
 public class ModifySpeedAttribute : MonoBehaviour
 {
-    public int slowTarget = 0;
-    public float slowTargetForSeconds = 0;
+    [SerializeField]
+    private float slowTarget = 0;
+    [SerializeField]
+    private float slowTargetForSeconds = 0;
+    [SerializeField]
+    private bool damageToPlayer = true;
     
     private void OnTriggerEnter2D(Collider2D colliderData)
     {
@@ -12,7 +16,10 @@ public class ModifySpeedAttribute : MonoBehaviour
 
         if (speedScript != null)
         {
-            speedScript.ModifySpeed(slowTarget, slowTargetForSeconds);
+            if (damageToPlayer || colliderData.CompareTag("Enemy"))
+            {
+                speedScript.ApplySlow(new SlowEffect(slowTarget, slowTargetForSeconds));
+            }
         }
     }
 }
