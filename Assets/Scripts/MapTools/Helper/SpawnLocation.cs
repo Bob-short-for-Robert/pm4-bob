@@ -2,7 +2,7 @@
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace MapTools
+namespace MapTools.Helper
 {
     /// <summary>
     /// Calculate the spawn position of an object.
@@ -22,14 +22,14 @@ namespace MapTools
         /// <returns>Spawn position</returns>
         public Vector3 PlayerSpawn()
         {
-            (int x, int y) spawnPoint = (_mapMatrix.Count / 2, _mapMatrix[0].Count / 2);
+            var (x, y) = (_mapMatrix.Count / 2, _mapMatrix[0].Count / 2);
 
-            while (_mapMatrix[spawnPoint.x][spawnPoint.y])
+            while (_mapMatrix[x][y])
             {
-                spawnPoint.x--;
+                x--;
             }
 
-            return new Vector3(spawnPoint.x, spawnPoint.y, 0);
+            return new Vector3(x, y, 0);
         }
 
         /// <summary>
@@ -38,13 +38,13 @@ namespace MapTools
         /// <returns>Spawn position</returns>
         public Vector3 DoorLocation()
         {
-            (int x, int y) spawnPoint = (_mapMatrix.Count / 2, _mapMatrix[0].Count - 1);
-            while (_mapMatrix[spawnPoint.x][spawnPoint.y])
+            var (x, y) = (_mapMatrix.Count / 2, _mapMatrix[0].Count - 1);
+            while (_mapMatrix[x][y])
             {
-                spawnPoint.y--;
+                y--;
             }
 
-            return new Vector3(spawnPoint.x, spawnPoint.y, 0);
+            return new Vector3(x, y, 0);
         }
 
         /// <summary>

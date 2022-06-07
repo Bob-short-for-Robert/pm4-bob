@@ -1,25 +1,35 @@
+using ShooterController;
+using UnityEditor.PackageManager;
 using UnityEngine;
-
-public class CrosshairController : MonoBehaviour
+using static BoBLogger.Logger;
+namespace Player.Peripheral
 {
-    public Shooter shooter;
-
-    private void Start()
+    public class CrosshairController : MonoBehaviour
     {
-        Cursor.visible = Debug.isDebugBuild;
-    }
+        public Shooter shooter;
 
-    private void Update()
-    {
-        Vector3 mouse = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
-            0.0f - Camera.main.transform.position.z));
-        Vector3 mouseInWorld = new Vector3(mouse.x, mouse.y);
-
-
-        transform.position = mouseInWorld;
-        if (Input.GetKey(KeyCode.Mouse0))
+        private void Start()
         {
-            shooter.Shoot(mouseInWorld);
+            Cursor.visible = Debug.isDebugBuild;
+        }
+
+        private void Update()
+        {
+            if (Camera.main == null)
+            {
+                Log("No Camera found!", LogLevel.Error);
+                return;
+            }
+            var mouse = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y,
+                0.0f - Camera.main.transform.position.z));
+            var mouseInWorld = new Vector3(mouse.x, mouse.y);
+
+
+            transform.position = mouseInWorld;
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                shooter.Shoot(mouseInWorld);
+            }
         }
     }
 }

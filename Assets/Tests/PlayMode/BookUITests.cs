@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using Controller;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -60,7 +61,7 @@ namespace PlayMode
             yield return new WaitForSeconds(1);
             Assert.AreEqual("10", _scoreDisplay.text);
         }
-
+        
         private void Clicked()
         {
             _clicked = true;

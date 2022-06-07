@@ -1,10 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu()]
-public class BuildingSO : ScriptableObject
+namespace Player.Building
 {
-    public Transform pref;
-    public Sprite sprite;
+    [CreateAssetMenu()]
+    public class BuildingSO : ScriptableObject
+    {
+        public Transform pref;
+        public Sprite sprite;
+    }
 }

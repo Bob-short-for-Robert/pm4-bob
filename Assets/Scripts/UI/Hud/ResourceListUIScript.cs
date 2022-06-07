@@ -1,8 +1,8 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using Player;
+using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace UI.Hud
 {
     public class ResourceListUIScript : MonoBehaviour
     {
@@ -10,26 +10,24 @@ namespace UI
 
         private void Update()
         {
-            Dictionary<string, int> collected = ResourceManager.GetCollected();
+            var collected = ResourceManager.GetCollected();
             foreach (var vResource in collected)
             {
-                GameObject resUi = this.transform.Find(vResource.Key)?.gameObject;
+                var resUi = this.transform.Find(vResource.Key)?.gameObject;
                 if (resUi == null)
                 {
                     resUi = Instantiate(resourceUi, this.transform);
                     resUi.name = vResource.Key;
                 }
 
-                foreach (Text child in resUi.GetComponentsInChildren<Text>())
+                foreach (var child in resUi.GetComponentsInChildren<Text>())
                 {
-                    if (child.name == "ResourceLabel")
+                    child.text = child.name switch
                     {
-                        child.text = vResource.Key;
-                    }
-                    else if (child.name == "ResourceCount")
-                    {
-                        child.text = vResource.Value.ToString();
-                    }
+                        "ResourceLabel" => vResource.Key,
+                        "ResourceCount" => vResource.Value.ToString(),
+                        _ => child.text
+                    };
                 }
             }
         }

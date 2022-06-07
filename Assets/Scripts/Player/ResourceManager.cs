@@ -1,61 +1,60 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using MapTools;
+using Stockpile;
 using UnityEngine;
+using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
-public static class ResourceManager
+namespace Player
 {
-    private static readonly Dictionary<string, int> Collected = new Dictionary<string, int>()
+    public static class ResourceManager
     {
-        {"Stone", 0},
-        {"Wood", 0}
-    };
-
-    public static int GetResource(string name)
-    {
-        return Collected[name];
-    }
-
-    public static Dictionary<string, int> GetCollected()
-    {
-        return Collected;
-    }
-
-    public static bool HasResources(Dictionary<string, int> compare)
-    {
-        bool enoughResources = true;
-        foreach (var compareKey in compare.Keys)
+        private static readonly Dictionary<string, int> Collected = new Dictionary<string, int>()
         {
-            enoughResources &= compare[compareKey] <= Collected[compareKey];
+            {"Stone", 0},
+            {"Wood", 0}
+        };
+
+        public static int GetResource(string name)
+        {
+            return Collected[name];
         }
 
-        return enoughResources;
-    }
-
-    public static void CollectResource(GameObject o)
-    {
-        Resource res = o.GetComponent<Resource>();
-        Collected[res.Name] += res.quantity;
-        GameObject.Destroy(o);
-    }
-
-    public static void DropResource(GameObject[] possibleDrops, int dropCycles, int dropLikelihood, Vector3 location)
-    {
-        for (int i = 0; i < dropCycles; i++)
+        public static Dictionary<string, int> GetCollected()
         {
-            if (Random.Range(0, 101) <= dropLikelihood)
+            return Collected;
+        }
+
+        public static bool HasResources(Dictionary<string, int> compare)
+        {
+            return compare.Keys.Aggregate(true, (current, compareKey) => current & compare[compareKey] <= Collected[compareKey]);
+        }
+
+        public static void CollectResource(GameObject o)
+        {
+            var res = o.GetComponent<Resource>();
+            Collected[res.GetName()] += res.GetQuantity();
+            Object.Destroy(o);
+        }
+
+        public static void DropResource(GameObject[] possibleDrops, int dropCycles, int dropLikelihood, Vector3 location)
+        {
+            for (var i = 0; i < dropCycles; i++)
             {
-                SpawnObject.Spawn(possibleDrops[Random.Range(0, possibleDrops.Length)], location, 0);
+                if (Random.Range(0, 101) <= dropLikelihood)
+                {
+                    SpawnObject.Spawn(possibleDrops[Random.Range(0, possibleDrops.Length)], location, 0);
+                }
             }
         }
-    }
 
-    public static void UseResource(Dictionary<string, int> useResources)
-    {
-        foreach (var use in useResources)
+        public static void UseResource(Dictionary<string, int> useResources)
         {
-            Collected[use.Key] -= use.Value;
+            foreach (var use in useResources)
+            {
+                Collected[use.Key] -= use.Value;
+            }
         }
     }
 }

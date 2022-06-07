@@ -1,19 +1,19 @@
+using Controller;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using static BOB_Logger;
+using static BoBLogger.Logger;
 
-namespace UI
+namespace UI.Menu
 {
     public class BookUI : MonoBehaviour
     {
-        [Header("Name of Game Scene")] private const string GAME_SCENE = "Main";
+        [Header("Name of Game Scene")] private const string GameScene = "Main";
 
         public void NextRun()
         {
             GameController.Instance.ResetScore();
-            SceneManager.LoadScene(GAME_SCENE);
+            SceneManager.LoadScene(GameScene);
             Log("NEW RUN STARTED", LogLevel.Info);
         }
     }

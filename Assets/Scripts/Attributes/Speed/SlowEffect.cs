@@ -1,10 +1,9 @@
-using System.Transactions;
-using UnityEngine;
-
-public class SlowEffect : Effect
+namespace Attributes.Speed
 {
-
-    public SlowEffect(float slow, float time) : base(slow, time)
+    public class SlowEffect : Effect
     {
+        public SlowEffect(float slow, float time) : base(slow, time)
+        {
+        }
     }
 }

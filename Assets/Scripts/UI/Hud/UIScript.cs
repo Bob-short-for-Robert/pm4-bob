@@ -1,54 +1,51 @@
-﻿using System;
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.PlayerLoop;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-[AddComponentMenu("")]
-public class UIScript : MonoBehaviour
+namespace UI.Hud
 {
-    public GameType gameType = GameType.Score;
-
-    public Text health, version;
-    public GameObject statsPanel;
-
-    private int playersHealth = 12;
-
-    private bool gameOver = false; //this gets changed when the game is won OR lost
-
-    private void Start()
+    [AddComponentMenu("")]
+    public class UIScript : MonoBehaviour
     {
-        version.text = Application.version;
-    }
+        [SerializeField] private GameType gameType = GameType.Score;
+        [SerializeField] private Text health, version;
 
-    public void GameOver()
-    {
-        SceneManager.LoadScene("Book");
-    }
+        private int _playersHealth = 12;
+        private bool _gameOver = false; //this gets changed when the game is won OR lost
 
-    public void SetHealth(int amount)
-    {
-        playersHealth = amount;
-        health.text = playersHealth.ToString();
-    }
-
-    public void ChangeHealth(int change)
-    {
-        SetHealth(playersHealth + change);
-
-        if (gameType != GameType.Endless
-            && playersHealth <= 0)
+        private void Start()
         {
-            GameOver();
+            version.text = Application.version;
         }
-    }
 
-    public enum GameType
-    {
-        Score = 0,
-        Life,
-        Endless
+        private static void GameOver()
+        {
+            SceneManager.LoadScene("Book");
+        }
+
+        public void SetHealth(int amount)
+        {
+            _playersHealth = amount;
+            health.text = _playersHealth.ToString();
+        }
+
+        public void ChangeHealth(int change)
+        {
+            SetHealth(_playersHealth + change);
+
+            if (gameType != GameType.Endless
+                && _playersHealth <= 0)
+            {
+                GameOver();
+            }
+        }
+
+        private enum GameType
+        {
+            Score = 0,
+            Life,
+            Endless
+        }
     }
 }

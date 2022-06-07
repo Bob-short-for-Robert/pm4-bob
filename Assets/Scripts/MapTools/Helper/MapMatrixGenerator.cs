@@ -1,8 +1,7 @@
-using System;
 using System.Collections.Generic;
 using Random = UnityEngine.Random;
 
-namespace MapTools
+namespace MapTools.Helper
 {
     /// <summary>
     /// Generates a new map. This map will be smooth.
@@ -11,10 +10,7 @@ namespace MapTools
     {
         private (int x, int y) _mapSize;
         private readonly List<List<bool>> _map = new List<List<bool>>();
-
-
         private int _randomFillPercent;
-
 
         /// <summary>
         /// Generates a new map, with the given size and fill percentage.

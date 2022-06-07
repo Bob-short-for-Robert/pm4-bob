@@ -2,27 +2,29 @@ using System;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using static BOB_Logger;
+using static BoBLogger.Logger;
 
-public class SetRandomSeed : MonoBehaviour
+namespace Controller
 {
-   public int userSeed = 10;
-   public int seed;
-   public bool randomizeSeed;
-
-   private void Awake()
+   public class SetRandomSeed : MonoBehaviour
    {
+      [SerializeField] private int userSeed = 10;
+      [SerializeField] private int seed;
+      [SerializeField] private bool randomizeSeed;
 
-      if (randomizeSeed)
+      private void Awake()
       {
-         seed = Random.Range(0, 99999);
-         Log(String.Format("generating new seed {0}", seed.ToString()), LogLevel.Info);
+         if (randomizeSeed)
+         {
+            seed = Random.Range(0, 99999);
+            Log($"generating new seed {seed.ToString()}", LogLevel.Info);
+         }
+         else
+         {
+            seed = userSeed;
+            Log($"using seed {seed.ToString()}", LogLevel.Info);
+         }
+         Random.InitState(seed);
       }
-      else
-      {
-         seed = userSeed;
-         Log(String.Format("using seed {0}", seed.ToString()), LogLevel.Info);
-      }
-      Random.InitState(seed);
    }
 }

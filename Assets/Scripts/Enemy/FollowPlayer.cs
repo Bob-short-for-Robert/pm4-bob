@@ -1,20 +1,25 @@
+using Attributes.Speed;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class FollowPlayer : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField]
-    private SpeedSystemAttribute _speedSystem;
+    public class FollowPlayer : MonoBehaviour
+    {
+        [FormerlySerializedAs("_speedSystem")] [SerializeField]
+        private SpeedSystemAttribute speedSystem;
     
-    private GameObject _player;
+        private GameObject _player;
 
-    void Start()
-    {
-        _player = GameObject.Find("Player");
-    }
+        private void Start()
+        {
+            _player = GameObject.Find("Player");
+        }
 
-    void Update()
-    {
-        transform.position =
-            Vector3.MoveTowards(transform.position, _player.transform.position, _speedSystem.GetSpeed() * Time.deltaTime);
+        private void Update()
+        {
+            transform.position =
+                Vector3.MoveTowards(transform.position, _player.transform.position, speedSystem.GetSpeed() * Time.deltaTime);
+        }
     }
 }

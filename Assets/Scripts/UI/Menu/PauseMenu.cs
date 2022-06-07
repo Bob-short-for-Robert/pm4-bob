@@ -1,16 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+namespace UI.Menu
 {
-    public static bool isGamePaused = false;
-
-    [SerializeField] public GameObject pauseMenu; 
-    
-    private void Update()
+    public class PauseMenu : MonoBehaviour
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        private static bool isGamePaused;
+
+        [SerializeField] private GameObject pauseMenu; 
+    
+        private void Update()
         {
+            if (!Input.GetKeyDown(KeyCode.Escape)) return;
             if (isGamePaused)
             {
                 ResumeGame();
@@ -20,30 +21,30 @@ public class PauseMenu : MonoBehaviour
                 PauseGame();
             }
         }
-    }
 
-    public void ResumeGame()
-    {
-        pauseMenu.SetActive(false);
-        Time.timeScale = 1f;
-        isGamePaused = false;
-    }
-    
-    public void PauseGame()
-    {
-        pauseMenu.SetActive(true);
-        Time.timeScale = 0f;
-        isGamePaused = true;
-    }
+        private void ResumeGame()
+        {
+            pauseMenu.SetActive(false);
+            Time.timeScale = 1f;
+            isGamePaused = false;
+        }
 
-    public void LoadMenu()
-    {
-        SceneManager.LoadScene("Menu");
-        Time.timeScale = 1f;
-    }
+        private void PauseGame()
+        {
+            pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
+            isGamePaused = true;
+        }
 
-    public void QuitGame()
-    {
-        Application.Quit();
+        public void LoadMenu()
+        {
+            SceneManager.LoadScene("Menu");
+            Time.timeScale = 1f;
+        }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }

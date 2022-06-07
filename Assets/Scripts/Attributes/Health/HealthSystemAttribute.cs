@@ -1,69 +1,70 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using Controller;
+using UI.Hud;
+using UnityEngine;
 
-[AddComponentMenu("Playground/Attributes/Health System")]
-public class HealthSystemAttribute : MonoBehaviour
+namespace Attributes.Health
 {
-    public int health = 3;
-
-    private GameController gc;
-    private UIScript ui;
-    private int maxHealth;
-
-    private bool isPlayer = false;
-
-    private void Start()
+    [AddComponentMenu("Playground/Attributes/Health System")]
+    public class HealthSystemAttribute : MonoBehaviour
     {
-        // Find the UI in the scene and store a reference for later use
-        gc = GameController.Instance;
-        ui = GameObject.FindObjectOfType<UIScript>();
+        [SerializeField] private int health = 3;
 
-        if (CompareTag("Player"))
+        private GameController _gc;
+        private UIScript _ui;
+        private int _maxHealth;
+        private bool _isPlayer;
+
+        private void Start()
         {
-            isPlayer = true;
+            // Find the UI in the scene and store a reference for later use
+            _gc = GameController.Instance;
+            _ui = FindObjectOfType<UIScript>();
+
+            if (CompareTag("Player"))
+            {
+                _isPlayer = true;
+            }
+
+            // Notify the UI so it will show the right initial amount
+            if (_ui != null && _isPlayer)
+            {
+                _ui.SetHealth(health);
+            }
+
+            _maxHealth = health; //note down the maximum health to avoid going over it when the player gets healed
         }
 
-        // Notify the UI so it will show the right initial amount
-        if (ui != null && isPlayer)
+
+        // changes the energy from the player
+        // also notifies the UI (if present)
+        public void ModifyHealth(int amount)
         {
-            ui.SetHealth(health);
-        }
+            //avoid going over the maximum health by forcin
+            if (health + amount > _maxHealth)
+            {
+                amount = _maxHealth - health;
+            }
 
-        maxHealth = health; //note down the maximum health to avoid going over it when the player gets healed
-    }
+            health += amount;
 
+            UpdateUI(amount);
 
-    // changes the energy from the player
-    // also notifies the UI (if present)
-    public void ModifyHealth(int amount)
-    {
-        //avoid going over the maximum health by forcin
-        if (health + amount > maxHealth)
-        {
-            amount = maxHealth - health;
-        }
-
-        health += amount;
-
-        updateUI(amount);
-
-        //DEAD
-        if (health <= 0)
-        {
-            gc.AddPoints(1);
-            if (!isPlayer)
+            //DEAD
+            if (health > 0) return;
+            _gc.AddPoints(1);
+            if (!_isPlayer)
             {
                 Destroy(gameObject);
             }
         }
-    }
 
-    private void updateUI(int amount)
-    {
-        // Notify the UI so it will change the number in the corner
-        if (ui != null && isPlayer)
+        private void UpdateUI(int amount)
         {
-            ui.ChangeHealth(amount);
+            // Notify the UI so it will change the number in the corner
+            if (_ui != null && _isPlayer)
+            {
+                _ui.ChangeHealth(amount);
+            }
         }
     }
 }

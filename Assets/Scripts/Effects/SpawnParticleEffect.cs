@@ -1,21 +1,16 @@
 ﻿using System;
+using MapTools;
 using UnityEngine;
 
 namespace Effects
 {
     public class SpawnParticleEffect : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject spawnParticleEffect;
-        [SerializeField]
-        private bool onDestroy;
-        [SerializeField]
-        private bool onCollision;
-        [SerializeField]
-        private bool useTag;
-        [SerializeField]
-        private new string tag = string.Empty;
-        
+        [SerializeField] private GameObject spawnParticleEffect;
+        [SerializeField] private bool onDestroy;
+        [SerializeField] private bool onCollision;
+        [SerializeField] private bool useTag;
+        [SerializeField] private new string tag = string.Empty;
         
         private void OnDestroy()
         {
@@ -31,20 +26,20 @@ namespace Effects
             { 
                 SpawnEffect();  
             }
-            if (!onDestroy && onCollision && useTag)
+
+            if (onDestroy || !onCollision || !useTag) return;
+            if (col.CompareTag(tag))
             {
-                if (col.CompareTag(tag))
-                {
-                    SpawnEffect();   
-                }
+                SpawnEffect();   
             }
         }
 
         private void SpawnEffect()
         {
             if (!spawnParticleEffect.CompareTag("Circle"))
-            { 
-                SpawnObject.Spawn(spawnParticleEffect, transform.localPosition, transform.rotation);
+            {
+                var tempTransform = transform;
+                SpawnObject.Spawn(spawnParticleEffect, tempTransform.localPosition, tempTransform.rotation);
             }
             else
             {

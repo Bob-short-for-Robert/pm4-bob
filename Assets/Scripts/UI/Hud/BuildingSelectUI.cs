@@ -1,69 +1,70 @@
 using System.Collections.Generic;
+using Player.Building;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
-public class BuildingSelectUI : MonoBehaviour
+namespace UI.Hud
 {
-    [SerializeField] private List<BuildingSO> _buildingSOList;
-    [SerializeField] private SpawnTower _spawnTower;
+    public class BuildingSelectUI : MonoBehaviour
+    {
+        [FormerlySerializedAs("_buildingSOList")] [SerializeField] private List<BuildingSO> buildingSoList;
+        [FormerlySerializedAs("_spawnTower")] [SerializeField] private SpawnTower spawnTower;
     
-    private Dictionary<int, Transform> _buildingElementDictionary;
-    private int lastButton = 0;
+        private Dictionary<int, Transform> _buildingElementDictionary;
+        private int _lastButton;
 
-    private KeyCode[] hotbarKeys = new KeyCode[]
-    {
-        KeyCode.Alpha1,
-        KeyCode.Alpha2,
-        KeyCode.Alpha3,
-        KeyCode.Alpha4,
-        KeyCode.Alpha5,
-        KeyCode.Alpha6,
-    };
-
-    private void Awake()
-    {
-        Transform buildingElementTemplate = transform.Find("UIElement");
-        buildingElementTemplate.gameObject.SetActive(false);
-
-        _buildingElementDictionary = new Dictionary<int, Transform>();
-
-        for (int index = 0; index < _buildingSOList.Count && index < hotbarKeys.Length; index++)
+        private readonly KeyCode[] _hotBarKeys =
         {
-            Transform buildingElement = Instantiate(buildingElementTemplate, transform);
-            buildingElement.gameObject.SetActive(true);
+            KeyCode.Alpha1,
+            KeyCode.Alpha2,
+            KeyCode.Alpha3,
+            KeyCode.Alpha4,
+            KeyCode.Alpha5,
+            KeyCode.Alpha6,
+        };
 
-            buildingElement.GetComponent<RectTransform>().anchoredPosition += new Vector2(-(_buildingSOList.Count * 3) + index * 6, 0);
-            buildingElement.Find("Image").GetComponent<Image>().sprite = _buildingSOList[index].sprite;
-            buildingElement.Find("SlotNumber").GetComponent<Text>().text = (index + 1).ToString();
-
-            _buildingElementDictionary[index] = buildingElement;
-        }
-        
-        UpdateSelectedVisual();
-    }
-
-    private void Update()
-    {
-        for (int index = 0; index < _buildingSOList.Count && index < hotbarKeys.Length; index++)
+        private void Awake()
         {
-            if (Input.GetKeyDown(hotbarKeys[index]))
+            var buildingElementTemplate = transform.Find("UIElement");
+            buildingElementTemplate.gameObject.SetActive(false);
+
+            _buildingElementDictionary = new Dictionary<int, Transform>();
+
+            for (var index = 0; index < buildingSoList.Count && index < _hotBarKeys.Length; index++)
             {
-                _spawnTower.SetObjToSpawn(_buildingSOList[index]);
-                lastButton = index;
+                var buildingElement = Instantiate(buildingElementTemplate, transform);
+                buildingElement.gameObject.SetActive(true);
+
+                buildingElement.GetComponent<RectTransform>().anchoredPosition += new Vector2(-(buildingSoList.Count * 3) + index * 6, 0);
+                buildingElement.Find("Image").GetComponent<Image>().sprite = buildingSoList[index].sprite;
+                buildingElement.Find("SlotNumber").GetComponent<Text>().text = (index + 1).ToString();
+
+                _buildingElementDictionary[index] = buildingElement;
+            }
+        
+            UpdateSelectedVisual();
+        }
+
+        private void Update()
+        {
+            for (var index = 0; index < buildingSoList.Count && index < _hotBarKeys.Length; index++)
+            {
+                if (!Input.GetKeyDown(_hotBarKeys[index])) continue;
+                spawnTower.SetObjToSpawn(buildingSoList[index]);
+                _lastButton = index;
                 UpdateSelectedVisual();
             }
         }
-    }
     
-    private void UpdateSelectedVisual()
-    {
-        foreach (int lastButton in _buildingElementDictionary.Keys)
+        private void UpdateSelectedVisual()
         {
-            _buildingElementDictionary[lastButton].Find("Selected").gameObject.SetActive(false);
+            foreach (var lastButton in _buildingElementDictionary.Keys)
+            {
+                _buildingElementDictionary[lastButton].Find("Selected").gameObject.SetActive(false);
+            }
+            _buildingElementDictionary[_lastButton].Find("Selected").gameObject.SetActive(true);
         }
-
-        _buildingElementDictionary[lastButton].Find("Selected").gameObject.SetActive(true);
     }
 }

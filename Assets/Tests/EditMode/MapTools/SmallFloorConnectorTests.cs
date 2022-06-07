@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using MapTools;
+using MapTools.Helper;
 using NUnit.Framework;
 
 namespace Tests.EditMode.MapTools

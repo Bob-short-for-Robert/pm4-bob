@@ -1,58 +1,56 @@
-﻿using UnityEngine;
-using System.Collections;
-using UnityEditor.PackageManager;
-using static BOB_Logger;
+﻿using UnityEditor.PackageManager;
+using UnityEngine;
+using static BoBLogger.Logger;
 
-[AddComponentMenu("Playground/Movement/Camera Follow")]
-public class CameraFollow : MonoBehaviour
+namespace Player.Peripheral
 {
-    [Header("Object to follow")]
-    // This is the object that the camera will follow
-    public Transform target;
-
-    //Bound camera to limits
-    public bool limitBounds = false;
-    public float left = -5f;
-    public float right = 5f;
-    public float bottom = -5f;
-    public float top = 5f;
-
-    private Vector3 _lerpedPosition;
-    private Camera _camera;
-
-    private void Awake()
+    [AddComponentMenu("Playground/Movement/Camera Follow")]
+    public class CameraFollow : MonoBehaviour
     {
-        _camera = GetComponent<Camera>();
-    }
+        [Header("Object to follow")]
+        // This is the object that the camera will follow
+        public Transform target;
 
-    // FixedUpdate is called every frame, when the physics are calculated
-    void FixedUpdate()
-    {
-        if (target != null)
+        //Bound camera to limits
+        public bool limitBounds = false;
+        public float left = -5f;
+        public float right = 5f;
+        public float bottom = -5f;
+        public float top = 5f;
+
+        private Vector3 _lerpedPosition;
+        private Camera _camera;
+
+        private void Awake()
         {
+            _camera = GetComponent<Camera>();
+        }
+
+        // FixedUpdate is called every frame, when the physics are calculated
+        private void FixedUpdate()
+        {
+            if (target == null) return;
             // Find the right position between the camera and the object
             _lerpedPosition = Vector3.Lerp(transform.position, target.position, Time.deltaTime * 10f);
             _lerpedPosition.z = -10f;
         }
-    }
 
 
-    // LateUpdate is called after all other objects have moved
-    void LateUpdate()
-    {
-        if (target != null)
+        // LateUpdate is called after all other objects have moved
+        private void LateUpdate()
         {
-            // Move the camera in the position found previously
-            transform.position = _lerpedPosition;
-
-            // Bounds the camera to the limits (if enabled)
-            if (limitBounds)
+            if (target != null)
             {
-                Vector3 bottomLeft = _camera.ScreenToWorldPoint(Vector3.zero);
-                Vector3 topRight = _camera.ScreenToWorldPoint(new Vector3(_camera.pixelWidth, _camera.pixelHeight));
-                Vector2 screenSize = new Vector2(topRight.x - bottomLeft.x, topRight.y - bottomLeft.y);
+                // Move the camera in the position found previously
+                transform.position = _lerpedPosition;
 
-                Vector3 boundPosition = transform.position;
+                // Bounds the camera to the limits (if enabled)
+                if (!limitBounds) return;
+                var bottomLeft = _camera.ScreenToWorldPoint(Vector3.zero);
+                var topRight = _camera.ScreenToWorldPoint(new Vector3(_camera.pixelWidth, _camera.pixelHeight));
+                var screenSize = new Vector2(topRight.x - bottomLeft.x, topRight.y - bottomLeft.y);
+
+                var boundPosition = transform.position;
                 if (boundPosition.x > right - (screenSize.x / 2f))
                 {
                     boundPosition.x = right - (screenSize.x / 2f);
@@ -74,9 +72,9 @@ public class CameraFollow : MonoBehaviour
                 }
 
                 transform.position = boundPosition;
+                return;
             }
-            return;
+            Log("No Target found for Camera to follow", LogLevel.Error);
         }
-        Log("No Target found for Camera to follow", LogLevel.Error);
     }
 }

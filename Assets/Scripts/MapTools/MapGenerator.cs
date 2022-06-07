@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using MapTools.Helper;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -109,20 +111,24 @@ namespace MapTools
                 wallVersion = GetWallVersion(coordinate);
             }
 
-            if (wallVersion == WallVersions.CornerBL ||
-                wallVersion == WallVersions.CornerBR ||
-                wallVersion == WallVersions.CornerTL ||
-                wallVersion == WallVersions.CornerTR)
+            switch (wallVersion)
             {
-                tileId = 1;
-            }
-
-            if (wallVersion == WallVersions.DiagonalBL ||
-                wallVersion == WallVersions.DiagonalBR ||
-                wallVersion == WallVersions.DiagonalTL ||
-                wallVersion == WallVersions.DiagonalTR)
-            {
-                tileId = 3;
+                case WallVersions.CornerBL:
+                case WallVersions.CornerBR:
+                case WallVersions.CornerTL:
+                case WallVersions.CornerTR:
+                    tileId = 1;
+                    break;
+                case WallVersions.DiagonalBL:
+                case WallVersions.DiagonalBR:
+                case WallVersions.DiagonalTL:
+                case WallVersions.DiagonalTR:
+                    tileId = 3;
+                    break;
+                case WallVersions.Square:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             var tilePrefab = _tileSet[tileId];
@@ -157,6 +163,20 @@ namespace MapTools
                     case WallVersions.DiagonalTL:
                         Rotate(90);
                         break;
+                    case WallVersions.Square:
+                        break;
+                    case WallVersions.CornerTL:
+                        break;
+                    case WallVersions.CornerTR:
+                        break;
+                    case WallVersions.CornerBL:
+                        break;
+                    case WallVersions.CornerBR:
+                        break;
+                    case WallVersions.DiagonalTR:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
 
@@ -298,7 +318,7 @@ namespace MapTools
                     return false;
                 }
 
-                foreach (int field in floors)
+                foreach (var field in floors)
                 {
                     var (x, y) = GetPrefix(field);
                     if (_mapMatrix[coordinate.x + x][coordinate.y + y])

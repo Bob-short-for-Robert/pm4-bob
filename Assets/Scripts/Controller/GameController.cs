@@ -1,47 +1,49 @@
-﻿using System;
-using UnityEditor.PackageManager;
+﻿using UnityEditor.PackageManager;
 using UnityEngine;
-using static BOB_Logger;
+using static BoBLogger.Logger;
 
-public class GameController : MonoBehaviour
+namespace Controller
 {
-    public int Score { get; private set; }
-    public int HighScore { get; private set; }
-
-    private static GameController _instance;
-
-    public static GameController Instance
+    public class GameController : MonoBehaviour
     {
-        get
+        public int Score { get; private set; }
+        public int HighScore { get; private set; }
+
+        private static GameController instance;
+
+        public static GameController Instance
         {
-            if (!_instance)
+            get
             {
-                _instance = new GameObject().AddComponent<GameController>();
-                // name it for easy recognition
-                _instance.name = _instance.GetType().ToString();
-                // mark root as DontDestroyOnLoad();
-                DontDestroyOnLoad(_instance.gameObject);
-            }
-            else
-            {
-                Log("GameController missing", LogLevel.Error);
-            }
+                if (!instance)
+                {
+                    instance = new GameObject().AddComponent<GameController>();
+                    // name it for easy recognition
+                    instance.name = instance.GetType().ToString();
+                    // mark root as DontDestroyOnLoad();
+                    DontDestroyOnLoad(instance.gameObject);
+                }
+                else
+                {
+                    Log("GameController missing", LogLevel.Error);
+                }
 
-            return _instance;
+                return instance;
+            }
         }
-    }
 
-    public void AddPoints(int amount = 1)
-    {
-        Score += amount;
-        if (HighScore < Score)
+        public void AddPoints(int amount = 1)
         {
-            HighScore = Score;
+            Score += amount;
+            if (HighScore < Score)
+            {
+                HighScore = Score;
+            }
         }
-    }
 
-    public void ResetScore()
-    {
-        Score = 0;
+        public void ResetScore()
+        {
+            Score = 0;
+        }
     }
 }

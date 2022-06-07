@@ -1,40 +1,33 @@
-using System.Collections.Generic;
 using MapTools;
 using UnityEngine;
 using Random = System.Random;
 
-public class SpawnPoint : MonoBehaviour
+namespace Enemy
 {
-    [Header("Spawn Interval in Seconds")] public float spawnInterval;
-    public GameObject[] enemies;
-
-    private float _spawnTimer;
-
-    private Random _random;
-
-    private void Start()
+    public class SpawnPoint : MonoBehaviour
     {
-        _random = new Random();
-    }
+        [Header("Spawn Interval in Seconds")] public float spawnInterval;
+        [SerializeField] private GameObject[] enemies;
 
-    private void Update()
-    {
-        if (spawnInterval == 0)
+        private float _spawnTimer;
+
+        private void Update()
         {
-            return;
-        }
-        _spawnTimer -= Time.deltaTime;
-        if (_spawnTimer <= 0)
-        {
+            if (spawnInterval == 0)
+            {
+                return;
+            }
+            _spawnTimer -= Time.deltaTime;
+            if (!(_spawnTimer <= 0)) return;
             SpawnEnemy();
             _spawnTimer = spawnInterval;
         }
-    }
 
-    private void SpawnEnemy()
-    {
-        //keep method for later wraping of wave logic
-        Vector3 position = transform.position;
-        SpawnObject.Spawn(enemies[0], position, 0);
+        private void SpawnEnemy()
+        {
+            //keep method for later wrapping of wave logic
+            var position = transform.position;
+            SpawnObject.Spawn(enemies[0], position, 0);
+        }
     }
 }

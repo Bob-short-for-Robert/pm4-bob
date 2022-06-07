@@ -1,36 +1,31 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
-using UnityEngine.Diagnostics;
 
-[AddComponentMenu("Playground/Attributes/Modify Health")]
-public class ModifyHealthAttribute : MonoBehaviour
+namespace Attributes.Health
 {
-    public bool destroyWhenActivated = false;
-    public int healthChange = -1;
-
-    public bool damageToPlayer = true;
-
-    // This function gets called everytime this object collides with another
-    private void OnCollisionEnter2D(Collision2D collisionData)
+    [AddComponentMenu("Playground/Attributes/Modify Health")]
+    public class ModifyHealthAttribute : MonoBehaviour
     {
-        OnTriggerEnter2D(collisionData.collider);
-    }
+        [SerializeField] private bool destroyWhenActivated;
+        [SerializeField] private int healthChange = -1;
+        [SerializeField] private bool damageToPlayer = true;
 
-    private void OnTriggerEnter2D(Collider2D colliderData)
-    {
-        HealthSystemAttribute healthScript = colliderData.gameObject.GetComponent<HealthSystemAttribute>();
-        if (healthScript != null)
+        // This function gets called everytime this object collides with another
+        private void OnCollisionEnter2D(Collision2D collisionData)
         {
-            if (damageToPlayer || !colliderData.CompareTag("Player"))
-            {
-                // subtract health from the player
-                healthScript.ModifyHealth(healthChange);
+            OnTriggerEnter2D(collisionData.collider);
+        }
 
-                if (destroyWhenActivated)
-                {
-                    Destroy(gameObject);
-                }
+        private void OnTriggerEnter2D(Collider2D colliderData)
+        {
+            var healthScript = colliderData.gameObject.GetComponent<HealthSystemAttribute>();
+            if (healthScript == null) return;
+            if (!damageToPlayer && colliderData.CompareTag("Player")) return;
+            // subtract health from the player
+            healthScript.ModifyHealth(healthChange);
+
+            if (destroyWhenActivated)
+            {
+                Destroy(gameObject);
             }
         }
     }
