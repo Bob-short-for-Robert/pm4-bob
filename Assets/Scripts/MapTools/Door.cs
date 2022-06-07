@@ -1,6 +1,6 @@
-﻿using UnityEditor.PackageManager;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using static BoBLogger.Logger;
 
 namespace MapTools
 {
@@ -16,7 +16,7 @@ namespace MapTools
             }
 
             SceneManager.LoadScene("Main");
-            BOB_Logger.Log("LOADING NEXT LEVEL", LogLevel.Info);
+            Log("LOADING NEXT LEVEL", LogType.Log);
         }
     }
 }
