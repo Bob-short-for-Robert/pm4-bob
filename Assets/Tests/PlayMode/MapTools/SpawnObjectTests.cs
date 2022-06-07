@@ -18,7 +18,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestSpawnObjectPosOnly()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
 
             var posToSet = new Vector3(20, 30, 0);
             SpawnObject.Spawn(_gameObject, posToSet);
@@ -29,7 +29,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestSpawnObjectAngle()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
 
             var posToSet = new Vector3(20, 30, 0);
             const float angle = 2f;
@@ -41,7 +41,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestSpawnObjectRotation()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
 
             var posToSet = new Vector3(20, 30, 0);
             var rotationToTest = Quaternion.Euler(new Vector3(0f, 0f, 3));
@@ -53,7 +53,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestSpawnObjectName()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
 
             var posToSet = new Vector3(20, 30, 0);
             SpawnObject.Spawn(_gameObject, posToSet);

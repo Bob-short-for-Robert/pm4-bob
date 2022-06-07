@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
 using UnityEngine.UI;
 
-namespace PlayMode
+namespace Tests.PlayMode
 {
     public class BookUITests
     {
@@ -28,7 +28,7 @@ namespace PlayMode
         public void TearDown()
         {
             Object.FindObjectsOfType<GameObject>().ToList()
-                .ForEach(go => GameObject.DestroyImmediate(go));
+                .ForEach(Object.DestroyImmediate);
         }
 
         [UnityTest]
@@ -67,7 +67,7 @@ namespace PlayMode
             _clicked = true;
         }
 
-        void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+        private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
         {
             _sceneLoaded = true;
         }

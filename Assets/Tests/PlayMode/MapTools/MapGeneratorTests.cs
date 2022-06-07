@@ -16,7 +16,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestPlayerPos()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             var pos = GameObject.Find("Player").transform.position;
             Assert.AreEqual(new Vector3(19,37, 0), new Vector3((int)pos.x, (int)pos.y, 0));
@@ -25,7 +25,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestSpawnPointPos()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             var pos = GameObject.Find("EnemySpawnPointX5Y68").transform.position;
             Assert.AreEqual(new Vector3(5, 68, 0), new Vector3((int)pos.x, (int)pos.y, 0));
@@ -34,7 +34,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestDoorPos()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             var pos = GameObject.Find("PFB_WallDoorX19Y72").transform.position;
             Assert.AreEqual(new Vector3(19, 72, 0), new Vector3((int)pos.x, (int)pos.y, 0));
@@ -43,7 +43,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestCornerWallPos()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             var pos = GameObject.Find("TileX37Y45").transform.position;
             Assert.AreEqual(new Vector3(37, 45, 0), new Vector3((int)pos.x, (int)pos.y, 0));
@@ -52,7 +52,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestWall_DTRPos()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             var pos = GameObject.Find("TileX7Y29").transform.position;
             Assert.AreEqual(new Vector3(7, 29, 0), new Vector3((int)pos.x, (int)pos.y, 0));
@@ -61,7 +61,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestFloorPos()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             var pos = GameObject.Find("TileX3Y54").transform.position;
             Assert.AreEqual(new Vector3(3, 54, 0), new Vector3((int)pos.x, (int)pos.y, 0));
@@ -70,7 +70,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestWallPos()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             var pos = GameObject.Find("TileX2Y27").transform.position;
             Assert.AreEqual(new Vector3(2, 27, 0), new Vector3((int)pos.x, (int)pos.y, 0));
@@ -79,7 +79,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestCornerWallSprite()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             var name = GameObject.Find("TileX37Y45").GetComponent<SpriteRenderer>().sprite.name;
             Assert.AreEqual("TEX_WallBlack_Corner", name);
@@ -88,7 +88,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestWall_DTRSprite()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             var name = GameObject.Find("TileX7Y29").GetComponent<SpriteRenderer>().sprite.name;
             Assert.AreEqual("TEX_WallBlack_DTR", name);
@@ -97,7 +97,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestFloorSprite()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             var name = GameObject.Find("TileX3Y54").GetComponent<SpriteRenderer>().sprite.name;
             Assert.AreEqual("TEX_Floor_Plates", name);
@@ -106,7 +106,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestWallSprite()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             var name = GameObject.Find("TileX2Y27").GetComponent<SpriteRenderer>().sprite.name;
             Assert.AreEqual("TEX_WallBlack", name);
@@ -115,7 +115,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestWallCount()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             Assert.AreEqual(543, GameObject.FindGameObjectsWithTag("Wall").Length);
         }
@@ -123,7 +123,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestFloorCount()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             Assert.AreEqual(2382, GameObject.FindGameObjectsWithTag("Floor").Length);
         }
@@ -131,7 +131,7 @@ namespace Tests.PlayMode.MapTools
         [UnityTest]
         public IEnumerator TestSpawnPointCount()
         {
-            yield return new WaitWhile(() => _sceneLoaded == false);
+            yield return new WaitWhile(() => SceneLoaded == false);
             
             Assert.AreEqual(6, GameObject.FindGameObjectsWithTag("SpawnPoint").Length);
         }
