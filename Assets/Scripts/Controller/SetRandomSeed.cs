@@ -1,4 +1,3 @@
-using UnityEditor.PackageManager;
 using UnityEngine;
 using static BoBLogger.Logger;
 
@@ -15,12 +14,12 @@ namespace Controller
             if (randomizeSeed)
             {
                 seed = Random.Range(0, 99999);
-                Log($"generating new seed {seed.ToString()}", LogLevel.Info);
+                Log($"generating new seed {seed.ToString()}", LogType.Log);
             }
             else
             {
                 seed = userSeed;
-                Log($"using seed {seed.ToString()}", LogLevel.Info);
+                Log($"using seed {seed.ToString()}", LogType.Log);
             }
 
             Random.InitState(seed);

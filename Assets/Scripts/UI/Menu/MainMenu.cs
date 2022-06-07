@@ -1,4 +1,3 @@
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static BoBLogger.Logger;
@@ -12,12 +11,12 @@ namespace UI.Menu
         public void PlayGame()
         {
             SceneManager.LoadScene(GameScene);
-            Log("START NEW GAME", LogLevel.Info);
+            Log("START NEW GAME", LogType.Log);
         }
 
         public void Quit()
         {
-            Log("QUIT GAME", LogLevel.Info);
+            Log("QUIT GAME", LogType.Log);
             Application.Quit();
         }
     }

@@ -1,5 +1,4 @@
 using Controller;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static BoBLogger.Logger;
@@ -14,7 +13,7 @@ namespace UI.Menu
         {
             GameController.Instance.ResetScore();
             SceneManager.LoadScene(GameScene);
-            Log("NEW RUN STARTED", LogLevel.Info);
+            Log("NEW RUN STARTED", LogType.Log);
         }
     }
 }

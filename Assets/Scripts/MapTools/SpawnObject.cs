@@ -1,4 +1,3 @@
-using UnityEditor.PackageManager;
 using UnityEngine;
 using static BoBLogger.Logger;
 
@@ -8,21 +7,21 @@ namespace MapTools
     {
         public static void Spawn(GameObject obj, Vector3 location, float angle)
         {
-            Log($"Generating new GameObject: {obj.name}", LogLevel.Info);
+            Log($"Generating new GameObject: {obj.name}", LogType.Log);
             var spawned = GetNewObject(obj, location);
             spawned.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, angle));
         }
 
         public static void Spawn(GameObject obj, Vector3 location, Quaternion rotation)
         {
-            Log($"Generating new GameObject: {obj.name}", LogLevel.Info);
+            Log($"Generating new GameObject: {obj.name}", LogType.Log);
             var spawned = GetNewObject(obj, location);
             spawned.transform.rotation = rotation;
         }
 
         public static void Spawn(GameObject obj, Vector3 location)
         {
-            Log($"Generating new GameObject: {obj.name}", LogLevel.Info);
+            Log($"Generating new GameObject: {obj.name}", LogType.Log);
             GetNewObject(obj, location);
         }
 

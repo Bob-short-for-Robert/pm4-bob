@@ -1,5 +1,4 @@
 using ShooterController;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using static BoBLogger.Logger;
 
@@ -18,7 +17,7 @@ namespace Player.Peripheral
         {
             if (Camera.main == null)
             {
-                Log("No Camera found!", LogLevel.Error);
+                Log("No Camera found!", LogType.Error);
                 return;
             }
 

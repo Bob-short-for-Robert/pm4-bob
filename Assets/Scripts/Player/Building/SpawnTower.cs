@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using MapTools;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using static BoBLogger.Logger;
 
@@ -65,7 +64,7 @@ namespace Player.Building
             if (_displacement != Vector3.zero) return;
             // default displacement to the left if player is not moving
             _displacement.x = -3;
-            Log("displace Player", LogLevel.Info);
+            Log("displace Player", LogType.Log);
         }
 
         public void SetObjToSpawn(BuildingSO obj)

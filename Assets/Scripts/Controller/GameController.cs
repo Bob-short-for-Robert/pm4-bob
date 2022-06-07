@@ -1,5 +1,4 @@
-﻿using UnityEditor.PackageManager;
-using UnityEngine;
+﻿using UnityEngine;
 using static BoBLogger.Logger;
 
 namespace Controller
@@ -25,7 +24,7 @@ namespace Controller
                 }
                 else
                 {
-                    Log("GameController missing", LogLevel.Error);
+                    Log("GameController missing", LogType.Error);
                 }
 
                 return _instance;

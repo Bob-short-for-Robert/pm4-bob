@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using UnityEditor.PackageManager;
+using UnityEngine;
 
 namespace BoBLogger
 {
@@ -12,15 +12,15 @@ namespace BoBLogger
 
         internal static void Log(IEnumerable<string> s)
         {
-            Log(s, LogLevel.Warn);
+            Log(s, LogType.Warning);
         }
 
         internal static void Log(string s)
         {
-            Log(s, LogLevel.Warn);
+            Log(s, LogType.Warning);
         }
 
-        internal static void Log(IEnumerable<string> s, LogLevel level)
+        internal static void Log(IEnumerable<string> s, LogType level)
         {
             foreach (var msg in s)
             {
@@ -28,7 +28,7 @@ namespace BoBLogger
             }
         }
 
-        internal static void Log(string s, LogLevel level)
+        internal static void Log(string s, LogType level)
         {
             // ReSharper disable once HeapView.BoxingAllocation
             var msg = $"{DateTime.Now.ToString(CultureInfo.InvariantCulture)};{level.ToString()};{s}";

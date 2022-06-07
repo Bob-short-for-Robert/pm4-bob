@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using static BoBLogger.Logger;
 
@@ -21,14 +20,16 @@ namespace BoBLogger
                     Log(stackTrace);
                     break;
                 case LogType.Error:
-                    Log(stackTrace, LogLevel.Error);
+                    Log(stackTrace, LogType.Error);
                     break;
                 case LogType.Warning:
                     Log(stackTrace);
                     break;
                 case LogType.Assert:
+                    //dont log tests into LogFile
                     break;
                 case LogType.Log:
+                    Log(stackTrace, LogType.Log);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);

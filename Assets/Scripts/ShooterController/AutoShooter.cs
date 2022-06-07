@@ -1,4 +1,3 @@
-using UnityEditor.PackageManager;
 using UnityEngine;
 using static BoBLogger.Logger;
 
@@ -28,7 +27,7 @@ namespace ShooterController
                 return;
             }
 
-            Log("No Enemy found to shoot at", LogLevel.Silly);
+            Log("No Enemy found to shoot at", LogType.Log);
         }
 
         private static GameObject FindClosest(GameObject origin, string find)

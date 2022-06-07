@@ -1,5 +1,4 @@
-﻿using UnityEditor.PackageManager;
-using UnityEngine;
+﻿using UnityEngine;
 using static BoBLogger.Logger;
 
 namespace Player.Peripheral
@@ -50,7 +49,7 @@ namespace Player.Peripheral
                 return;
             }
 
-            Log("No Target found for Camera to follow", LogLevel.Error);
+            Log("No Target found for Camera to follow", LogType.Error);
         }
 
         // TODO FIXME
