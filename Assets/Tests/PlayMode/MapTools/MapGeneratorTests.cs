@@ -27,7 +27,7 @@ namespace Tests.PlayMode.MapTools
         {
             yield return new WaitWhile(() => _sceneLoaded == false);
             
-            var pos = GameObject.Find("SpawnPointX5Y68").transform.position;
+            var pos = GameObject.Find("EnemySpawnPointX5Y68").transform.position;
             Assert.AreEqual(new Vector3(5, 68, 0), new Vector3((int)pos.x, (int)pos.y, 0));
         }
         
