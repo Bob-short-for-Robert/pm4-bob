@@ -4,6 +4,9 @@ using Random = UnityEngine.Random;
 
 namespace MapTools
 {
+    /// <summary>
+    /// Generates a new map. This map will be smooth.
+    /// </summary>
     public class MapMatrixGenerator
     {
         private (int x, int y) _mapSize;
@@ -13,6 +16,12 @@ namespace MapTools
         private int _randomFillPercent;
 
 
+        /// <summary>
+        /// Generates a new map, with the given size and fill percentage.
+        /// </summary>
+        /// <param name="mapSize">X and Y size of the map</param>
+        /// <param name="randomFillPercent">Floor fill percentage of the map</param>
+        /// <returns>Map matrix, true if it is a Wall</returns>
         public List<List<bool>> GetMapMatrix((int x, int y) mapSize, int randomFillPercent)
         {
             if (_map.Count > 0)

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.PackageManager;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace MapTools
@@ -7,16 +8,15 @@ namespace MapTools
     {
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (col.CompareTag("Player"))
+            if (!col.CompareTag("Player")) return;
+            //Destroy is called foreach object on reload. so "kill" enemies before reload to despawn their drops
+            foreach (var o in GameObject.FindGameObjectsWithTag("Enemy"))
             {
-                //Destroy is called foreach object on reload. so "kill" enemies before reload to despawn their drops
-                foreach (var o in GameObject.FindGameObjectsWithTag("Enemy"))
-                {
-                    Destroy(o);
-                }
-
-                SceneManager.LoadScene("Main");
+                Destroy(o);
             }
+
+            SceneManager.LoadScene("Main");
+            BOB_Logger.Log("LOADING NEXT LEVEL", LogLevel.Info);
         }
     }
 }
