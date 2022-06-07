@@ -45,6 +45,7 @@ namespace Editor
             if (summary.result == BuildResult.Failed)
             {
                 Console.WriteLine("Build Failed");
+                throw new Exception($"Build ended with {summary.result} status");
             }
         }
 
