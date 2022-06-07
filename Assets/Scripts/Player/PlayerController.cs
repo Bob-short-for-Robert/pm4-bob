@@ -1,51 +1,52 @@
 using System;
 using Attributes.Speed;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public class PlayerController : MonoBehaviour
     {
-        public SpeedSystemAttribute _speedSystem;
+        [SerializeField] private SpeedSystemAttribute speedSystem;
     
-        private BoxCollider2D boxCollider;
-        private RaycastHit2D raycasthit;
-        private Vector3 moveDelta;
+        private BoxCollider2D _boxCollider;
+        private RaycastHit2D _raycastHit;
+        private Vector3 _moveDelta;
 
 
         private void Start()
         {
-            boxCollider = GetComponent<BoxCollider2D>();
+            _boxCollider = GetComponent<BoxCollider2D>();
         }
 
         private void FixedUpdate()
         {
-            float x = Input.GetAxis("Horizontal");
-            float y = Input.GetAxis("Vertical");
+            var x = Input.GetAxis("Horizontal");
+            var y = Input.GetAxis("Vertical");
 
             // reset moveDelta 
-            moveDelta = new Vector3(x, y, 0);
+            _moveDelta = new Vector3(x, y, 0);
 
             // swap Sprite direction
-            if (moveDelta.x < 0)
+            if (_moveDelta.x < 0)
                 transform.localScale = Vector3.one;
-            else if (moveDelta.x > 0)
+            else if (_moveDelta.x > 0)
                 transform.localScale = new Vector3(-1, 1, 1);
 
             var collisionMasks = LayerMask.GetMask("Actor", "Blocking");
-            raycasthit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(0, moveDelta.y),
-                Math.Abs(moveDelta.y * Time.deltaTime), collisionMasks);
-            if (raycasthit.collider == null)
+            _raycastHit = Physics2D.BoxCast(transform.position, _boxCollider.size, 0, new Vector2(0, _moveDelta.y),
+                Math.Abs(_moveDelta.y * Time.deltaTime), collisionMasks);
+            if (_raycastHit.collider == null)
             {
-                transform.Translate(0, moveDelta.y * Time.deltaTime * _speedSystem.GetSpeed(), 0);
+                transform.Translate(0, _moveDelta.y * Time.deltaTime * speedSystem.GetSpeed(), 0);
             }
 
-            raycasthit = Physics2D.BoxCast(transform.position, boxCollider.size, 0, new Vector2(moveDelta.x, 0),
-                Math.Abs(moveDelta.x * Time.deltaTime), collisionMasks);
-            if (raycasthit.collider == null)
+            _raycastHit = Physics2D.BoxCast(transform.position, _boxCollider.size, 0, new Vector2(_moveDelta.x, 0),
+                Math.Abs(_moveDelta.x * Time.deltaTime), collisionMasks);
+            if (_raycastHit.collider == null)
             {
-                transform.Translate(moveDelta.x * Time.deltaTime * _speedSystem.GetSpeed(), 0, 0);
+                transform.Translate(_moveDelta.x * Time.deltaTime * speedSystem.GetSpeed(), 0, 0);
             }
         }
     }
