@@ -1,7 +1,6 @@
 using System;
 using Attributes.Speed;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -9,7 +8,7 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private SpeedSystemAttribute speedSystem;
-    
+
         private BoxCollider2D _boxCollider;
         private RaycastHit2D _raycastHit;
         private Vector3 _moveDelta;

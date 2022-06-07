@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Random = UnityEngine.Random;
+using UnityEngine;
 
 namespace MapTools.Helper
 {
@@ -25,19 +25,20 @@ namespace MapTools.Helper
                 _map.ForEach(s => s.Clear());
                 _map.Clear();
             }
-            
+
             _mapSize = mapSize;
             _randomFillPercent = randomFillPercent;
 
             RandomFillMap();
-            
+
             for (var i = 0; i < 5; i++)
             {
                 SmoothMap();
             }
+
             new SmallFloorConnector().ConnectSmallFloors(_map);
-            
-            return  _map;
+
+            return _map;
         }
 
         private void RandomFillMap()
@@ -56,7 +57,6 @@ namespace MapTools.Helper
                     {
                         _map[x].Add((int) (Random.value * 100) < _randomFillPercent);
                     }
-
                 }
             }
         }
@@ -102,7 +102,7 @@ namespace MapTools.Helper
                     }
                 }
             }
-            
+
             return wallCount;
         }
     }

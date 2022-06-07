@@ -39,7 +39,7 @@ namespace Attributes.Health
         // also notifies the UI (if present)
         public void ModifyHealth(int amount)
         {
-            //avoid going over the maximum health by forcin
+            //avoid going over the maximum health by forcing
             if (health + amount > _maxHealth)
             {
                 amount = _maxHealth - health;
@@ -51,7 +51,7 @@ namespace Attributes.Health
 
             //DEAD
             if (health > 0) return;
-            _gc.AddPoints(1);
+            _gc.AddPoints();
             if (!_isPlayer)
             {
                 Destroy(gameObject);

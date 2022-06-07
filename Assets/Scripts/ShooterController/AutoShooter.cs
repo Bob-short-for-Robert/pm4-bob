@@ -1,4 +1,3 @@
-using System;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using static BoBLogger.Logger;
@@ -10,9 +9,9 @@ namespace ShooterController
         [SerializeField] private bool shootsPlayer;
         [SerializeField] private Shooter shooter;
         [SerializeField] private Rotate toBeRotated;
-    
+
         private GameObject _toBeShot;
-    
+
         // Update is called once per frame
         private void Update()
         {
@@ -24,6 +23,7 @@ namespace ShooterController
                 {
                     toBeRotated.RotateTowards(_toBeShot.transform);
                 }
+
                 shooter.Shoot(_toBeShot.transform.position);
                 return;
             }

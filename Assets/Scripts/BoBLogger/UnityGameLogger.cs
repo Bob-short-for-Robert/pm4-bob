@@ -34,6 +34,5 @@ namespace BoBLogger
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }
         }
-
     }
 }

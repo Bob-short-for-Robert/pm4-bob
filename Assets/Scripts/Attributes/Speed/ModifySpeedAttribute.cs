@@ -5,8 +5,8 @@ namespace Attributes.Speed
     [AddComponentMenu("Playground/Attributes/Modify Speed")]
     public class ModifySpeedAttribute : MonoBehaviour
     {
-        [SerializeField] private float slowTarget = 0;
-        [SerializeField] private float slowTargetForSeconds = 0;
+        [SerializeField] private float slowTarget;
+        [SerializeField] private float slowTargetForSeconds;
         [SerializeField] private bool damageToPlayer = true;
     
         private void OnTriggerEnter2D(Collider2D colliderData)

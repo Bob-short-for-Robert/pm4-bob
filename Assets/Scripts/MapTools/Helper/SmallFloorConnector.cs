@@ -9,6 +9,7 @@ namespace MapTools.Helper
     public class SmallFloorConnector
     {
         private (bool wall, int floorID)[,] _floorMatrix;
+        // ReSharper disable once HeapView.ObjectAllocation.Evident
         private readonly List<int> _floorCounts = new List<int>();
         private List<List<bool>> _mapMatrix;
 

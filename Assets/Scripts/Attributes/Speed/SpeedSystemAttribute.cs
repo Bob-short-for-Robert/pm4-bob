@@ -21,6 +21,7 @@ namespace Attributes.Speed
             {
                 return 0;
             }
+
             return effectiveSpeed;
         }
 

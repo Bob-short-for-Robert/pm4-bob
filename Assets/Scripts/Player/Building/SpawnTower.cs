@@ -13,7 +13,7 @@ namespace Player.Building
         [SerializeField] private float displacementDistance = 3F;
 
         private Transform _objSpawnPlace;
-        private float _myTime = 0F;
+        private float _myTime;
         private float _nextPlacement;
         private Vector3 _displacement;
 
@@ -34,21 +34,20 @@ namespace Player.Building
             _myTime += Time.deltaTime;
             // waits for 1 Second before allowing to spawn another Tower
             SetDisplacement();
-            var neededResources = createDic(tower.GetComponent<NecessaryResources>());
+            var neededResources = CreateDic(tower.GetComponent<NecessaryResources>());
 
             if (!Input.GetKey(KeyCode.E) || !ResourceManager.HasResources(neededResources) ||
                 !SpawnObject.AllowedToSpawn(tower, _objSpawnPlace.position + _displacement) ||
                 !(_myTime > _nextPlacement)) return;
-            
+
             ResourceManager.UseResource(neededResources);
             _nextPlacement = _myTime + placementRate;
             SpawnObject.Spawn(tower, _objSpawnPlace.position + _displacement, _objSpawnPlace.rotation);
             _nextPlacement -= _myTime;
             _myTime = 0F;
         }
-
-        //TODO solve in NecessaryResources
-        private Dictionary<string, int> createDic(NecessaryResources neededResources)
+        
+        private static Dictionary<string, int> CreateDic(NecessaryResources neededResources)
         {
             var dic = new Dictionary<string, int>();
             for (var i = 0; i < neededResources.type.Count; i++)
@@ -68,15 +67,10 @@ namespace Player.Building
             _displacement.x = -3;
             Log("displace Player", LogLevel.Info);
         }
-    
+
         public void SetObjToSpawn(BuildingSO obj)
         {
             objToSpawn = obj;
-        }
-    
-        public BuildingSO GetObjToSpawn()
-        {
-            return objToSpawn;
         }
     }
 }

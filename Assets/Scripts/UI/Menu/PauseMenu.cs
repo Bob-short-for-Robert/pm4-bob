@@ -5,14 +5,14 @@ namespace UI.Menu
 {
     public class PauseMenu : MonoBehaviour
     {
-        private static bool isGamePaused;
+        private static bool _isGamePaused;
 
-        [SerializeField] private GameObject pauseMenu; 
-    
+        [SerializeField] private GameObject pauseMenu;
+
         private void Update()
         {
             if (!Input.GetKeyDown(KeyCode.Escape)) return;
-            if (isGamePaused)
+            if (_isGamePaused)
             {
                 ResumeGame();
             }
@@ -26,14 +26,14 @@ namespace UI.Menu
         {
             pauseMenu.SetActive(false);
             Time.timeScale = 1f;
-            isGamePaused = false;
+            _isGamePaused = false;
         }
 
         private void PauseGame()
         {
             pauseMenu.SetActive(true);
             Time.timeScale = 0f;
-            isGamePaused = true;
+            _isGamePaused = true;
         }
 
         public void LoadMenu()

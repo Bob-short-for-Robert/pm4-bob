@@ -6,13 +6,14 @@ namespace Attributes
     {
         private readonly List<T> _effects = new List<T>();
         private T _highestValue;
-    
+
         public float GetActiveEffect()
         {
             if (_highestValue == null)
             {
                 return 0;
             }
+
             return _highestValue.GetEffect();
         }
 
@@ -44,6 +45,7 @@ namespace Attributes
                     currentHighestValue = eff.GetEffect();
                 }
             }
+
             toRemove.ForEach(r => _effects.Remove(r));
 
             _highestValue = currentHighestEffect;

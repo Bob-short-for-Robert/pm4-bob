@@ -1,6 +1,5 @@
 using Player;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Stockpile
 {
@@ -18,7 +17,7 @@ namespace Stockpile
         {
             return quantity;
         }
-        
+
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (col.gameObject.CompareTag("Player"))

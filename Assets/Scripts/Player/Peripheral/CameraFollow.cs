@@ -9,14 +9,14 @@ namespace Player.Peripheral
     {
         [Header("Object to follow")]
         // This is the object that the camera will follow
-        public Transform target;
+        [SerializeField] private Transform target;
 
         //Bound camera to limits
-        public bool limitBounds = false;
-        public float left = -5f;
-        public float right = 5f;
-        public float bottom = -5f;
-        public float top = 5f;
+        [SerializeField] private bool limitBounds;
+        [SerializeField] private float left = -5f;
+        [SerializeField] private float right = 5f;
+        [SerializeField] private float bottom = -5f;
+        [SerializeField] private float top = 5f;
 
         private Vector3 _lerpedPosition;
         private Camera _camera;
@@ -46,35 +46,42 @@ namespace Player.Peripheral
 
                 // Bounds the camera to the limits (if enabled)
                 if (!limitBounds) return;
-                var bottomLeft = _camera.ScreenToWorldPoint(Vector3.zero);
-                var topRight = _camera.ScreenToWorldPoint(new Vector3(_camera.pixelWidth, _camera.pixelHeight));
-                var screenSize = new Vector2(topRight.x - bottomLeft.x, topRight.y - bottomLeft.y);
-
-                var boundPosition = transform.position;
-                if (boundPosition.x > right - (screenSize.x / 2f))
-                {
-                    boundPosition.x = right - (screenSize.x / 2f);
-                }
-
-                if (boundPosition.x < left + (screenSize.x / 2f))
-                {
-                    boundPosition.x = left + (screenSize.x / 2f);
-                }
-
-                if (boundPosition.y > top - (screenSize.y / 2f))
-                {
-                    boundPosition.y = top - (screenSize.y / 2f);
-                }
-
-                if (boundPosition.y < bottom + (screenSize.y / 2f))
-                {
-                    boundPosition.y = bottom + (screenSize.y / 2f);
-                }
-
-                transform.position = boundPosition;
+                BindCameraToMap();
                 return;
             }
+
             Log("No Target found for Camera to follow", LogLevel.Error);
+        }
+
+        // TODO FIXME
+        private void BindCameraToMap()
+        {
+            var bottomLeft = _camera.ScreenToWorldPoint(Vector3.zero);
+            var topRight = _camera.ScreenToWorldPoint(new Vector3(_camera.pixelWidth, _camera.pixelHeight));
+            var screenSize = new Vector2(topRight.x - bottomLeft.x, topRight.y - bottomLeft.y);
+
+            var boundPosition = transform.position;
+            if (boundPosition.x > right - (screenSize.x / 2f))
+            {
+                boundPosition.x = right - (screenSize.x / 2f);
+            }
+
+            if (boundPosition.x < left + (screenSize.x / 2f))
+            {
+                boundPosition.x = left + (screenSize.x / 2f);
+            }
+
+            if (boundPosition.y > top - (screenSize.y / 2f))
+            {
+                boundPosition.y = top - (screenSize.y / 2f);
+            }
+
+            if (boundPosition.y < bottom + (screenSize.y / 2f))
+            {
+                boundPosition.y = bottom + (screenSize.y / 2f);
+            }
+
+            transform.position = boundPosition;
         }
     }
 }

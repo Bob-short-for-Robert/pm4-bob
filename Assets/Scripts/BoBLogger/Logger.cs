@@ -30,6 +30,7 @@ namespace BoBLogger
 
         internal static void Log(string s, LogLevel level)
         {
+            // ReSharper disable once HeapView.BoxingAllocation
             var msg = $"{DateTime.Now.ToString(CultureInfo.InvariantCulture)};{level.ToString()};{s}";
             SW.WriteLine(msg);
             Console.WriteLine(msg);

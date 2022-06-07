@@ -1,14 +1,13 @@
-﻿using MapTools;
-using MapTools.Helper;
+﻿using MapTools.Helper;
 using NUnit.Framework;
-using Random = UnityEngine.Random;
+using UnityEngine;
 
 namespace Tests.EditMode.MapTools
 {
     public class MapMatrixGeneratorTests : TestMaps
     {
         private MapMatrixGenerator _generator;
-        
+
         [SetUp]
         public void Init()
         {
@@ -36,8 +35,8 @@ namespace Tests.EditMode.MapTools
         [Test]
         public void TestMap()
         {
-            var (matrix, size, randomFillPrecent) = GeneratorTestMap();
-            Assert.AreEqual(matrix, _generator.GetMapMatrix(size, randomFillPrecent));
+            var (matrix, size, randomFillPercent) = GeneratorTestMap();
+            Assert.AreEqual(matrix, _generator.GetMapMatrix(size, randomFillPercent));
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using UnityEditor.PackageManager;
 using UnityEngine;
 using static BoBLogger.Logger;
@@ -16,7 +15,6 @@ namespace MapTools
 
         public static void Spawn(GameObject obj, Vector3 location, Quaternion rotation)
         {
-
             Log($"Generating new GameObject: {obj.name}", LogLevel.Info);
             var spawned = GetNewObject(obj, location);
             spawned.transform.rotation = rotation;

@@ -1,20 +1,16 @@
 ﻿using System.Collections;
-using System.Linq;
 using MapTools;
 using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.TestTools;
-using UnityEngine.UI;
-using Random = UnityEngine.Random;
-
 
 namespace Tests.PlayMode.MapTools
 {
     public class SpawnObjectTests : MapTestSetUp
     {
-        private readonly GameObject _gameObject = (GameObject)Resources.Load("TestPrefabs/TestPrefab", typeof(GameObject));
-        
+        private readonly GameObject _gameObject =
+            (GameObject) Resources.Load("TestPrefabs/TestPrefab", typeof(GameObject));
+
         [UnityTest]
         public IEnumerator TestSpawnObjectPosOnly()
         {
@@ -23,9 +19,9 @@ namespace Tests.PlayMode.MapTools
             var posToSet = new Vector3(20, 30, 0);
             SpawnObject.Spawn(_gameObject, posToSet);
             var pos = GameObject.FindGameObjectWithTag("Tower").transform.position;
-            Assert.AreEqual(posToSet, new Vector3((int)pos.x, (int)pos.y, 0));
+            Assert.AreEqual(posToSet, new Vector3((int) pos.x, (int) pos.y, 0));
         }
-        
+
         [UnityTest]
         public IEnumerator TestSpawnObjectAngle()
         {
@@ -37,7 +33,7 @@ namespace Tests.PlayMode.MapTools
             var rotation = GameObject.FindGameObjectWithTag("Tower").transform.rotation;
             Assert.AreEqual(Quaternion.Euler(new Vector3(0f, 0f, angle)), rotation);
         }
-        
+
         [UnityTest]
         public IEnumerator TestSpawnObjectRotation()
         {
@@ -49,7 +45,7 @@ namespace Tests.PlayMode.MapTools
             var rotation = GameObject.FindGameObjectWithTag("Tower").transform.rotation;
             Assert.AreEqual(rotationToTest, rotation);
         }
-        
+
         [UnityTest]
         public IEnumerator TestSpawnObjectName()
         {

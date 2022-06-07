@@ -7,9 +7,8 @@ namespace UI.Menu
 {
     public class MainMenu : MonoBehaviour
     {
-        [Header("Name of Game Scene")]
-        private const string GameScene = "Main";
-        
+        [Header("Name of Game Scene")] private const string GameScene = "Main";
+
         public void PlayGame()
         {
             SceneManager.LoadScene(GameScene);

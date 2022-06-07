@@ -8,7 +8,7 @@ namespace Enemy
     {
         [FormerlySerializedAs("_speedSystem")] [SerializeField]
         private SpeedSystemAttribute speedSystem;
-    
+
         private GameObject _player;
 
         private void Start()
@@ -19,7 +19,8 @@ namespace Enemy
         private void Update()
         {
             transform.position =
-                Vector3.MoveTowards(transform.position, _player.transform.position, speedSystem.GetSpeed() * Time.deltaTime);
+                Vector3.MoveTowards(transform.position, _player.transform.position,
+                    speedSystem.GetSpeed() * Time.deltaTime);
         }
     }
 }

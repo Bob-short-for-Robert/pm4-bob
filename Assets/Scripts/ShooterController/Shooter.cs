@@ -19,10 +19,10 @@ namespace ShooterController
         public void Shoot(Vector3 mousePos)
         {
             if (!CanShoot()) return;
-        
+
             var position = firePoint.transform.position;
             var angle = AngleBetweenTwoPoints(position, mousePos);
-        
+
             SpawnObject.Spawn(projectile, position, angle);
         }
 

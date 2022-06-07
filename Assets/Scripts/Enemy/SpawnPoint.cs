@@ -1,6 +1,5 @@
 using MapTools;
 using UnityEngine;
-using Random = System.Random;
 
 namespace Enemy
 {
@@ -17,6 +16,7 @@ namespace Enemy
             {
                 return;
             }
+
             _spawnTimer -= Time.deltaTime;
             if (!(_spawnTimer <= 0)) return;
             SpawnEnemy();

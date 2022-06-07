@@ -2,8 +2,6 @@
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
-
 
 namespace Tests.PlayMode.MapTools
 {
@@ -19,8 +17,7 @@ namespace Tests.PlayMode.MapTools
             SceneManager.sceneLoaded += OnSceneLoaded;
             SceneManager.LoadScene("MapGeneratorTests", LoadSceneMode.Single);
         }
-        
-        
+
 
         [TearDown]
         public void TearDown()

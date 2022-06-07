@@ -61,7 +61,7 @@ namespace Tests.PlayMode
             yield return new WaitForSeconds(1);
             Assert.AreEqual("10", _scoreDisplay.text);
         }
-        
+
         private void Clicked()
         {
             _clicked = true;

@@ -3,8 +3,6 @@ using System.Linq;
 using MapTools;
 using Stockpile;
 using UnityEngine;
-using Object = UnityEngine.Object;
-using Random = UnityEngine.Random;
 
 namespace Player
 {
@@ -28,7 +26,7 @@ namespace Player
 
         public static bool HasResources(Dictionary<string, int> compare)
         {
-            return compare.Keys.Aggregate(true, (current, compareKey) => current & compare[compareKey] <= Collected[compareKey]);
+            return compare.Keys.Aggregate(true, (current, key) => current & compare[key] <= Collected[key]);
         }
 
         public static void CollectResource(GameObject o)
@@ -38,7 +36,8 @@ namespace Player
             Object.Destroy(o);
         }
 
-        public static void DropResource(GameObject[] possibleDrops, int dropCycles, int dropLikelihood, Vector3 location)
+        public static void DropResource(GameObject[] possibleDrops, int dropCycles, int dropLikelihood,
+            Vector3 location)
         {
             for (var i = 0; i < dropCycles; i++)
             {

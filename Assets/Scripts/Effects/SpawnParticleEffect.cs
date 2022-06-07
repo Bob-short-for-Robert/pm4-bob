@@ -1,5 +1,4 @@
-﻿using System;
-using MapTools;
+﻿using MapTools;
 using UnityEngine;
 
 namespace Effects
@@ -11,26 +10,26 @@ namespace Effects
         [SerializeField] private bool onCollision;
         [SerializeField] private bool useTag;
         [SerializeField] private new string tag = string.Empty;
-        
+
         private void OnDestroy()
         {
             if (onDestroy)
-            { 
-                SpawnEffect();  
+            {
+                SpawnEffect();
             }
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (!onDestroy && onCollision && !useTag)
-            { 
-                SpawnEffect();  
+            {
+                SpawnEffect();
             }
 
             if (onDestroy || !onCollision || !useTag) return;
             if (col.CompareTag(tag))
             {
-                SpawnEffect();   
+                SpawnEffect();
             }
         }
 

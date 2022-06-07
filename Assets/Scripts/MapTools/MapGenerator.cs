@@ -36,7 +36,7 @@ namespace MapTools
         //Objects
         [SerializeField] private GameObject prefabSpawner;
         [SerializeField] private GameObject prefabDoor;
-        
+
         public void Start()
         {
             SetMapValue();
