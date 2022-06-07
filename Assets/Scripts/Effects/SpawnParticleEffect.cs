@@ -21,16 +21,9 @@ namespace Effects
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (!onDestroy && onCollision && !useTag)
-            {
-                SpawnEffect();
-            }
-
-            if (onDestroy || !onCollision || !useTag) return;
-            if (col.CompareTag(tag))
-            {
-                SpawnEffect();
-            }
+            if(!onCollision) return;
+            if(!useTag) SpawnEffect();
+            if (col.CompareTag(tag)) SpawnEffect();
         }
 
         private void SpawnEffect()

@@ -8,26 +8,26 @@ namespace Controller
         public int Score { get; private set; }
         public int HighScore { get; private set; }
 
-        private static GameController _instance;
+        private static GameController instance;
 
         public static GameController Instance
         {
             get
             {
-                if (!_instance)
+                if (!instance)
                 {
-                    _instance = new GameObject().AddComponent<GameController>();
+                    instance = new GameObject().AddComponent<GameController>();
                     // name it for easy recognition
-                    _instance.name = _instance.GetType().ToString();
+                    instance.name = instance.GetType().ToString();
                     // mark root as DontDestroyOnLoad();
-                    DontDestroyOnLoad(_instance.gameObject);
+                    DontDestroyOnLoad(instance.gameObject);
                 }
                 else
                 {
                     Log("GameController missing", LogType.Error);
                 }
 
-                return _instance;
+                return instance;
             }
         }
 

@@ -38,9 +38,8 @@ namespace Attributes
                 {
                     toRemove.Add(eff);
                 }
-                else
+                else if(currentHighestValue < eff.GetEffect())
                 {
-                    if (!(currentHighestValue < eff.GetEffect())) continue;
                     currentHighestEffect = eff;
                     currentHighestValue = eff.GetEffect();
                 }

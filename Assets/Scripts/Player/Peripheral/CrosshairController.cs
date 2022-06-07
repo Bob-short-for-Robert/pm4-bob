@@ -1,12 +1,13 @@
 using ShooterController;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static BoBLogger.Logger;
 
 namespace Player.Peripheral
 {
     public class CrosshairController : MonoBehaviour
     {
-        public Shooter shooter;
+        [SerializeField] private Shooter shooter;
 
         private void Start()
         {
@@ -27,6 +28,7 @@ namespace Player.Peripheral
 
 
             transform.position = mouseInWorld;
+            if(!SceneManager.GetActiveScene().name.Equals("Main")) return;
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 shooter.Shoot(mouseInWorld);
