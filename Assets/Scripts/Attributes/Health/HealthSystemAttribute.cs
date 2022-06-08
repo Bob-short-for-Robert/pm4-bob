@@ -8,6 +8,7 @@ namespace Attributes.Health
     public class HealthSystemAttribute : MonoBehaviour
     {
         [SerializeField] private int health = 3;
+        [SerializeField] private AudioSource audioDmg;
 
         private GameController _gc;
         private UIScript _ui;
@@ -49,6 +50,11 @@ namespace Attributes.Health
 
             UpdateUI(amount);
 
+            if (_isPlayer)
+            {
+                audioDmg.Play();
+            }
+            
             //DEAD
             if (health > 0) return;
             _gc.AddPoints();

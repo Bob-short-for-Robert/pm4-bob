@@ -8,7 +8,7 @@ namespace Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private SpeedSystemAttribute speedSystem;
-        [SerializeField] private AudioSource audioSource;
+        [SerializeField] private AudioSource audioSteps;
 
         private BoxCollider2D _boxCollider;
         private RaycastHit2D _raycastHit;
@@ -29,7 +29,7 @@ namespace Player
             _moveDelta = new Vector3(x, y, 0);
             
             // stop and start steps audio depending on movement
-            audioSource.mute = _moveDelta == Vector3.zero;
+            audioSteps.mute = _moveDelta == Vector3.zero;
 
             // swap Sprite direction
             if (_moveDelta.x < 0)

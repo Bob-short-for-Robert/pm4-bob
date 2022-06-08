@@ -7,7 +7,7 @@ namespace Player.Building
 {
     public class SpawnTower : MonoBehaviour
     {
-        [SerializeField] public BuildingSO objToSpawn;
+        public BuildingSO ObjToSpawn { set; get; }
         [SerializeField] private float placementRate = 1F;
         [SerializeField] private float displacementDistance = 3F;
 
@@ -25,7 +25,7 @@ namespace Player.Building
 
         private void FixedUpdate()
         {
-            PlaceTower(objToSpawn.pref.gameObject);
+            PlaceTower(ObjToSpawn.pref.gameObject);
         }
 
         private void PlaceTower(GameObject tower)
@@ -64,12 +64,7 @@ namespace Player.Building
             if (_displacement != Vector3.zero) return;
             // default displacement to the left if player is not moving
             _displacement.x = -3;
-            Log("displace Player", LogType.Log);
-        }
-
-        public void SetObjToSpawn(BuildingSO obj)
-        {
-            objToSpawn = obj;
+            Log("displace Tower", LogType.Log);
         }
     }
 }
