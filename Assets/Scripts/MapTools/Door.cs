@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using Enemy;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 using static BoBLogger.Logger;
 
@@ -9,12 +11,14 @@ namespace MapTools
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (!col.CompareTag("Player")) return;
-            //Destroy is called foreach object on reload. so "kill" enemies before reload to despawn their drops
-            foreach (var o in GameObject.FindGameObjectsWithTag("Enemy"))
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length > 0) return;
+            if ((from spawnPoint in GameObject.FindGameObjectsWithTag("SpawnPoint") 
+                    let a = spawnPoint.GetComponent<SpawnPoint>().WaveCount 
+                    select spawnPoint).Any(spawnPoint => spawnPoint.GetComponent<SpawnPoint>().WaveCount > 0))
             {
-                Destroy(o);
+                return;
             }
-
+            //Destroy is called foreach object on reload. so "kill" enemies before reload to despawn their drops
             SceneManager.LoadScene("Main");
             Log("LOADING NEXT LEVEL", LogType.Log);
         }

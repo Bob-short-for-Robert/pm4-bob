@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4783d3fa1bcc6124f8781aaeb3607a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  lifeTime: 2
+  speed: 7
+  lifeTime: 9
 --- !u!50 &1865205506770846177
 Rigidbody2D:
   serializedVersion: 4
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyWhenActivated: 1
-  healthChange: 0
+  healthChange: 0.5
   damageToPlayer: 0
 --- !u!114 &3000312442782112593
 MonoBehaviour:
