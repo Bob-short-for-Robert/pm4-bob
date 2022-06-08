@@ -20,6 +20,7 @@ namespace Attributes.Health
             var healthScript = colliderData.gameObject.GetComponent<HealthSystemAttribute>();
             if (healthScript == null) return;
             if (!damageToPlayer && colliderData.CompareTag("Player")) return;
+            if (colliderData.CompareTag("Enemy") && CompareTag("Enemy")) return;
             // subtract health from the player
             healthScript.ModifyHealth(healthChange);
 
