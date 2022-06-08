@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Enemy;
 using MapTools.Helper;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -19,7 +20,7 @@ namespace MapTools
 
         //config
         [SerializeField] [Range(40, 50)] private int mapMinSize = 45;
-        [Range(10, 60)] [SerializeField] private int randomMapSize = 40;
+        [SerializeField] [Range(10, 60)] private int randomMapSize = 40;
         [SerializeField] [Range(10, 20)] private int minFillPercent = 12;
         [SerializeField] [Range(20, 40)] private int randomFillPercent = 30;
         [SerializeField] [Range(50, 500)] private int minFloorTiles = 200;
@@ -36,7 +37,11 @@ namespace MapTools
         //Objects
         [SerializeField] private GameObject prefabSpawner;
         [SerializeField] private GameObject prefabDoor;
-
+        
+        //Wave
+        [SerializeField] [Range(3, 10)] private int waveMinCount = 3;
+        [SerializeField] [Range(0, 20)] private int randomWaveCount = 5;
+        [SerializeField] [Range(5, 20)] private int waveInterval = 10;
         public void Start()
         {
             SetMapValue();
@@ -92,12 +97,12 @@ namespace MapTools
             }
 
 
-            for (int x = 0; x < _mapSize.x; x++)
+            for (var x = 0; x < _mapSize.x; x++)
             {
                 _tileGrid.Add(new List<GameObject>());
-                for (int y = 0; y < _mapSize.y; y++)
+                for (var y = 0; y < _mapSize.y; y++)
                 {
-                    int tileId = _mapMatrix[x][y] ? 0 : 2;
+                    var tileId = _mapMatrix[x][y] ? 0 : 2;
                     CreateTile(tileId, (x, y));
                 }
             }
@@ -207,6 +212,15 @@ namespace MapTools
                 SpawnObject.Spawn(prefabSpawner, spawn.SpawnerLocation(), 0);
             }
 
+            var spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+            foreach (var spawnPoint in spawnPoints)
+            {
+                spawnPoint.GetComponent<SpawnPoint>().InitPoint(
+                    Random.value > 0.5, 
+                    waveInterval, 
+                    (int) (Random.value * waveMinCount + randomWaveCount));
+            }
+            
             //spawn Door
             SpawnObject.Spawn(prefabDoor, spawn.DoorLocation(), 0);
         }
