@@ -8,6 +8,7 @@ namespace ShooterController
         [SerializeField] private float shootInterval;
         [SerializeField] private GameObject projectile;
         [SerializeField] private GameObject firePoint;
+        [SerializeField] private AudioSource audioSource;
 
         private float _shootTimer;
 
@@ -23,6 +24,7 @@ namespace ShooterController
             var position = firePoint.transform.position;
             var angle = AngleBetweenTwoPoints(position, mousePos);
 
+            audioSource.Play();
             SpawnObject.Spawn(projectile, position, angle);
         }
 
