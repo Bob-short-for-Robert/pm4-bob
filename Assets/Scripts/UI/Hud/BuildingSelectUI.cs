@@ -55,7 +55,7 @@ namespace UI.Hud
             for (var index = 0; index < buildingSoList.Count && index < hotBarKeys.Length; index++)
             {
                 if (!Input.GetKeyDown(hotBarKeys[index])) continue;
-                spawnTower.SetObjToSpawn(buildingSoList[index]);
+                spawnTower.ObjToSpawn = buildingSoList[index];
                 _lastButton = index;
                 UpdateSelectedVisual();
             }

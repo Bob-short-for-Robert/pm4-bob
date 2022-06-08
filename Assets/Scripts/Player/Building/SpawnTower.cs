@@ -1,13 +1,15 @@
+using System;
 using System.Collections.Generic;
 using MapTools;
 using UnityEngine;
 using static BoBLogger.Logger;
+using Log = NLog.Fluent.Log;
 
 namespace Player.Building
 {
     public class SpawnTower : MonoBehaviour
     {
-        [SerializeField] public BuildingSO objToSpawn;
+        public BuildingSO ObjToSpawn { set; get; }
         [SerializeField] private float placementRate = 1F;
         [SerializeField] private float displacementDistance = 3F;
 
@@ -25,7 +27,14 @@ namespace Player.Building
 
         private void FixedUpdate()
         {
-            PlaceTower(objToSpawn.pref.gameObject);
+            try
+            {
+                PlaceTower(ObjToSpawn.pref.gameObject);
+            }
+            catch (NullReferenceException e)
+            {
+                Log($"{e}", LogType.Log);
+            }
         }
 
         private void PlaceTower(GameObject tower)
@@ -64,12 +73,7 @@ namespace Player.Building
             if (_displacement != Vector3.zero) return;
             // default displacement to the left if player is not moving
             _displacement.x = -3;
-            Log("displace Player", LogType.Log);
-        }
-
-        public void SetObjToSpawn(BuildingSO obj)
-        {
-            objToSpawn = obj;
+            Log("displace Tower", LogType.Log);
         }
     }
 }

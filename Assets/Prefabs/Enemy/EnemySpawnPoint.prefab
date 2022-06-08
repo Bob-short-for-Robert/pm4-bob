@@ -47,3 +47,4 @@ MonoBehaviour:
   - {fileID: 7648850974024084239, guid: 1639165f473dec24798cf29da4693395, type: 3}
   bosses:
   - {fileID: 7648850974024084239, guid: c40c0655d1ab7a840884ec30da67e492, type: 3}
+  spawnInterval: 3
