@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using MapTools;
 using UnityEngine;
 using static BoBLogger.Logger;
+using Log = NLog.Fluent.Log;
 
 namespace Player.Building
 {
@@ -25,7 +27,14 @@ namespace Player.Building
 
         private void FixedUpdate()
         {
-            PlaceTower(ObjToSpawn.pref.gameObject);
+            try
+            {
+                PlaceTower(ObjToSpawn.pref.gameObject);
+            }
+            catch (NullReferenceException e)
+            {
+                Log($"{e}", LogType.Log);
+            }
         }
 
         private void PlaceTower(GameObject tower)
