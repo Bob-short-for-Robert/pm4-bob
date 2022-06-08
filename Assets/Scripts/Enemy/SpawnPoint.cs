@@ -13,13 +13,19 @@ namespace Enemy
         public int WaveCount { private set; get; }
 
         private bool _spawnBoss;
+        private int _bossCount;
+        private int _minTrashCount;
+        private int _randomTrashModifier;
         private float _spawnInterval;
         private float _spawnTimer;
 
-        public void InitPoint( bool spawnBoss, float spawnInterval, int waveCount)
+        public void InitPoint( bool spawnBoss, float spawnInterval, int waveCount, int bossCount, int minTrashCount, int randomTrashModifier)
         {
             _spawnBoss = spawnBoss;
             _spawnInterval = spawnInterval;
+            _bossCount = bossCount;
+            _minTrashCount = minTrashCount;
+            _randomTrashModifier = randomTrashModifier;
             WaveCount = waveCount;
             _spawnTimer = _spawnInterval;
         }
@@ -34,11 +40,11 @@ namespace Enemy
 
             if (WaveCount == 1 && _spawnBoss)
             {
-                SpawnEnemy(bosses, 1);
+                SpawnEnemy(bosses, _bossCount);
             }
             else
             {
-                SpawnEnemy(trash, (int) (Random.value * 3 + 5));  
+                SpawnEnemy(trash, (int) (Random.value * _minTrashCount + _randomTrashModifier));  
             }
             
             WaveCount--;

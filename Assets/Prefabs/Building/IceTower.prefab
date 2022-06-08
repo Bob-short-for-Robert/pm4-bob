@@ -281,6 +281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b080334430cb340a4644f2ac0cd57b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootInterval: 2
+  shootInterval: 1
   projectile: {fileID: 5418049088898019801, guid: de0ad520bd71d60498f692c8b518f86e, type: 3}
   firePoint: {fileID: 7396127509967470227}

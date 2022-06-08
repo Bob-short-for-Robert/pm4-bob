@@ -11,8 +11,8 @@ namespace Attributes.Speed
     
         private void OnTriggerEnter2D(Collider2D colliderData)
         {
+            if (colliderData.CompareTag("Enemy") && CompareTag("Enemy")) return;
             var speedScript = colliderData.gameObject.GetComponent<SpeedSystemAttribute>();
-
             if (speedScript == null) return;
             if (damageToPlayer || colliderData.CompareTag("Enemy"))
             {

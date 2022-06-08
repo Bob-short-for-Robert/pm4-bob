@@ -19,6 +19,7 @@ namespace MapTools
         private int _randomFillPercent = 35;
 
         //config
+        [Header("Map Generator Settings")]
         [SerializeField] [Range(40, 50)] private int mapMinSize = 45;
         [SerializeField] [Range(10, 60)] private int randomMapSize = 40;
         [SerializeField] [Range(10, 20)] private int minFillPercent = 12;
@@ -28,6 +29,7 @@ namespace MapTools
         [SerializeField] [Range(0, 10)] private int spawnerRandomCount = 3;
 
         //Prefabs
+        [Header("Walls and Floor")]
         [SerializeField] private GameObject prefabWallBlack;
         [SerializeField] private GameObject prefabWallBlackCorner;
         [SerializeField] private GameObject prefabWallBlackDtr;
@@ -35,13 +37,18 @@ namespace MapTools
 
 
         //Objects
+        [Header("Objects with set to the Map by the generator")]
         [SerializeField] private GameObject prefabSpawner;
         [SerializeField] private GameObject prefabDoor;
         
         //Wave
+        [Header("Wave Settings")]
         [SerializeField] [Range(3, 10)] private int waveMinCount = 3;
         [SerializeField] [Range(0, 20)] private int randomWaveCount = 5;
         [SerializeField] [Range(5, 20)] private int waveInterval = 10;
+        [SerializeField] [Range(0, 10)] private int bossCount = 1;
+        [SerializeField] [Range(3, 20)] private int minTrashCount = 3;
+        [SerializeField] [Range(0, 20)] private int randomTrashModifier = 10;
         public void Start()
         {
             SetMapValue();
@@ -216,9 +223,13 @@ namespace MapTools
             foreach (var spawnPoint in spawnPoints)
             {
                 spawnPoint.GetComponent<SpawnPoint>().InitPoint(
-                    Random.value > 0.5, 
-                    waveInterval, 
-                    (int) (Random.value * waveMinCount + randomWaveCount));
+                    Random.value > 0.5,
+                    waveInterval,
+                    (int) (Random.value * waveMinCount + randomWaveCount),
+                    bossCount,
+                    minTrashCount,
+                    (int) (Random.value * randomTrashModifier)
+                    );
             }
             
             //spawn Door
