@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  audioDMG: {fileID: 0}
+  audioDmg: {fileID: 0}
 --- !u!114 &3563328442015637741
 MonoBehaviour:
   m_ObjectHideFlags: 0
