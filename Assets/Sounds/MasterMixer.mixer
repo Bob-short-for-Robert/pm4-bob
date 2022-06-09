@@ -10,6 +10,7 @@ AudioMixerGroupController:
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 3f2d32755fa163b43b5eab1205248632
   m_Children:
+  - {fileID: -1972587895145344051}
   - {fileID: 315416949209310556}
   - {fileID: 4286418997756988654}
   - {fileID: 2325350847018562903}
@@ -18,6 +19,39 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 2595945183952328670}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &-4583471546957490458
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 5300c2613122ee545862727533597208
+  m_EffectName: Attenuation
+  m_MixLevel: 8c68cd89befe25942ae37ab96b28383b
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &-1972587895145344051
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CharacterSteps
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: a79ffa02ecd7d8347a3e21b3e9f634b1
+  m_Children: []
+  m_Volume: b595c14e0d20a9044be5dd5edeff0fe4
+  m_Pitch: 2003ea59995866a4a9327b10e7e69e13
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -4583471546957490458}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -46,6 +80,7 @@ AudioMixerController:
     - 5fbb87f34e44b6a4ca53a5fecb8b00b6
     - fc009cd0a8ceb9744b52d33cc5e11e6b
     - 3d49bb8768e5c534a9e74927b3b9f224
+    - a79ffa02ecd7d8347a3e21b3e9f634b1
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -94,7 +129,7 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: c70c8c976b1d481478aef13f4ec1be95
   m_FloatValues:
-    c5996dc77e614144080cb516b93d64e0: -9.833286
+    c5996dc77e614144080cb516b93d64e0: -16.035946
   m_TransitionOverrides: {}
 --- !u!243 &315416949209310556
 AudioMixerGroupController:
@@ -102,7 +137,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Steps
+  m_Name: EnemySteps
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: fc009cd0a8ceb9744b52d33cc5e11e6b
   m_Children: []
