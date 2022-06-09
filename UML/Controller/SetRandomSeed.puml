@@ -1,0 +1,5 @@
+@startuml
+class SetRandomSeed {
+}
+MonoBehaviour <|-- SetRandomSeed
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+class ResourceManager <<static>> {
+    + {static} GetResource(name:string) : int
+    + {static} GetCollected() : Dictionary<string, int>
+    + {static} HasResources(compare:Dictionary<string, int>) : bool
+    + {static} CollectResource(o:GameObject) : void
+    + {static} DropResource(possibleDrops:GameObject[], dropCycles:int, dropLikelihood:int, location:Vector3) : void
+    + {static} UseResource(useResources:Dictionary<string, int>) : void
+}
+@enduml

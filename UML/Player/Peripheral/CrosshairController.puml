@@ -1,0 +1,5 @@
+@startuml
+class CrosshairController {
+}
+MonoBehaviour <|-- CrosshairController
+@enduml

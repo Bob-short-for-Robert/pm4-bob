@@ -1,0 +1,5 @@
+@startuml
+class AutoShooter {
+}
+MonoBehaviour <|-- AutoShooter
+@enduml

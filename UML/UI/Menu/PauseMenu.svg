@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="200px" preserveAspectRatio="none" style="width:145px;height:200px;" version="1.1" viewBox="0 0 145 200" width="145px" zoomAndPan="magnify"><defs><filter height="300%" id="f13nn671p9f1er" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[b8e0dd943e6328752fad6f507d5a54bb]
+class PauseMenu--><rect fill="#FEFECE" filter="url(#f13nn671p9f1er)" height="73.6094" id="PauseMenu" style="stroke: #A80036; stroke-width: 1.5;" width="126" x="7" y="116"/><ellipse cx="31.45" cy="132" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M34.4188,137.6406 Q33.8406,137.9375 33.2,138.0781 Q32.5594,138.2344 31.8563,138.2344 Q29.3563,138.2344 28.0281,136.5938 Q26.7156,134.9375 26.7156,131.8125 Q26.7156,128.6875 28.0281,127.0313 Q29.3563,125.375 31.8563,125.375 Q32.5594,125.375 33.2,125.5313 Q33.8563,125.6875 34.4188,125.9844 L34.4188,128.7031 Q33.7938,128.125 33.2,127.8594 Q32.6063,127.5781 31.9813,127.5781 Q30.6375,127.5781 29.95,128.6563 Q29.2625,129.7188 29.2625,131.8125 Q29.2625,133.9063 29.95,134.9844 Q30.6375,136.0469 31.9813,136.0469 Q32.6063,136.0469 33.2,135.7813 Q33.7938,135.5 34.4188,134.9219 L34.4188,137.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="73" x="47.55" y="136.1543">PauseMenu</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="8" x2="132" y1="148" y2="148"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="8" x2="132" y1="156" y2="156"/><ellipse cx="18" cy="167" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="100" x="27" y="170.2104">LoadMenu() : void</text><ellipse cx="18" cy="179.8047" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="100" x="27" y="183.0151">QuitGame() : void</text><!--MD5=[83b3cf3d23d77c6f1e1b5291a241bc2a]
+class MonoBehaviour--><rect fill="#FEFECE" filter="url(#f13nn671p9f1er)" height="48" id="MonoBehaviour" style="stroke: #A80036; stroke-width: 1.5;" width="128" x="6" y="8"/><ellipse cx="21" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M23.9688,29.6406 Q23.3906,29.9375 22.75,30.0781 Q22.1094,30.2344 21.4063,30.2344 Q18.9063,30.2344 17.5781,28.5938 Q16.2656,26.9375 16.2656,23.8125 Q16.2656,20.6875 17.5781,19.0313 Q18.9063,17.375 21.4063,17.375 Q22.1094,17.375 22.75,17.5313 Q23.4063,17.6875 23.9688,17.9844 L23.9688,20.7031 Q23.3438,20.125 22.75,19.8594 Q22.1563,19.5781 21.5313,19.5781 Q20.1875,19.5781 19.5,20.6563 Q18.8125,21.7188 18.8125,23.8125 Q18.8125,25.9063 19.5,26.9844 Q20.1875,28.0469 21.5313,28.0469 Q22.1563,28.0469 22.75,27.7813 Q23.3438,27.5 23.9688,26.9219 L23.9688,29.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="96" x="35" y="28.1543">MonoBehaviour</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="133" y1="40" y2="40"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="133" y1="48" y2="48"/><!--MD5=[1dd486839fce8030eb6bdb0b04f9738e]
+reverse link MonoBehaviour to PauseMenu--><path d="M70,76.43 C70,89.33 70,103.32 70,115.71 " fill="none" id="MonoBehaviour&lt;-PauseMenu" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="63,76.23,70,56.23,77,76.23,63,76.23" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[59c41296a511f531c3402b7cbaa0eb0c]
+@startuml
+class PauseMenu {
+    + LoadMenu() : void
+    + QuitGame() : void
+}
+MonoBehaviour <|- - PauseMenu
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 GMT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.9+11-Ubuntu-0ubuntu1
+Operating System: Linux
+Default Encoding: ANSI_X3.4-1968
+Language: en
+Country: US
+--></g></svg>

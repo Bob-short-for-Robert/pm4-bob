@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="187px" preserveAspectRatio="none" style="width:219px;height:187px;" version="1.1" viewBox="0 0 219 187" width="219px" zoomAndPan="magnify"><defs><filter height="300%" id="frgrsszvcywif" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[13e3894a7cfb7a94e3b8c61240604f39]
+class HealthSystemAttribute--><rect fill="#FEFECE" filter="url(#frgrsszvcywif)" height="60.8047" id="HealthSystemAttribute" style="stroke: #A80036; stroke-width: 1.5;" width="202" x="6" y="116"/><ellipse cx="34.05" cy="132" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M37.0188,137.6406 Q36.4406,137.9375 35.8,138.0781 Q35.1594,138.2344 34.4563,138.2344 Q31.9562,138.2344 30.6281,136.5938 Q29.3156,134.9375 29.3156,131.8125 Q29.3156,128.6875 30.6281,127.0313 Q31.9562,125.375 34.4563,125.375 Q35.1594,125.375 35.8,125.5313 Q36.4563,125.6875 37.0188,125.9844 L37.0188,128.7031 Q36.3938,128.125 35.8,127.8594 Q35.2063,127.5781 34.5813,127.5781 Q33.2375,127.5781 32.55,128.6563 Q31.8625,129.7188 31.8625,131.8125 Q31.8625,133.9063 32.55,134.9844 Q33.2375,136.0469 34.5813,136.0469 Q35.2063,136.0469 35.8,135.7813 Q36.3938,135.5 37.0188,134.9219 L37.0188,137.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="141" x="50.95" y="136.1543">HealthSystemAttribute</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="207" y1="148" y2="148"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="207" y1="156" y2="156"/><ellipse cx="17" cy="167" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="176" x="26" y="170.2104">ModifyHealth(amount:int) : void</text><!--MD5=[83b3cf3d23d77c6f1e1b5291a241bc2a]
+class MonoBehaviour--><rect fill="#FEFECE" filter="url(#frgrsszvcywif)" height="48" id="MonoBehaviour" style="stroke: #A80036; stroke-width: 1.5;" width="128" x="43" y="8"/><ellipse cx="58" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M60.9688,29.6406 Q60.3906,29.9375 59.75,30.0781 Q59.1094,30.2344 58.4063,30.2344 Q55.9063,30.2344 54.5781,28.5938 Q53.2656,26.9375 53.2656,23.8125 Q53.2656,20.6875 54.5781,19.0313 Q55.9063,17.375 58.4063,17.375 Q59.1094,17.375 59.75,17.5313 Q60.4063,17.6875 60.9688,17.9844 L60.9688,20.7031 Q60.3438,20.125 59.75,19.8594 Q59.1563,19.5781 58.5313,19.5781 Q57.1875,19.5781 56.5,20.6563 Q55.8125,21.7188 55.8125,23.8125 Q55.8125,25.9063 56.5,26.9844 Q57.1875,28.0469 58.5313,28.0469 Q59.1563,28.0469 59.75,27.7813 Q60.3438,27.5 60.9688,26.9219 L60.9688,29.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="96" x="72" y="28.1543">MonoBehaviour</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="44" x2="170" y1="40" y2="40"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="44" x2="170" y1="48" y2="48"/><!--MD5=[c3118cb138ffff9e20198fa50499c8f8]
+reverse link MonoBehaviour to HealthSystemAttribute--><path d="M107,76.11 C107,89.31 107,103.54 107,115.65 " fill="none" id="MonoBehaviour&lt;-HealthSystemAttribute" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="100,76.04,107,56.04,114,76.04,100,76.04" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ad176b15c96133056c04bd2d9b5c2842]
+@startuml
+class HealthSystemAttribute {
+    + ModifyHealth(amount:int) : void
+}
+MonoBehaviour <|- - HealthSystemAttribute
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 GMT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.9+11-Ubuntu-0ubuntu1
+Operating System: Linux
+Default Encoding: ANSI_X3.4-1968
+Language: en
+Country: US
+--></g></svg>

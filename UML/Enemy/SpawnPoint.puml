@@ -1,0 +1,7 @@
+@startuml
+class SpawnPoint {
+    + WaveCount : int <<get>>
+    + InitPoint(spawnBoss:bool, spawnInterval:float, waveCount:int, bossCount:int, minTrashCount:int, randomTrashModifier:int) : void
+}
+MonoBehaviour <|-- SpawnPoint
+@enduml

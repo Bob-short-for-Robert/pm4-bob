@@ -1,0 +1,7 @@
+@startuml
+class Projectile {
+    + speed : float = 2.0f
+    + lifeTime : float = 2.0f
+}
+MonoBehaviour <|-- Projectile
+@enduml

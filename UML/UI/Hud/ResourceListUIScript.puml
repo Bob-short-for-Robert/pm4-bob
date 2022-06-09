@@ -1,0 +1,6 @@
+@startuml
+class ResourceListUIScript {
+}
+MonoBehaviour <|-- ResourceListUIScript
+ResourceListUIScript --> "resourceUi" GameObject
+@enduml

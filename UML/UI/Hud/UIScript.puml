@@ -1,0 +1,13 @@
+@startuml
+class UIScript {
+    + SetHealth(amount:int) : void
+    + ChangeHealth(change:int) : void
+}
+enum GameType {
+    Score= 0,
+    Life,
+    Endless,
+}
+MonoBehaviour <|-- UIScript
+UIScript +-- GameType
+@enduml

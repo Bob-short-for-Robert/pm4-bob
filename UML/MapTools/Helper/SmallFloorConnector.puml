@@ -1,0 +1,5 @@
+@startuml
+class SmallFloorConnector {
+    + ConnectSmallFloors(mapMatrix:List<List<bool>>) : void
+}
+@enduml

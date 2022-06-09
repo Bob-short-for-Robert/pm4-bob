@@ -1,0 +1,7 @@
+@startuml
+abstract class Effect {
+    + GetEffect() : float
+    + GetEffectTime() : float
+    + DecreaseEffectTimeBy(time:float) : void
+}
+@enduml
