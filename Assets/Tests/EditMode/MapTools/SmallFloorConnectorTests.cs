@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using MapTools;
+using MapTools.Helper;
 using NUnit.Framework;
 
 namespace Tests.EditMode.MapTools
@@ -10,17 +10,18 @@ namespace Tests.EditMode.MapTools
         private List<List<bool>> _mapMatrix = new List<List<bool>>();
         private SmallFloorConnector _connector;
 
-        [SetUp] public void Init()
+        [SetUp]
+        public void Init()
         {
             _connector = new SmallFloorConnector();
         }
-        
+
         [Test]
         public void TestOneFloorMap()
         {
             _mapMatrix = GetRectangleMap();
             _connector.ConnectSmallFloors(_mapMatrix);
-            Assert.AreEqual(GetRectangleMap(),_mapMatrix );
+            Assert.AreEqual(GetRectangleMap(), _mapMatrix);
         }
 
         [Test]

@@ -22,13 +22,13 @@ MonoBehaviour:
     _status: 0
     _isSuite: 1
     _parentName: 
-    _testCaseCount: 22
-    _foldOut: 1
+    _testCaseCount: 21
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: 
-    _testSelectedCount: 1
+    _testSelectedCount: 0
   - _selected: 0
     _testName: AutoShooterTest
     _status: 0
@@ -136,55 +136,6 @@ MonoBehaviour:
     _testStackTrace: 
     _testDuration: 0
     path: Assets/Editor/Tests/CollisionTest.cs
-    _testSelectedCount: 0
-  - _selected: 0
-    _testName: EditMode
-    _status: -1
-    _isSuite: 1
-    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/Assembly-CSharp-Editor.dll
-    _testCaseCount: 1
-    _foldOut: 1
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0
-    path: 
-    _testSelectedCount: 1
-  - _selected: 1
-    _testName: EditMode.MapTools
-    _status: -1
-    _isSuite: 1
-    _parentName: EditMode
-    _testCaseCount: 1
-    _foldOut: 0
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0
-    path: 
-    _testSelectedCount: 1
-  - _selected: 1
-    _testName: EditMode.MapTools.SmallFloorConnectorTests
-    _status: -1
-    _isSuite: 1
-    _parentName: EditMode.MapTools
-    _testCaseCount: 1
-    _foldOut: 0
-    _testResultMessage: 
-    _testStackTrace: 
-    _testDuration: 0
-    path: 
-    _testSelectedCount: 1
-  - _selected: 1
-    _testName: EditMode.MapTools.SmallFloorConnectorTests.TestOneFloor
-    _status: -1
-    _isSuite: 0
-    _parentName: EditMode.MapTools.SmallFloorConnectorTests
-    _testCaseCount: 1
-    _foldOut: 0
-    _testResultMessage: 'OneTimeSetUp: Invalid signature for SetUp or TearDown method:
-      Init'
-    _testStackTrace: 
-    _testDuration: 0
-    path: Assets/Editor/Tests/MapTools/SmallFloorConnectorTests.cs
     _testSelectedCount: 0
   - _selected: 0
     _testName: MenuTest
@@ -455,7 +406,7 @@ MonoBehaviour:
     _status: 0
     _isSuite: 1
     _parentName: 
-    _testCaseCount: 2
+    _testCaseCount: 20
     _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
@@ -480,7 +431,7 @@ MonoBehaviour:
     _isSuite: 1
     _parentName: PlayMode
     _testCaseCount: 2
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -492,7 +443,7 @@ MonoBehaviour:
     _isSuite: 0
     _parentName: PlayMode.BookUITests
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
@@ -504,11 +455,287 @@ MonoBehaviour:
     _isSuite: 0
     _parentName: PlayMode.BookUITests
     _testCaseCount: 1
-    _foldOut: 1
+    _foldOut: 0
     _testResultMessage: 
     _testStackTrace: 
     _testDuration: 0
     path: Assets/Tests/PlayMode/BookUITests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests
+    _status: 0
+    _isSuite: 1
+    _parentName: D:/projects/Unity/pm4-bob/Library/ScriptAssemblies/PlayMode.dll
+    _testCaseCount: 18
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode
+    _status: 0
+    _isSuite: 1
+    _parentName: Tests
+    _testCaseCount: 18
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools
+    _status: 0
+    _isSuite: 1
+    _parentName: Tests.PlayMode
+    _testCaseCount: 18
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _status: 0
+    _isSuite: 1
+    _parentName: Tests.PlayMode.MapTools
+    _testCaseCount: 14
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestCornerWallPos
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestCornerWallSprite
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestDoorPos
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestFloorCount
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestFloorPos
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestFloorSprite
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestPlayerPos
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestSpawnPointCount
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestSpawnPointPos
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestWall_DTRPos
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestWall_DTRSprite
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestWallCount
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestWallPos
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.MapGeneratorTests.TestWallSprite
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.MapGeneratorTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/MapGeneratorTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.SpawnObjectTests
+    _status: 0
+    _isSuite: 1
+    _parentName: Tests.PlayMode.MapTools
+    _testCaseCount: 4
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: 
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.SpawnObjectTests.TestSpawnObjectAngle
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.SpawnObjectTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/SpawnObjectTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.SpawnObjectTests.TestSpawnObjectName
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.SpawnObjectTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/SpawnObjectTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.SpawnObjectTests.TestSpawnObjectPosOnly
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.SpawnObjectTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/SpawnObjectTests.cs
+    _testSelectedCount: 0
+  - _selected: 0
+    _testName: Tests.PlayMode.MapTools.SpawnObjectTests.TestSpawnObjectRotation
+    _status: 0
+    _isSuite: 0
+    _parentName: Tests.PlayMode.MapTools.SpawnObjectTests
+    _testCaseCount: 1
+    _foldOut: 0
+    _testResultMessage: 
+    _testStackTrace: 
+    _testDuration: 0
+    path: Assets/Tests/PlayMode/MapTools/SpawnObjectTests.cs
     _testSelectedCount: 0
   Scenes:
   - _toBeBuilt: 1
@@ -535,6 +762,9 @@ MonoBehaviour:
   - _toBeBuilt: 1
     _path: Assets/Editor/Tests/TestScenes/AutoShooterTestScene.unity
     _buildIndex: 7
+  - _toBeBuilt: 1
+    _path: Assets/Tests/TestScenes/MapGeneratorTests.unity
+    _buildIndex: 8
   platform: 1
   StandaloneTarget: 5
   RanInEditor: 1

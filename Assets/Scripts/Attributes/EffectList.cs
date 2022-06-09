@@ -1,51 +1,53 @@
 using System.Collections.Generic;
 
-public class EffectList<T> where T : Effect
+namespace Attributes
 {
-    private List<T> effects = new List<T>();
-    private T _highestValue;
-    
-    public float getActiveEffect()
+    public class EffectList<T> where T : Effect
     {
-        if (_highestValue == null)
-        {
-            return 0;
-        }
-        return _highestValue.getEffect();
-    }
+        private readonly List<T> _effects = new List<T>();
+        private T _highestValue;
 
-    public void Add(T eff)
-    {
-        effects.Add(eff);
-        if (_highestValue == null || _highestValue.getEffect() < eff.getEffect())
+        public float GetActiveEffect()
         {
-            _highestValue = eff;
-        }
-    }
-
-    public void ReduceEffectTime(float time)
-    {
-        T currentHighestEffect = null;
-        float currentHighestValue = 0;
-        List<T> toRemove = new List<T>();
-        foreach (T eff in effects)
-        {
-            eff.decreaseEffectTimeBy(time);
-            if (eff.getEffectTime() <= 0)
+            if (_highestValue == null)
             {
-                toRemove.Add(eff);
+                return 0;
             }
-            else
+
+            return _highestValue.GetEffect();
+        }
+
+        public void Add(T eff)
+        {
+            _effects.Add(eff);
+            if (_highestValue == null || _highestValue.GetEffect() < eff.GetEffect())
             {
-                if (currentHighestValue < eff.getEffect())
+                _highestValue = eff;
+            }
+        }
+
+        public void ReduceEffectTime(float time)
+        {
+            T currentHighestEffect = null;
+            float currentHighestValue = 0;
+            var toRemove = new List<T>();
+            foreach (var eff in _effects)
+            {
+                eff.DecreaseEffectTimeBy(time);
+                if (eff.GetEffectTime() <= 0)
+                {
+                    toRemove.Add(eff);
+                }
+                else if(currentHighestValue < eff.GetEffect())
                 {
                     currentHighestEffect = eff;
-                    currentHighestValue = eff.getEffect();
+                    currentHighestValue = eff.GetEffect();
                 }
             }
-        }
-        toRemove.ForEach(r => effects.Remove(r));
 
-        _highestValue = currentHighestEffect;
+            toRemove.ForEach(r => _effects.Remove(r));
+
+            _highestValue = currentHighestEffect;
+        }
     }
 }

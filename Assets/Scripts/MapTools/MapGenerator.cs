@@ -1,5 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using Enemy;
+using MapTools.Helper;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -16,8 +19,9 @@ namespace MapTools
         private int _randomFillPercent = 35;
 
         //config
+        [Header("Map Generator Settings")]
         [SerializeField] [Range(40, 50)] private int mapMinSize = 45;
-        [Range(10, 60)] [SerializeField] private int randomMapSize = 40;
+        [SerializeField] [Range(10, 60)] private int randomMapSize = 40;
         [SerializeField] [Range(10, 20)] private int minFillPercent = 12;
         [SerializeField] [Range(20, 40)] private int randomFillPercent = 30;
         [SerializeField] [Range(50, 500)] private int minFloorTiles = 200;
@@ -25,6 +29,7 @@ namespace MapTools
         [SerializeField] [Range(0, 10)] private int spawnerRandomCount = 3;
 
         //Prefabs
+        [Header("Walls and Floor")]
         [SerializeField] private GameObject prefabWallBlack;
         [SerializeField] private GameObject prefabWallBlackCorner;
         [SerializeField] private GameObject prefabWallBlackDtr;
@@ -32,9 +37,18 @@ namespace MapTools
 
 
         //Objects
+        [Header("Objects with set to the Map by the generator")]
         [SerializeField] private GameObject prefabSpawner;
         [SerializeField] private GameObject prefabDoor;
         
+        //Wave
+        [Header("Wave Settings")]
+        [SerializeField] [Range(3, 10)] private int waveMinCount = 3;
+        [SerializeField] [Range(0, 20)] private int randomWaveCount = 5;
+        [SerializeField] [Range(5, 20)] private int waveInterval = 10;
+        [SerializeField] [Range(0, 10)] private int bossCount = 1;
+        [SerializeField] [Range(3, 20)] private int minTrashCount = 3;
+        [SerializeField] [Range(0, 20)] private int randomTrashModifier = 10;
         public void Start()
         {
             SetMapValue();
@@ -90,12 +104,12 @@ namespace MapTools
             }
 
 
-            for (int x = 0; x < _mapSize.x; x++)
+            for (var x = 0; x < _mapSize.x; x++)
             {
                 _tileGrid.Add(new List<GameObject>());
-                for (int y = 0; y < _mapSize.y; y++)
+                for (var y = 0; y < _mapSize.y; y++)
                 {
-                    int tileId = _mapMatrix[x][y] ? 0 : 2;
+                    var tileId = _mapMatrix[x][y] ? 0 : 2;
                     CreateTile(tileId, (x, y));
                 }
             }
@@ -109,20 +123,24 @@ namespace MapTools
                 wallVersion = GetWallVersion(coordinate);
             }
 
-            if (wallVersion == WallVersions.CornerBL ||
-                wallVersion == WallVersions.CornerBR ||
-                wallVersion == WallVersions.CornerTL ||
-                wallVersion == WallVersions.CornerTR)
+            switch (wallVersion)
             {
-                tileId = 1;
-            }
-
-            if (wallVersion == WallVersions.DiagonalBL ||
-                wallVersion == WallVersions.DiagonalBR ||
-                wallVersion == WallVersions.DiagonalTL ||
-                wallVersion == WallVersions.DiagonalTR)
-            {
-                tileId = 3;
+                case WallVersions.CornerBL:
+                case WallVersions.CornerBR:
+                case WallVersions.CornerTL:
+                case WallVersions.CornerTR:
+                    tileId = 1;
+                    break;
+                case WallVersions.DiagonalBL:
+                case WallVersions.DiagonalBR:
+                case WallVersions.DiagonalTL:
+                case WallVersions.DiagonalTR:
+                    tileId = 3;
+                    break;
+                case WallVersions.Square:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             var tilePrefab = _tileSet[tileId];
@@ -157,6 +175,20 @@ namespace MapTools
                     case WallVersions.DiagonalTL:
                         Rotate(90);
                         break;
+                    case WallVersions.Square:
+                        break;
+                    case WallVersions.CornerTL:
+                        break;
+                    case WallVersions.CornerTR:
+                        break;
+                    case WallVersions.CornerBL:
+                        break;
+                    case WallVersions.CornerBR:
+                        break;
+                    case WallVersions.DiagonalTR:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             }
 
@@ -187,6 +219,19 @@ namespace MapTools
                 SpawnObject.Spawn(prefabSpawner, spawn.SpawnerLocation(), 0);
             }
 
+            var spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+            foreach (var spawnPoint in spawnPoints)
+            {
+                spawnPoint.GetComponent<SpawnPoint>().InitPoint(
+                    Random.value > 0.5,
+                    waveInterval,
+                    (int) (Random.value * waveMinCount + randomWaveCount),
+                    bossCount,
+                    minTrashCount,
+                    (int) (Random.value * randomTrashModifier)
+                    );
+            }
+            
             //spawn Door
             SpawnObject.Spawn(prefabDoor, spawn.DoorLocation(), 0);
         }
@@ -298,7 +343,7 @@ namespace MapTools
                     return false;
                 }
 
-                foreach (int field in floors)
+                foreach (var field in floors)
                 {
                     var (x, y) = GetPrefix(field);
                     if (_mapMatrix[coordinate.x + x][coordinate.y + y])
