@@ -1,0 +1,9 @@
+@startuml
+class SpawnObject {
+    + {static} Spawn(obj:GameObject, location:Vector3, angle:float) : void
+    + {static} Spawn(obj:GameObject, location:Vector3, rotation:Quaternion) : void
+    + {static} Spawn(obj:GameObject, location:Vector3) : void
+    + {static} AllowedToSpawn(obj:GameObject, position:Vector3) : bool
+}
+MonoBehaviour <|-- SpawnObject
+@enduml

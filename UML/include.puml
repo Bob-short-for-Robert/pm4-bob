@@ -1,0 +1,193 @@
+@startuml
+class Resource {
+    + GetName() : string
+    + GetQuantity() : int
+}
+MonoBehaviour <|-- Resource
+class ResourceDropper {
+}
+MonoBehaviour <|-- ResourceDropper
+class Door {
+}
+MonoBehaviour <|-- Door
+class SpawnObject {
+    + {static} Spawn(obj:GameObject, location:Vector3, angle:float) : void
+    + {static} Spawn(obj:GameObject, location:Vector3, rotation:Quaternion) : void
+    + {static} Spawn(obj:GameObject, location:Vector3) : void
+    + {static} AllowedToSpawn(obj:GameObject, position:Vector3) : bool
+}
+MonoBehaviour <|-- SpawnObject
+class MapGenerator {
+    + Start() : void
+}
+enum WallVersions {
+    Square,
+    CornerTL,
+    CornerTR,
+    CornerBL,
+    CornerBR,
+    DiagonalTL,
+    DiagonalTR,
+    DiagonalBL,
+    DiagonalBR,
+}
+MonoBehaviour <|-- MapGenerator
+MapGenerator +-- WallVersions
+class UnityGameLogger {
+}
+MonoBehaviour <|-- UnityGameLogger
+class Logger <<static>> {
+}
+class "EffectList`1"<T> {
+    + GetActiveEffect() : float
+    + Add(eff:T) : void
+    + ReduceEffectTime(time:float) : void
+}
+abstract class Effect {
+    + GetEffect() : float
+    + GetEffectTime() : float
+    + DecreaseEffectTimeBy(time:float) : void
+}
+class Shooter {
+    + Shoot(mousePos:Vector3) : void
+}
+MonoBehaviour <|-- Shooter
+class Rotate {
+    + RotateTowards(towards:Transform) : void
+}
+MonoBehaviour <|-- Rotate
+class Projectile {
+    + speed : float = 2.0f
+    + lifeTime : float = 2.0f
+}
+MonoBehaviour <|-- Projectile
+class AutoShooter {
+}
+MonoBehaviour <|-- AutoShooter
+class AudioOnImpact {
+}
+MonoBehaviour <|-- AudioOnImpact
+class SetRandomSeed {
+}
+MonoBehaviour <|-- SetRandomSeed
+class GameController {
+    + Score : int <<get>>
+    + HighScore : int <<get>>
+    + AddPoints(amount:int) : void
+    + ResetScore() : void
+}
+MonoBehaviour <|-- GameController
+GameController --> "Instance" GameController
+class SpawnPoint {
+    + WaveCount : int <<get>>
+    + InitPoint(spawnBoss:bool, spawnInterval:float, waveCount:int, bossCount:int, minTrashCount:int, randomTrashModifier:int) : void
+}
+MonoBehaviour <|-- SpawnPoint
+class FollowPlayer {
+}
+MonoBehaviour <|-- FollowPlayer
+class ResourceManager <<static>> {
+    + {static} GetResource(name:string) : int
+    + {static} GetCollected() : Dictionary<string, int>
+    + {static} HasResources(compare:Dictionary<string, int>) : bool
+    + {static} CollectResource(o:GameObject) : void
+    + {static} DropResource(possibleDrops:GameObject[], dropCycles:int, dropLikelihood:int, location:Vector3) : void
+    + {static} UseResource(useResources:Dictionary<string, int>) : void
+}
+class PlayerController {
+}
+MonoBehaviour <|-- PlayerController
+class SpawnParticleEffect {
+}
+MonoBehaviour <|-- SpawnParticleEffect
+class MainMenu {
+    + PlayGame() : void
+    + Quit() : void
+}
+MonoBehaviour <|-- MainMenu
+class PauseMenu {
+    + LoadMenu() : void
+    + QuitGame() : void
+}
+MonoBehaviour <|-- PauseMenu
+class BookUI {
+    + NextRun() : void
+}
+MonoBehaviour <|-- BookUI
+class BuildingSelectUI {
+}
+MonoBehaviour <|-- BuildingSelectUI
+class UIScript {
+    + SetHealth(amount:int) : void
+    + ChangeHealth(change:int) : void
+}
+enum GameType {
+    Score= 0,
+    Life,
+    Endless,
+}
+MonoBehaviour <|-- UIScript
+UIScript +-- GameType
+class ScoreUI {
+}
+MonoBehaviour <|-- ScoreUI
+ScoreUI --> "score" Text
+ScoreUI --> "highScore" Text
+class ResourceListUIScript {
+}
+MonoBehaviour <|-- ResourceListUIScript
+ResourceListUIScript --> "resourceUi" GameObject
+class SpawnLocation {
+    + SpawnLocation(mapMatrix:List<List<bool>>)
+    + PlayerSpawn() : Vector3
+    + DoorLocation() : Vector3
+    + SpawnerLocation() : Vector3
+}
+class SmallFloorConnector {
+    + ConnectSmallFloors(mapMatrix:List<List<bool>>) : void
+}
+class MapMatrixGenerator {
+    + GetMapMatrix(mapSize:(int x, int y), randomFillPercent:int) : List<List<bool>>
+}
+class ModifyHealthAttribute {
+}
+MonoBehaviour <|-- ModifyHealthAttribute
+class HealthSystemAttribute {
+    + ModifyHealth(amount:int) : void
+}
+MonoBehaviour <|-- HealthSystemAttribute
+class SlowEffect {
+    + SlowEffect(slow:float, time:float)
+}
+Effect <|-- SlowEffect
+class ModifySpeedAttribute {
+}
+MonoBehaviour <|-- ModifySpeedAttribute
+class SpeedSystemAttribute {
+    + GetSpeed() : float
+    + ApplySlow(slowEffect:SlowEffect) : void
+}
+MonoBehaviour <|-- SpeedSystemAttribute
+class CameraFollow {
+}
+MonoBehaviour <|-- CameraFollow
+class CrosshairController {
+}
+MonoBehaviour <|-- CrosshairController
+class SpawnTower {
+}
+MonoBehaviour <|-- SpawnTower
+SpawnTower --> "ObjToSpawn" BuildingSO
+class BuildingSO {
+}
+ScriptableObject <|-- BuildingSO
+BuildingSO --> "pref" Transform
+BuildingSO --> "sprite" Sprite
+class NecessaryResources {
+}
+class "List`1"<T> {
+}
+MonoBehaviour <|-- NecessaryResources
+NecessaryResources --> "type<string>" "List`1"
+NecessaryResources --> "count<int>" "List`1"
+@enduml

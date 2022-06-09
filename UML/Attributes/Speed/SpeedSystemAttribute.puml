@@ -1,0 +1,7 @@
+@startuml
+class SpeedSystemAttribute {
+    + GetSpeed() : float
+    + ApplySlow(slowEffect:SlowEffect) : void
+}
+MonoBehaviour <|-- SpeedSystemAttribute
+@enduml

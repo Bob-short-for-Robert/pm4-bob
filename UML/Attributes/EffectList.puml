@@ -1,0 +1,7 @@
+@startuml
+class "EffectList`1"<T> {
+    + GetActiveEffect() : float
+    + Add(eff:T) : void
+    + ReduceEffectTime(time:float) : void
+}
+@enduml

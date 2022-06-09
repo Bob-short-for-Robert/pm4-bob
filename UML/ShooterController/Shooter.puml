@@ -1,0 +1,6 @@
+@startuml
+class Shooter {
+    + Shoot(mousePos:Vector3) : void
+}
+MonoBehaviour <|-- Shooter
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+class ScoreUI {
+}
+MonoBehaviour <|-- ScoreUI
+ScoreUI --> "score" Text
+ScoreUI --> "highScore" Text
+@enduml

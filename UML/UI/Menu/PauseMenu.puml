@@ -1,0 +1,7 @@
+@startuml
+class PauseMenu {
+    + LoadMenu() : void
+    + QuitGame() : void
+}
+MonoBehaviour <|-- PauseMenu
+@enduml

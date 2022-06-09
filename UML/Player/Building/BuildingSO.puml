@@ -1,0 +1,7 @@
+@startuml
+class BuildingSO {
+}
+ScriptableObject <|-- BuildingSO
+BuildingSO --> "pref" Transform
+BuildingSO --> "sprite" Sprite
+@enduml
