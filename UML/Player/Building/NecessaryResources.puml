@@ -1,0 +1,9 @@
+@startuml
+class NecessaryResources {
+}
+class "List`1"<T> {
+}
+MonoBehaviour <|-- NecessaryResources
+NecessaryResources --> "type<string>" "List`1"
+NecessaryResources --> "count<int>" "List`1"
+@enduml

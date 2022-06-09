@@ -1,0 +1,18 @@
+@startuml
+class MapGenerator {
+    + Start() : void
+}
+enum WallVersions {
+    Square,
+    CornerTL,
+    CornerTR,
+    CornerBL,
+    CornerBR,
+    DiagonalTL,
+    DiagonalTR,
+    DiagonalBL,
+    DiagonalBR,
+}
+MonoBehaviour <|-- MapGenerator
+MapGenerator +-- WallVersions
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class HealthSystemAttribute {
+    + ModifyHealth(amount:int) : void
+}
+MonoBehaviour <|-- HealthSystemAttribute
+@enduml

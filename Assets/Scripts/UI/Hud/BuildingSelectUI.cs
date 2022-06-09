@@ -47,6 +47,8 @@ namespace UI.Hud
                 _buildingElementDictionary[index] = buildingElement;
             }
 
+            spawnTower.ObjToSpawn = buildingSoList[0];
+            _lastButton = 0;
             UpdateSelectedVisual();
         }
 

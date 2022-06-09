@@ -1,0 +1,5 @@
+@startuml
+class MapMatrixGenerator {
+    + GetMapMatrix(mapSize:(int x, int y), randomFillPercent:int) : List<List<bool>>
+}
+@enduml

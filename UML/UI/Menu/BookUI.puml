@@ -1,0 +1,6 @@
+@startuml
+class BookUI {
+    + NextRun() : void
+}
+MonoBehaviour <|-- BookUI
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class SpawnTower {
+}
+MonoBehaviour <|-- SpawnTower
+SpawnTower --> "ObjToSpawn" BuildingSO
+@enduml

@@ -1,0 +1,6 @@
+@startuml
+class SlowEffect {
+    + SlowEffect(slow:float, time:float)
+}
+Effect <|-- SlowEffect
+@enduml

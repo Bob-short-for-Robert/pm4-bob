@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="187px" preserveAspectRatio="none" style="width:227px;height:187px;" version="1.1" viewBox="0 0 227 187" width="227px" zoomAndPan="magnify"><defs><filter height="300%" id="f1trfkcyf3b8rt" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[11e02f24e9f2e9e75b2ab2dac225e090]
+class SlowEffect--><rect fill="#FEFECE" filter="url(#f1trfkcyf3b8rt)" height="60.8047" id="SlowEffect" style="stroke: #A80036; stroke-width: 1.5;" width="210" x="6" y="116"/><ellipse cx="74.75" cy="132" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M77.7188,137.6406 Q77.1406,137.9375 76.5,138.0781 Q75.8594,138.2344 75.1563,138.2344 Q72.6563,138.2344 71.3281,136.5938 Q70.0156,134.9375 70.0156,131.8125 Q70.0156,128.6875 71.3281,127.0313 Q72.6563,125.375 75.1563,125.375 Q75.8594,125.375 76.5,125.5313 Q77.1563,125.6875 77.7188,125.9844 L77.7188,128.7031 Q77.0938,128.125 76.5,127.8594 Q75.9063,127.5781 75.2813,127.5781 Q73.9375,127.5781 73.25,128.6563 Q72.5625,129.7188 72.5625,131.8125 Q72.5625,133.9063 73.25,134.9844 Q73.9375,136.0469 75.2813,136.0469 Q75.9063,136.0469 76.5,135.7813 Q77.0938,135.5 77.7188,134.9219 L77.7188,137.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="64" x="95.25" y="136.1543">SlowEffect</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="215" y1="148" y2="148"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="7" x2="215" y1="156" y2="156"/><ellipse cx="17" cy="167" fill="#84BE84" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="184" x="26" y="170.2104">SlowEffect(slow:float, time:float)</text><!--MD5=[354ba6fe2710e9f7c691253c66156a32]
+class Effect--><rect fill="#FEFECE" filter="url(#f1trfkcyf3b8rt)" height="48" id="Effect" style="stroke: #A80036; stroke-width: 1.5;" width="68" x="77" y="8"/><ellipse cx="92" cy="24" fill="#ADD1B2" rx="11" ry="11" style="stroke: #A80036; stroke-width: 1.0;"/><path d="M94.9688,29.6406 Q94.3906,29.9375 93.75,30.0781 Q93.1094,30.2344 92.4063,30.2344 Q89.9063,30.2344 88.5781,28.5938 Q87.2656,26.9375 87.2656,23.8125 Q87.2656,20.6875 88.5781,19.0313 Q89.9063,17.375 92.4063,17.375 Q93.1094,17.375 93.75,17.5313 Q94.4063,17.6875 94.9688,17.9844 L94.9688,20.7031 Q94.3438,20.125 93.75,19.8594 Q93.1563,19.5781 92.5313,19.5781 Q91.1875,19.5781 90.5,20.6563 Q89.8125,21.7188 89.8125,23.8125 Q89.8125,25.9063 90.5,26.9844 Q91.1875,28.0469 92.5313,28.0469 Q93.1563,28.0469 93.75,27.7813 Q94.3438,27.5 94.9688,26.9219 L94.9688,29.6406 Z "/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="36" x="106" y="28.1543">Effect</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="78" x2="144" y1="40" y2="40"/><line style="stroke: #A80036; stroke-width: 1.5;" x1="78" x2="144" y1="48" y2="48"/><!--MD5=[3cb46c2f744f81c2325b45b5a659c7d9]
+reverse link Effect to SlowEffect--><path d="M111,76.11 C111,89.31 111,103.54 111,115.65 " fill="none" id="Effect&lt;-SlowEffect" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="none" points="104,76.04,111,56.04,118,76.04,104,76.04" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[df907830b6f5f20b02fe2991e85d2982]
+@startuml
+class SlowEffect {
+    + SlowEffect(slow:float, time:float)
+}
+Effect <|- - SlowEffect
+@enduml
+
+PlantUML version 1.2020.02(Sun Mar 01 10:22:07 GMT 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.9+11-Ubuntu-0ubuntu1
+Operating System: Linux
+Default Encoding: ANSI_X3.4-1968
+Language: en
+Country: US
+--></g></svg>

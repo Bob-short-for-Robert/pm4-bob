@@ -1,0 +1,5 @@
+@startuml
+class BuildingSelectUI {
+}
+MonoBehaviour <|-- BuildingSelectUI
+@enduml

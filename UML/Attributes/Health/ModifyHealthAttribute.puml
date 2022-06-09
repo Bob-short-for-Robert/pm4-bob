@@ -1,0 +1,5 @@
+@startuml
+class ModifyHealthAttribute {
+}
+MonoBehaviour <|-- ModifyHealthAttribute
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+class GameController {
+    + Score : int <<get>>
+    + HighScore : int <<get>>
+    + AddPoints(amount:int) : void
+    + ResetScore() : void
+}
+MonoBehaviour <|-- GameController
+GameController --> "Instance" GameController
+@enduml

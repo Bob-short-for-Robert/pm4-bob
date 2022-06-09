@@ -1,0 +1,8 @@
+@startuml
+class SpawnLocation {
+    + SpawnLocation(mapMatrix:List<List<bool>>)
+    + PlayerSpawn() : Vector3
+    + DoorLocation() : Vector3
+    + SpawnerLocation() : Vector3
+}
+@enduml
