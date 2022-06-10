@@ -580,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835470304343589636, guid: e47c8adfca019914bb9727497da79d55, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.40506
+      value: -15.405029
       objectReference: {fileID: 0}
     - target: {fileID: 6365847105127857909, guid: e47c8adfca019914bb9727497da79d55, type: 3}
       propertyPath: m_SizeDelta.y
@@ -592,7 +592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6365847105127857909, guid: e47c8adfca019914bb9727497da79d55, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15.404083
+      value: -15.404053
       objectReference: {fileID: 0}
     - target: {fileID: 6990855958653656014, guid: e47c8adfca019914bb9727497da79d55, type: 3}
       propertyPath: m_AnchorMax.y
@@ -761,6 +761,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7438533589836337117, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -4674020010762062745, guid: e3944791ee2d39f4bb2b05da7862f792, type: 2}
     - target: {fileID: 634453996187489283, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -809,6 +813,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4762238043817618204, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -1972587895145344051, guid: e3944791ee2d39f4bb2b05da7862f792, type: 2}
+    - target: {fileID: 6835451693502015194, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4286418997756988654, guid: e3944791ee2d39f4bb2b05da7862f792, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcc206d7cf3d5ef46b4228743cb6edf2, type: 3}
 --- !u!1 &1339930018
